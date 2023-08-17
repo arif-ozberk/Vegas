@@ -1,0 +1,30 @@
+@import "../globals.scss";
+
+
+button {
+    @include flex-center;
+    font-size: 1.1rem;
+    width: 7rem;
+    height: 3rem;
+    border-radius: 1rem;
+}
+
+.loginButton {
+    border: 2px solid $blue-light;
+    background-color: transparent;
+    color: $blue-light;
+    margin-right: 1rem;
+}
+
+.signUpButton {
+    @include background-grad-blue(270deg);
+    border: none;
+    color: $white;
+}
+
+.logoutButton {
+    @include background-grad-blue(270deg);
+    border: none;
+    color: $white;
+    width: 100%;
+}

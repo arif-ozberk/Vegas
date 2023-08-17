@@ -1,0 +1,17 @@
+@import "../globals.scss";
+
+
+.loadingContainer {
+    height: 100vh;
+    background-color: $navy-normal;
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+    @include flex-center;
+    transition: transform 0.8s ease;
+    
+
+    h1 {
+        color: white;
+    }
+}

@@ -1,0 +1,29 @@
+@import "../../globals.scss";
+
+
+.slotPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slotContainer {
+    border: 1px solid red;
+    height: 80px;
+    width: 240px;
+    display: flex;
+    overflow: hidden;
+}
+
+.slotRow {
+    transition: transform 1.5s ease;
+}
+
+.slotItem {
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+}
