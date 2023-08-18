@@ -30,9 +30,9 @@
 }
 
 .loginButton {
-    border: 2px solid $blue-light;
+    border: 2px solid $green-main;
     background-color: transparent;
-    color: $blue-light;
+    color: $green-main;
     margin-right: 1rem;
     transition: transform 0.2s ease;
     
@@ -42,9 +42,9 @@
 }
 
 .signUpButton {
-    @include background-grad-blue(270deg);
+    background-color: $green-main;
     border: none;
-    color: $white;
+    color: $dark-main;
     transition: transform 0.2s ease;
 
     &:hover {
@@ -53,8 +53,8 @@
 }
 
 .logoutButton {
-    @include background-grad-blue(270deg);
+    background-color: $green-main;
+    color: $dark-main;
     border: none;
-    color: $white;
     width: 100%;
 }

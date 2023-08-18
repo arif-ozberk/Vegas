@@ -4,19 +4,22 @@
 .App {
     height: 200vh;
     overflow: hidden;
-    background-color: #0a0f33;
+    background-color: #0A1119;
 }
 
 
 
 // Color Palette
 
-$blue-light: #0dccff;
-$blue-normal: #4760ff;
-$blue-slate: #444e98;
-$navy-light: #262f6d;
-$navy-normal: #0e164a;
-$navy-dark: #0a0f33;
+$gold: #FFDC53;
+$red: #FF5050;
+$gray-text: #818E9D;
+$gray-faded: #1B2329;
+$gray-bright: #273546;
+$green-main: #00FF86;
+$dark-main: #0A1119;
+$dark-faded: #131A22;
+$black: #000000;
 $white: #ffffff;
 
 
@@ -48,12 +51,12 @@ button {
 }
 
 ::-webkit-scrollbar {
-    background-color: $navy-dark;
+    background-color: $dark-main;
     width: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: $navy-light;
+    background-color: $gray-faded;
     border-radius: 10px;
 }
 

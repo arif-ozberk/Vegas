@@ -4,18 +4,18 @@
 .sideBarButton {
     position: fixed;
     top: 6rem;
-    background-color: $navy-normal;
+    background-color: $dark-faded;
     width: 3.5rem;
     height: 2rem;
     @include flex-center;
     font-size: 1.5rem;
     border-bottom-right-radius: 1rem;
-    color: $blue-light;
+    color: $white;
     cursor: pointer;
 }
 
 .topBar {
-    background-color: $navy-normal;
+    background-color: $dark-faded;
     height: 6rem;
     width: 100%;
     position: fixed;
@@ -50,7 +50,7 @@
         }
 
         h1 {
-            color: $blue-light;
+            color: $green-main;
             font-weight: 600;
             font-size: 1.8rem;
 
@@ -71,9 +71,8 @@
             column-gap: 0.8rem;
 
             img {
-                width: 3rem;
-                border-radius: 50%;
-                border: 2px solid $blue-light;
+                width: 2.5rem;
+                border-radius: 0.8rem;
 
                 @media(max-width: 425px) {
                     width: 2.5rem;
@@ -93,7 +92,7 @@
 
             .userDropdown {
                 position: absolute;
-                background-color: $navy-light;
+                background-color: $gray-faded;
                 border-radius: 1rem;
                 display: flex;
                 flex-direction: column;
@@ -119,7 +118,7 @@
 }
 
 .sideBar {
-    background-color: $navy-normal;
+    background-color: $dark-faded;
     height: calc(94vh);
     width: 20rem;
     position: fixed;
@@ -145,7 +144,7 @@
         right: 0.5rem;
         top: 0.5rem;
         font-size: 1.5rem;
-        color: $blue-light;
+        color: $white;
         cursor: pointer;
         display: none;
 
