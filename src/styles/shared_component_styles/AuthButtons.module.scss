@@ -1,12 +1,32 @@
 @import "../globals.scss";
 
 
-button {
+.authButton {
     @include flex-center;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     width: 7rem;
     height: 3rem;
     border-radius: 1rem;
+    font-weight: 500;
+
+    @media(max-width: 768px) {
+        width: 6rem;
+        height: 2.8rem;
+    }
+
+    @media(max-width: 425px) {
+        width: 5rem;
+        height: 2.5rem;
+        border-radius: 0.8rem;
+    }
+
+    @media(max-width: 375px) {
+        font-size: 0.8rem;
+        width: 4rem;
+        height: 2.2rem;
+        border-radius: 0.6rem;
+        font-weight: 400;
+    }
 }
 
 .loginButton {
@@ -14,12 +34,22 @@ button {
     background-color: transparent;
     color: $blue-light;
     margin-right: 1rem;
+    transition: transform 0.2s ease;
+    
+    &:hover {
+        transform: translateY(-5px);
+    }
 }
 
 .signUpButton {
     @include background-grad-blue(270deg);
     border: none;
     color: $white;
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
 }
 
 .logoutButton {

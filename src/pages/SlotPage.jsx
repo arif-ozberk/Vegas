@@ -131,7 +131,7 @@ const SlotPage = () => {
 
 
     return (
-        <div className={`${styles.slotPage} navbar-divider`}>
+        <div className={`${styles.slotPage} page-container navbar-divider`}>
             <h1>User Balance: ${userBalance}</h1>
             <label>Deposit: </label>
             <input value={depositAmount} onChange={(e) => setDepositAmount(e.target.value)} type="number" />

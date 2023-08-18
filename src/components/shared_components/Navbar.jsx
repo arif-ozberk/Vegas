@@ -19,7 +19,7 @@ const Navbar = () => {
 
     const { isAuthenticated, user } = useAuth0();
 
-    const [userInfo, setUserInfo] = useState("");
+    const [userInfo, setUserInfo] = useState({});
 
 
     useEffect(() => {
@@ -28,6 +28,7 @@ const Navbar = () => {
 
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isSideBarOpen, setIsSideBarOpen] = useState(false);
 
 
     const handleDropdownButton = () => {
@@ -35,20 +36,26 @@ const Navbar = () => {
     }
 
 
+    const handleSideBarButton = () => {
+        setIsSideBarOpen(true);
+    }
+
+
     return (
         <div>
             <div className={styles.navbar}>
+                <i className={`${styles.sideBarButton} fas fa-angles-right`} onClick={handleSideBarButton}></i>
                 <section className={styles.topBar}>
                     <div className={styles.topBarLogo}>
                         <img src={logoImage} alt="vegas-logo-image" />
                         <h1>Vegas</h1>
                     </div>
                     
-                    <ul className={styles.topBarButtons}>
-                        <li><LoginButton /></li>
-                        <li><SignUpButton /></li>
+                    <div className={styles.topBarButtons}>
+                        <LoginButton />
+                        <SignUpButton />
 
-                        {isAuthenticated && <li className={styles.welcomeMessage}>
+                        {isAuthenticated && <div className={styles.welcomeMessage}>
                             <img src={userInfo.picture} alt="logged-user-image" />
                             <p>{userInfo.nickname}</p>
                             <i className='fas fa-chevron-down' onClick={handleDropdownButton}></i>
@@ -57,16 +64,17 @@ const Navbar = () => {
                                 <a href="#" onClick={() => setIsDropdownOpen(false)}><i className='fas fa-gear'></i>Settings</a>
                                 <LogoutButton setIsDropdownOpen={setIsDropdownOpen} />
                             </div>
-                        </li>}
-                    </ul>
+                        </div>}
+                    </div>
                 </section>
 
-                <section className={styles.sideBar}>
+                <section className={`${styles.sideBar} ${isSideBarOpen ? styles.sideBarActive : ""}`}>
+                    <i className={`${styles.sideBarCloseButton} fas fa-close`} onClick={() => setIsSideBarOpen(false)}></i>
                     <ul style={{ color: "white" }}>
-                        <li>zort</li>
-                        <li>zort</li>
-                        <li>zort</li>
-                        <li>zort</li>
+                        <li><Link to="/">Home Page</Link></li>
+                        <li><Link to="/slot-page">Slot Page</Link></li>
+                        <li>page 3</li>
+                        <li>page 4</li>
                     </ul>
                 </section>
                 

@@ -7,7 +7,7 @@ import styles from "../../styles/shared_component_styles/LoginLoading.module.scs
 
 const LoginLoading = () => {
 
-    const { isLoading } = useAuth0();
+    const { isLoading, isAuthenticated } = useAuth0();
 
 
     return (

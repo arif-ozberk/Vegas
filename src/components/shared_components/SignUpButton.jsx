@@ -12,7 +12,7 @@ const SignUpButton = () => {
 
     return (
         !isAuthenticated && (
-            <button className={styles.signUpButton} onClick={() => loginWithRedirect()}>
+            <button className={`${styles.signUpButton} ${styles.authButton}`} onClick={() => loginWithRedirect()}>
                 Sign Up
             </button>
         )

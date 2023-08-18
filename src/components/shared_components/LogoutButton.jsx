@@ -18,7 +18,7 @@ const LogoutButton = ({ setIsDropdownOpen }) => {
 
     return (
         isAuthenticated && (
-            <button className={styles.logoutButton} onClick={handleLogoutButtonClick}>
+            <button className={`${styles.logoutButton} ${styles.authButton}`} onClick={handleLogoutButtonClick}>
                 Logout
             </button>
         )

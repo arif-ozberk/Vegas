@@ -4,6 +4,7 @@
 .App {
     height: 200vh;
     overflow: hidden;
+    background-color: #0a0f33;
 }
 
 
@@ -46,6 +47,16 @@ button {
     cursor: pointer;
 }
 
+::-webkit-scrollbar {
+    background-color: $navy-dark;
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $navy-light;
+    border-radius: 10px;
+}
+
 
 
 // Mixins
@@ -66,4 +77,16 @@ button {
 
 .navbar-divider {
     margin-top: 20rem;
+}
+
+.page-container {
+    padding-left: 20rem;
+
+    @media(max-width: 1720px) {
+        padding-left: 18rem;
+    }
+
+    @media(max-width: 1440px) {
+        padding-left: 0;
+    }
 }
