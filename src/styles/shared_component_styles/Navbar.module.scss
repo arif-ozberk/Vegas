@@ -60,6 +60,66 @@
         }
     }
 
+    .balanceWrapper {
+        @media(max-width: 768px) {
+            position: fixed;
+            background-color: $dark-faded;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            @include flex-center;
+            padding: 0.5rem 0;
+        }
+
+        .balanceContainer {
+            display: flex;
+            align-items: center;
+            background-color: $gray-bright;
+            border-radius: 0.5rem;
+
+            p {
+                color: white;
+                display: flex;
+                align-items: center;
+                padding: 0 1rem;
+                font-weight: 500;
+
+                i {
+                    background-color: $green-main;
+                    padding: 0.3rem;
+                    border-radius: 50%;
+                    font-size: 0.8rem;
+                    margin-left: 0.5rem;
+                    color: $dark-main;
+                }
+            }
+
+            .balanceButton {
+                background-color: $green-main;
+                padding: 0.7rem 1rem;
+                border-radius: 0.5rem;
+                display: flex;
+                align-items: center;
+                transition: background-color 0.2s ease;
+
+                &:hover {
+                    background-color: $green-hover;
+                }
+
+                i {
+                    color: $dark-main;
+                    margin-right: 0.5rem;
+                }
+
+                h2 {
+                    color: $dark-main;
+                    font-weight: 500;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+
     .topBarButtons {
         display: flex;
         align-items: center;
@@ -103,14 +163,26 @@
                 width: 10rem;
                 z-index: 99;
 
-                i {
-                    margin-right: 5px;
-                }
+                
 
                 a {
                     color: $white;
                     display: flex;
                     align-items: center;
+                    transition: color 0.2s ease;
+
+                    &:hover {
+                        color: $green-main;
+                        
+                        i {
+                            color: $green-main;
+                        }
+                    }
+
+                    i {
+                        margin-right: 5px;
+                        transition: color 0.2s ease;
+                    }
                 }
             }
         }

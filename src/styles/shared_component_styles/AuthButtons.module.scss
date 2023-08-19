@@ -57,4 +57,9 @@
     color: $dark-main;
     border: none;
     width: 100%;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+        background-color: $green-hover;
+    }
 }

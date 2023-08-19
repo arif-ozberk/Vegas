@@ -45,11 +45,22 @@ const Navbar = () => {
         <div>
             <div className={styles.navbar}>
                 <i className={`${styles.sideBarButton} fas fa-angles-right`} onClick={handleSideBarButton}></i>
+
                 <section className={styles.topBar}>
-                    <div className={styles.topBarLogo}>
+                    <Link to="/" className={styles.topBarLogo}>
                         <img src={logoImage} alt="vegas-logo-image" />
                         <h1>Vegas</h1>
-                    </div>
+                    </Link>
+
+                    {isAuthenticated && <div className={styles.balanceWrapper}>
+                        <div className={styles.balanceContainer}>
+                            <p>$364.99 <i className='fas fa-circle-dollar-to-slot'></i></p>
+                            <Link className={styles.balanceButton}>
+                                <i className='fas fa-wallet'></i>
+                                <h2>Balance</h2>
+                            </Link>
+                        </div>
+                    </div>}
                     
                     <div className={styles.topBarButtons}>
                         <LoginButton />
@@ -60,8 +71,8 @@ const Navbar = () => {
                             <p>{userInfo.nickname}</p>
                             <i className='fas fa-chevron-down' onClick={handleDropdownButton}></i>
                             <div className={styles.userDropdown} style={{ display: isDropdownOpen ? "flex" : "none" }}>
-                                <a href="#" onClick={() => setIsDropdownOpen(false)}><i className='fas fa-user'></i>Profile</a>
-                                <a href="#" onClick={() => setIsDropdownOpen(false)}><i className='fas fa-gear'></i>Settings</a>
+                                <Link  onClick={() => setIsDropdownOpen(false)}><i className='fas fa-user'></i>Profile</Link>
+                                <Link  onClick={() => setIsDropdownOpen(false)}><i className='fas fa-gear'></i>Settings</Link>
                                 <LogoutButton setIsDropdownOpen={setIsDropdownOpen} />
                             </div>
                         </div>}
