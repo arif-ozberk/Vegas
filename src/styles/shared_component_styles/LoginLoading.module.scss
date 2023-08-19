@@ -8,10 +8,23 @@
     width: 100%;
     z-index: 99;
     @include flex-center;
+    flex-direction: column;
+    row-gap: 2rem;
     transition: transform 0.8s ease;
     
+    .loadingLogo {
+        display: flex;
+        align-items: center;
+        column-gap: 0.5rem;
 
-    h1 {
-        color: white;
+        img {
+            height: 2rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: $green-main;
+            font-weight: 600;
+        }
     }
 }
