@@ -27,4 +27,11 @@
             font-weight: 600;
         }
     }
+
+    p {
+        position: absolute;
+        bottom: 1rem;
+        color: $gray-text;
+        font-size: 0.9rem;
+    }
 }

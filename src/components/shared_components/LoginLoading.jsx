@@ -23,6 +23,7 @@ const LoginLoading = () => {
                 <img src={logoImage} alt="vegas-logo-image" />
                 <h1>Vegas</h1>
             </div>
+            <p>&copy; Vegas 2023 | All Rights Reserved</p>
         </div>
     );
 }
