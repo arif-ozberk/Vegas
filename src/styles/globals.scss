@@ -83,6 +83,18 @@ button {
     margin-top: 20rem;
 }
 
+.context-wrapper {
+    padding: 0 2rem;
+
+    @media(max-width: 1024px) {
+        padding: 0 1.5rem;
+    }
+
+    @media(max-width: 425px) {
+        padding: 0 1rem;
+    }
+}
+
 .page-container {
     padding-left: 20rem;
 

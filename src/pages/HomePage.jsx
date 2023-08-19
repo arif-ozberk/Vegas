@@ -10,7 +10,9 @@ const HomePage = () => {
 
     return (
         <div className={`${styles.homePage} page-container navbar-divider`}>
-            Home Page
+            <div className={`${styles.homePageContainer} context-wrapper`}>
+                Home Page
+            </div>
         </div>
     );
 }

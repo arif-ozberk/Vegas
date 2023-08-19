@@ -81,11 +81,13 @@ const Navbar = () => {
 
                 <section className={`${styles.sideBar} ${isSideBarOpen ? styles.sideBarActive : ""}`}>
                     <i className={`${styles.sideBarCloseButton} fas fa-close`} onClick={() => setIsSideBarOpen(false)}></i>
-                    <ul style={{ color: "white" }}>
-                        <li><Link to="/">Home Page</Link></li>
-                        <li><Link to="/slot-page">Slot Page</Link></li>
-                        <li>page 3</li>
-                        <li>page 4</li>
+                    <ul className={styles.gamesLinks}>
+                        <h2>All Games</h2>
+                        <li><i className='fas fa-check-to-slot'></i><Link to="/slot-page">Slot Game</Link></li>
+                        <li><i className='fas fa-compact-disc'></i><Link>Roulette</Link></li>
+                        <li><i className='fas fa-circle-half-stroke'></i><Link>Coin Flip</Link></li>
+                        <li><i className='fas fa-diamond'></i><Link>Blackjack</Link></li>
+                        <li><i className='fas fa-chart-line'></i><Link>Crash</Link></li>
                     </ul>
                 </section>
                 
