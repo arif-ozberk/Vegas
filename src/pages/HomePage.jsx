@@ -5,7 +5,10 @@ import styles from "../styles/page_styles/home_page_styles/HomePage.module.scss"
 
 // Components
 import PageLoader from '../components/shared_components/PageLoader';
-import Loader from '../components/shared_components/Loader';
+import HeroBanner from '../components/home_page/HeroBanner';
+
+// Images
+import heroImage from "../images/home-hero-bg-img.jpg";
 
 
 const HomePage = () => {
@@ -15,7 +18,7 @@ const HomePage = () => {
 
     useEffect(() => {
         setTimeout(() => {
-            setIsPageLoading(false); // Page loader executes for 2 seconds
+            setIsPageLoading(false); // Page loader executes after 2 seconds
         }, 2000);
     }, []);
 
@@ -23,9 +26,12 @@ const HomePage = () => {
     return (
         <div className={`${styles.homePage} page-container navbar-divider`}>
             {isPageLoading && <PageLoader />}
-            {!isPageLoading && <div className={`${styles.homePageContainer} context-wrapper`}>
-                <h1 style={{ color: "white", height: "300vh" }}>Home Page</h1>
-            </div>}
+
+            {!isPageLoading && 
+                <div className={`${styles.homePageContainer} context-wrapper`} style={{ height: "300vh" }}>
+                    <HeroBanner />
+                </div>
+            }
         </div>
     );
 }

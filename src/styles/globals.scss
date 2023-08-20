@@ -18,6 +18,16 @@ $white: #ffffff;
 
 
 
+// Misc & Other
+
+$border-rad-xs: 0.5rem;
+$border-rad-sm: 1rem;
+$border-rad-md: 2rem;
+$border-rad-lg: 3rem;
+$border-rad-xl: 4rem;
+
+
+
 // Default Styles
 
 * {
@@ -79,7 +89,7 @@ button {
 // Dividers & Containers
 
 .navbar-divider {
-    margin-top: 20rem;
+    margin-top: 8rem;
 }
 
 .context-wrapper {
