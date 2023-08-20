@@ -1,0 +1,19 @@
+@import "../globals.scss";
+
+
+.pageLoader {
+    @include flex-center;
+    height: calc(100vh - 6rem);
+    position: absolute;
+    width: calc(100% - 20rem);
+    top: 6rem;
+    background-color: $dark-main;
+
+    @media(max-width: 1720px) {
+        width: calc(100% - 18rem);
+    }
+
+    @media(max-width: 1440px) {
+        width: 100%;
+    }
+}

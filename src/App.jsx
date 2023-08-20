@@ -11,24 +11,29 @@ import HomePage from './pages/HomePage';
 import SlotPage from './pages/SlotPage';
 import LoginLoading from './components/shared_components/LoginLoading';
 
+// Context
+import { mainContext } from './context/mainContext';
+
 
 function App() {
 
     const { isLoading } = useAuth0();
-
-
+    
+    
     return (
         <BrowserRouter>
-            <div className='App' style={{ height: isLoading ? "100vh" : "200vh" }}>
-                <LoginLoading />
-                
-                <Routes>
-                    <Route path='/' element={<Navbar />}>
-                        <Route index element={<HomePage />} />
-                        <Route path='/slot-page' element={<SlotPage />} />
-                    </Route>
-                </Routes>
-            </div>
+            <mainContext.Provider value={{  }}>
+                    <div className='App' style={{ height: isLoading ? "100vh" : "fit-content" }}>
+                        <LoginLoading />
+
+                        <Routes>
+                            <Route path='/' element={<Navbar />}>
+                                <Route index element={<HomePage />} />
+                                <Route path='/slot-page' element={<SlotPage />} />
+                            </Route>
+                        </Routes>
+                    </div>
+            </mainContext.Provider>
         </BrowserRouter> 
     )
 }

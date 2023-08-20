@@ -191,7 +191,7 @@
 
 .sideBar {
     background-color: $dark-faded;
-    height: calc(94vh);
+    height: calc(100vh - 6rem);
     width: 20rem;
     position: fixed;
     left: 0;
