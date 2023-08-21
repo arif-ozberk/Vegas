@@ -14,6 +14,9 @@ import TopGames from '../components/home_page/TopGames';
 // Context
 import { mainContext } from '../context/mainContext';
 
+// Wrappers
+import PageWrapper from '../wrappers/PageWrapper';
+
 
 const HomePage = () => {
 
@@ -24,7 +27,7 @@ const HomePage = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0); // Scroll back to top on page changes
-        
+
         setTimeout(() => {
             setIsPageLoading(false); // Page loader executes after 2 seconds
         }, PAGE_LOADING_DURATION);
@@ -32,7 +35,7 @@ const HomePage = () => {
 
 
     return (
-        <div className={`${styles.homePage} page-container navbar-divider`}>
+        <PageWrapper>
             {isPageLoading && <PageLoader />}
 
             {!isPageLoading && 
@@ -41,7 +44,7 @@ const HomePage = () => {
                     <TopGames />
                 </div>
             }
-        </div>
+        </PageWrapper>
     );
 }
  

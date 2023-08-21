@@ -6,6 +6,9 @@ import { mainContext } from '../context/mainContext';
 // Components
 import PageLoader from '../components/shared_components/PageLoader';
 
+// Wrappers
+import PageWrapper from '../wrappers/PageWrapper';
+
 
 const ComingSoonPage = () => {
 
@@ -15,6 +18,8 @@ const ComingSoonPage = () => {
 
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+
         setTimeout(() => {
             setIsPageLoading(false); // Page loader executes after 2 seconds
         }, PAGE_LOADING_DURATION);
@@ -22,10 +27,12 @@ const ComingSoonPage = () => {
 
 
     return (
-        <div className='page-container' style={{ backgroundColor: "#0A1119", height: "100vh", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <PageWrapper>
             {isPageLoading && <PageLoader />}
-            {!isPageLoading && <p style={{ fontSize: "2rem", color: "white" }}>Coming Soon...</p>}
-        </div>
+            {!isPageLoading && <div style={{ backgroundColor: "#0A1119", height: "calc(100vh - 8rem)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <p style={{ fontSize: "2rem", color: "white" }}>Coming Soon...</p>
+            </div>}
+        </PageWrapper>
     );
 }
  
