@@ -11,7 +11,7 @@ const HeroBanner = () => {
     const { isAuthenticated, user } = useAuth0();
 
     return (
-        <div className={styles.heroBanner}>
+        <div className={`${styles.heroBanner} divider-bottom-xs`}>
             <div className={styles.bannerContext}>
                 <h1>Your Playground of Possibilities</h1>
                 <p>Welcome to a realm where your wildest gaming aspirations transform into reality through the realms of <span>Vegas</span>.</p>

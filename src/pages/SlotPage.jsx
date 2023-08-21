@@ -26,6 +26,7 @@ const SlotPage = () => {
 
 
     useEffect(() => {
+        window.scrollTo(0, 0); // Scroll back to top on page changes
         resetButtonRef.current.disabled = true;
     }, []);
 
@@ -131,7 +132,7 @@ const SlotPage = () => {
 
 
     return (
-        <div className={`${styles.slotPage} page-container navbar-divider`}>
+        <div className={`${styles.slotPage} page-container navbar-divider`} style={{ height: "150vh" }}>
             <h1>User Balance: ${userBalance}</h1>
             <label>Deposit: </label>
             <input value={depositAmount} onChange={(e) => setDepositAmount(e.target.value)} type="number" />
