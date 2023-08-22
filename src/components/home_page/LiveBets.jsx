@@ -18,7 +18,10 @@ const LiveBets = () => {
         "Crash",
         "Dice",
         "High-Low",
-        "Minefield"
+        "Minefield",
+        "Slot",
+        "Roulette",
+        "Coin Flip"
     ];
 
     const [userData, setUserData] = useState([]);
@@ -65,11 +68,11 @@ const LiveBets = () => {
 
         setInterval(() => {
             console.log(userCount);
-            if (userCount === 7) {
+            if (userCount === 10) {
                 setUserData(prev => {
-                    userCount --;
+                    userCount = 5;
                     const splicedData = [...prev];
-                    splicedData.splice(0, 1);
+                    splicedData.splice(0, 5);
                     return splicedData;
                 })
             }
@@ -77,7 +80,7 @@ const LiveBets = () => {
             else {
                 fetchSingleData();
             }
-        }, 5000);
+        }, 6000);
     }, []);
 
 
@@ -88,11 +91,11 @@ const LiveBets = () => {
                 <div className={`${styles.liveBets} divider-bottom-md`}>
                     <h1 className={`title-second divider-bottom-xs`}>Live Bets</h1>
                     <div className={styles.liveBetsFrame}>
-                        <div className={`${styles.liveBetsContainer}`} style={{ display: "flex", flexDirection: "column-reverse" }}>
+                        <div className={`${styles.liveBetsContainer}`}>
                             {userData?.map((user, index) => (
                                 <div className={styles.betCard} key={user.id}>
                                     <p><i className='fas fa-user'></i> {user.username}</p>
-                                    <p><i className='fas fa-dice'></i>Game: {gamesList[Math.floor((Math.random() * gamesList.length))]}</p>
+                                    <p><i className='fas fa-dice'></i>Game: {gamesList[index]}</p>
                                     <p><span className={styles.multiplier}>Multiplier: {Number(user.address.zip_code.slice(0, 1)) + 2}x</span></p>
                                     <p><i className='fa fa-sack-dollar'></i>Payout: ${user.address.zip_code.slice(0, 2)}.{user.address.zip_code.slice(2, 4)}</p>
                                 </div>
