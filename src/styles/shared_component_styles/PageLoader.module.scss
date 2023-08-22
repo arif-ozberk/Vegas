@@ -8,6 +8,7 @@
     width: calc(100% - 20rem);
     top: 6rem;
     background-color: $dark-main;
+    z-index: 100;
 
     @media(max-width: 1720px) {
         width: calc(100% - 18rem);

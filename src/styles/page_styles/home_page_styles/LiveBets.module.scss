@@ -1,0 +1,85 @@
+@import "../../globals.scss";
+
+
+.liveBets {
+
+    .liveBetsFrame {
+        height: 24rem;
+        overflow: hidden;
+
+        @media(max-width: 1050px) {
+            overflow-y: hidden;
+            overflow-x: scroll;
+            width: 100%;
+        }
+    }
+
+    .liveBetsContainer {
+        display: flex;
+        flex-direction: column-reverse;
+        row-gap: 1rem;
+
+        .betCard {
+            height: 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: $gray-faded;
+            border-radius: $border-rad-xs;
+            padding: 0 2rem;
+            animation-name: betCardAnimation;
+            animation-duration: 0.8s;
+            animation-timing-function: ease;
+            animation-fill-mode: forwards;
+
+            @media(max-width: 1050px) {
+                width: 1050px;
+            }
+
+            @media(max-width: 670px) {
+                width: 650px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                height: 6rem;
+            }
+
+            @media(max-width: 425px) {
+                width: 450px;
+            }
+            
+            p {
+                width: 25%;
+                color: $gray-text;
+
+                @media(max-width: 670px) {
+                    width: 100%;
+                }
+
+                i {
+                    color: $green-main;
+                    margin-right: 0.5rem;
+                }
+
+                .multiplier {
+                    @include flex-center;
+                    width: 9rem;
+                    background-color: $green-main;
+                    color: $dark-main;
+                    padding: 0.5rem 1rem;
+                    border-radius: $border-rad-xs;
+                }
+            }
+        }
+    }
+}
+
+@keyframes betCardAnimation {
+    from {
+        opacity: 0;
+        transform: translateX(300px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
