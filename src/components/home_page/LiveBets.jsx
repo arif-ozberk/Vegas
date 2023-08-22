@@ -67,7 +67,6 @@ const LiveBets = () => {
         fetchData(BASE_URL + "?size=5");
 
         setInterval(() => {
-            console.log(userCount);
             if (userCount === 10) {
                 setUserData(prev => {
                     userCount = 5;
