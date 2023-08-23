@@ -26,6 +26,7 @@ const LiveBets = () => {
 
     const [userData, setUserData] = useState([]);
     const [isDataLoading, setIsDataLoading] = useState(true);
+    const [errorMessage, setErrorMessage] = useState(null);
     let userCount;
     
 
@@ -38,7 +39,7 @@ const LiveBets = () => {
             userCount = users.length;
         }
         catch(error) {
-            console.log(error.message);
+            setErrorMessage(error.message);
         }
         finally {
             setIsDataLoading(false);
@@ -86,7 +87,8 @@ const LiveBets = () => {
     return (
         <>
             {isDataLoading && <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "24rem" }}><Loader /></div>}
-            {!isDataLoading && 
+            {!isDataLoading && errorMessage && <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "24rem" }}><p style={{ color: "#ffffff" }}>{errorMessage}</p></div>}
+            {!isDataLoading && !errorMessage &&
                 <div className={`${styles.liveBets} divider-bottom-md-extended`}>
                     <h1 className={`title-second divider-bottom-xs`}>Live Bets</h1>
                     <div className={styles.liveBetsFrame}>
