@@ -174,4 +174,8 @@ button {
     font-size: 2rem;
     font-weight: 500;
     color: $white;
+
+    @media(max-width: 670px) {
+        font-size: 1.8rem;
+    }
 }
