@@ -123,14 +123,14 @@ button {
 }
 
 .divider-bottom-lg {
-    margin-bottom: 12rem;
+    margin-bottom: 9rem;
     
     @media(max-width: 1050px) {
-        margin-bottom: 9rem;
+        margin-bottom: 6rem;
     }
 
     @media(max-width: 670px) {
-        margin-bottom: 6rem;
+        margin-bottom: 3rem;
     }
 }
 

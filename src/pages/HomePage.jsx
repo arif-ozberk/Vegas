@@ -7,9 +7,9 @@ import styles from "../styles/page_styles/home_page_styles/HomePage.module.scss"
 import PageLoader from '../components/shared_components/PageLoader';
 import HeroBanner from '../components/home_page/HeroBanner';
 import LiveBets from '../components/home_page/LiveBets';
+import PaymentMethods from '../components/home_page/PaymentMethods';
 
 // Images
-import heroImage from "../images/home-hero-bg-img.jpg";
 import TopGames from '../components/home_page/TopGames';
 
 // Context
@@ -44,6 +44,7 @@ const HomePage = () => {
                     <HeroBanner />
                     <TopGames />
                     <LiveBets />
+                    <PaymentMethods />
                 </div>
             }
         </PageWrapper>

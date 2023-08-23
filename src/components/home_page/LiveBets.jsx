@@ -66,20 +66,20 @@ const LiveBets = () => {
     useEffect(() => {
         fetchData(BASE_URL + "?size=5");
 
-        setInterval(() => {
-            if (userCount === 10) {
-                setUserData(prev => {
-                    userCount = 5;
-                    const splicedData = [...prev];
-                    splicedData.splice(0, 5);
-                    return splicedData;
-                })
-            }
+        // setInterval(() => {
+        //     if (userCount === 10) {
+        //         setUserData(prev => {
+        //             userCount = 5;
+        //             const splicedData = [...prev];
+        //             splicedData.splice(0, 5);
+        //             return splicedData;
+        //         })
+        //     }
 
-            else {
-                fetchSingleData();
-            }
-        }, 6000);
+        //     else {
+        //         fetchSingleData();
+        //     }
+        // }, 6000);
     }, []);
 
 
