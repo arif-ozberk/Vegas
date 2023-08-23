@@ -122,6 +122,14 @@ button {
     }
 }
 
+.divider-bottom-md-extended {
+    margin-bottom: 6rem;
+
+    @media(max-width: 670px) {
+        margin-bottom: 5rem;
+    }
+}
+
 .divider-bottom-lg {
     margin-bottom: 9rem;
     

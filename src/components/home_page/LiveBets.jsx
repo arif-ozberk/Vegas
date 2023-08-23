@@ -87,7 +87,7 @@ const LiveBets = () => {
         <>
             {isDataLoading && <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "24rem" }}><Loader /></div>}
             {!isDataLoading && 
-                <div className={`${styles.liveBets} divider-bottom-md`}>
+                <div className={`${styles.liveBets} divider-bottom-md-extended`}>
                     <h1 className={`title-second divider-bottom-xs`}>Live Bets</h1>
                     <div className={styles.liveBetsFrame}>
                         <div className={`${styles.liveBetsContainer}`}>

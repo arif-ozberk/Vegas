@@ -51,7 +51,7 @@ const TopGames = () => {
 
 
     return (
-        <div className={`${styles.topGames} divider-bottom-md`}>
+        <div className={`${styles.topGames} divider-bottom-md-extended`}>
             <h1 className='title-second divider-bottom-xs'>Top Games</h1>
             <div className={styles.topGamesContainer}>
                 {topGames.map((game, index) => (

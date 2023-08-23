@@ -6,7 +6,7 @@ import styles from "../../styles/page_styles/home_page_styles/PaymentMethods.mod
 
 const PaymentMethods = () => {
     return (
-        <div className={`${styles.paymentMethods} divider-bottom-md`}>
+        <div className={`${styles.paymentMethods} divider-bottom-md-extended`}>
             <h1 className='title-second divider-bottom-xs'>Payment Methods</h1>
             <div className={`${styles.paymentMethodsContainer}`}>
                 <div className={`${styles.crypto} ${styles.methodCard}`}>
