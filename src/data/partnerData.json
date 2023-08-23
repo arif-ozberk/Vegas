@@ -1,0 +1,100 @@
+{
+    "partners": [
+        {
+            "partnerName": "Discord",
+            "partnerIcon": "fa-brands fa-discord"
+        },
+        {
+            "partnerName": "Twitch",
+            "partnerIcon": "fa-brands fa-twitch"
+        },
+        {
+            "partnerName": "Stripe",
+            "partnerIcon": "fa-brands fa-stripe"
+        },
+        {
+            "partnerName": "Paypal",
+            "partnerIcon": "fa-brands fa-paypal"
+        },
+        {
+            "partnerName": "Steam",
+            "partnerIcon": "fa-brands fa-steam"
+        },
+        {
+            "partnerName": "Google Pay",
+            "partnerIcon": "fa-brands fa-google-pay"
+        },
+        {
+            "partnerName": "Firefox",
+            "partnerIcon": "fa-brands fa-firefox"
+        },
+        {
+            "partnerName": "Amazon Pay",
+            "partnerIcon": "fa-brands fa-amazon-pay"
+        },
+        {
+            "partnerName": "Apple Pay",
+            "partnerIcon": "fa-brands fa-apple-pay"
+        },
+        {
+            "partnerName": "Tiktok",
+            "partnerIcon": "fa-brands fa-tiktok"
+        },
+        {
+            "partnerName": "Visa",
+            "partnerIcon": "fa-brands fa-cc-visa"
+        },
+        {
+            "partnerName": "Mastercard",
+            "partnerIcon": "fa-brands fa-cc-mastercard"
+        },
+        {
+            "partnerName": "Discord",
+            "partnerIcon": "fa-brands fa-discord"
+        },
+        {
+            "partnerName": "Twitch",
+            "partnerIcon": "fa-brands fa-twitch"
+        },
+        {
+            "partnerName": "Stripe",
+            "partnerIcon": "fa-brands fa-stripe"
+        },
+        {
+            "partnerName": "Paypal",
+            "partnerIcon": "fa-brands fa-paypal"
+        },
+        {
+            "partnerName": "Steam",
+            "partnerIcon": "fa-brands fa-steam"
+        },
+        {
+            "partnerName": "Google Pay",
+            "partnerIcon": "fa-brands fa-google-pay"
+        },
+        {
+            "partnerName": "Firefox",
+            "partnerIcon": "fa-brands fa-firefox"
+        },
+        {
+            "partnerName": "Amazon Pay",
+            "partnerIcon": "fa-brands fa-amazon-pay"
+        },
+        {
+            "partnerName": "Apple Pay",
+            "partnerIcon": "fa-brands fa-apple-pay"
+        },
+        {
+            "partnerName": "Tiktok",
+            "partnerIcon": "fa-brands fa-tiktok"
+        },
+        {
+            "partnerName": "Visa",
+            "partnerIcon": "fa-brands fa-cc-visa"
+        },
+        {
+            "partnerName": "Mastercard",
+            "partnerIcon": "fa-brands fa-cc-mastercard"
+        }
+    ]
+}

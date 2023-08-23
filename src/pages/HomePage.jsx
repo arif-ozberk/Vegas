@@ -8,6 +8,8 @@ import PageLoader from '../components/shared_components/PageLoader';
 import HeroBanner from '../components/home_page/HeroBanner';
 import LiveBets from '../components/home_page/LiveBets';
 import PaymentMethods from '../components/home_page/PaymentMethods';
+import Partners from '../components/home_page/Partners';
+import Rewards from '../components/home_page/Rewards';
 
 // Images
 import TopGames from '../components/home_page/TopGames';
@@ -45,6 +47,7 @@ const HomePage = () => {
                     <TopGames />
                     <LiveBets />
                     <PaymentMethods />
+                    <Partners />
                 </div>
             }
         </PageWrapper>

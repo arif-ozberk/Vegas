@@ -1,0 +1,74 @@
+@import "../../globals.scss";
+
+
+.partners {
+
+    h2 {
+        font-weight: 400;
+        color: $gray-text;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .partnersContainer {
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        row-gap: 1.5rem;
+
+        ul {
+            display: flex;
+            column-gap: 1rem;
+            width: fit-content;
+            animation-duration: 60s;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: linear;
+
+            li {
+                background-color: $gray-faded;
+                width: 9rem;
+                font-size: 0.8rem;
+                color: $gray-text;
+                padding: 1rem 1rem;
+                @include flex-center;
+                border-radius: $border-rad-xs;
+        
+                i {
+                    font-size: 1rem;
+                    color: $green-main;
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+
+        .partnersForward {
+            animation-name: partnerSlide;
+        }
+
+        .partnersReverse {
+            animation-name: partnerSlideReverse;
+        }
+    }
+}
+
+@keyframes partnerSlide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-50% - 18rem));
+    }
+}
+
+@keyframes partnerSlideReverse {
+    from {
+        transform: translateX(calc(-50% - 18rem));
+        
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
