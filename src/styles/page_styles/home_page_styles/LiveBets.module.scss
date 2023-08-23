@@ -12,6 +12,10 @@
             overflow-x: scroll;
             width: 100%;
         }
+
+        @media(max-width: 670px) {
+            height: fit-content;
+        }
     }
 
     .liveBetsContainer {
