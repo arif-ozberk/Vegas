@@ -1,1 +1,47 @@
 @import "../../globals.scss";
+
+
+.rewards {
+
+    .rewardsContainer {
+        display: flex;
+        column-gap: 3rem;
+
+        @media(max-width: 768px) {
+            flex-direction: column;
+            row-gap: 2rem;
+        }
+
+        .rewardCard {
+            position: relative;
+            width: 100%;
+            background: linear-gradient(124deg, rgba(27, 35, 41, 1) 78%, rgba(9, 93, 36, 1) 100%);
+            border-radius: $border-rad-sm;
+            padding: 1.5rem;
+
+            h2 {
+                color: $white;
+                font-weight: 500;
+                font-size: 1.6rem;
+                margin-bottom: 1.5rem;
+
+                i {
+                    color: $green-main;
+                    margin-right: 0.5rem;
+                }
+            }
+
+            h3 {
+                color: $white;
+                font-weight: 500;
+                font-size: 1.1rem;
+            }
+
+            p {
+                color: $gray-text;
+                font-weight: 400;
+                font-size: 0.9rem;
+            }
+        }
+    }
+}

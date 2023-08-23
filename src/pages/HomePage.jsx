@@ -48,6 +48,7 @@ const HomePage = () => {
                     <LiveBets />
                     <PaymentMethods />
                     <Partners />
+                    <Rewards />
                 </div>
             }
         </PageWrapper>
