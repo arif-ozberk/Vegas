@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
 // Styles
 import styles from "../styles/page_styles/home_page_styles/HomePage.module.scss";
@@ -10,6 +11,7 @@ import LiveBets from '../components/home_page/LiveBets';
 import PaymentMethods from '../components/home_page/PaymentMethods';
 import Partners from '../components/home_page/Partners';
 import Rewards from '../components/home_page/Rewards';
+import CreateAccount from '../components/home_page/CreateAccount';
 
 // Images
 import TopGames from '../components/home_page/TopGames';
@@ -23,6 +25,8 @@ import PageWrapper from '../wrappers/PageWrapper';
 
 const HomePage = () => {
 
+    const { isAuthenticated } = useAuth0();
+
     const { PAGE_LOADING_DURATION } = useContext(mainContext);
 
     const [isPageLoading, setIsPageLoading] = useState(true);
@@ -32,7 +36,7 @@ const HomePage = () => {
         window.scrollTo(0, 0); // Scroll back to top on page changes
 
         setTimeout(() => {
-            setIsPageLoading(false); // Page loader executes after 2 seconds
+            setIsPageLoading(false); // Page loader executes after xx seconds
         }, PAGE_LOADING_DURATION);
     }, []);
 
@@ -49,6 +53,7 @@ const HomePage = () => {
                     <PaymentMethods />
                     <Partners />
                     <Rewards />
+                    {!isAuthenticated && <CreateAccount />}
                 </div>
             }
         </PageWrapper>

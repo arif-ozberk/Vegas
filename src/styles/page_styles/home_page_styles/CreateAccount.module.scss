@@ -1,0 +1,56 @@
+@import "../../globals.scss";
+
+
+.createAccount {
+
+    .createAccountContainer {
+        background-color: $gray-faded;
+        border-radius: $border-rad-sm;
+        padding: 2rem 1.5rem;
+        position: relative;
+        overflow: hidden;
+
+        img {
+            position: absolute;
+            height: 130%;
+            right: -50px;
+            top: 50%;
+            transform: translate(0, -50%);
+            z-index: 5;
+
+            @media(max-width: 670px) {
+                display: none;
+            }
+        }
+
+        p {
+            color: $gray-text;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            z-index: 6;
+            position: relative;
+        }
+
+        h2 {
+            color: $white;
+            font-size: 2.2rem;
+            font-weight: 500;
+            line-height: 2.8rem;
+            margin-bottom: 1.5rem;
+            z-index: 6;
+            position: relative;
+
+            @media(max-width: 425px) {
+                font-size: 1.8rem;
+                line-height: 2.4rem;
+            }
+        }
+
+        .buttons {
+            display: flex;
+            column-gap: 1rem;
+            z-index: 6;
+            position: relative;
+        }
+    }
+}
