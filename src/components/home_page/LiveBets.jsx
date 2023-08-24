@@ -12,16 +12,46 @@ const LiveBets = () => {
     const BASE_URL = "https://random-data-api.com/api/v2/users";
 
     const gamesList = [
-        "Slot",
-        "Roulette",
-        "Coin Flip",
-        "Crash",
-        "Dice",
-        "High-Low",
-        "Minefield",
-        "Slot",
-        "Roulette",
-        "Coin Flip"
+        {
+            gameName: "Slot",
+            gameIcon: "fas fa-check-to-slot"
+        },
+        {
+            gameName: "Roulette",
+            gameIcon: "fas fa-compact-disc"
+        },
+        {
+            gameName: "Coin Flip",
+            gameIcon: "fas fa-circle-half-stroke"
+        },
+        {
+            gameName: "Crash",
+            gameIcon: "fas fa-chart-line"
+        },
+        {
+            gameName: "Dice",
+            gameIcon: "fas fa-dice"
+        },
+        {
+            gameName: "High-Low",
+            gameIcon: "fas fa-right-left"
+        },
+        {
+            gameName: "Minefield",
+            gameIcon: "fas fa-land-mine-on"
+        },
+        {
+            gameName: "Slot",
+            gameIcon: "fas fa-check-to-slot"
+        },
+        {
+            gameName: "Roulette",
+            gameIcon: "fas fa-compact-disc"
+        },
+        {
+            gameName: "Coin Flip",
+            gameIcon: "fas fa-circle-half-stroke"
+        }
     ];
 
     const [userData, setUserData] = useState([]);
@@ -96,7 +126,7 @@ const LiveBets = () => {
                             {userData?.map((user, index) => (
                                 <div className={styles.betCard} key={user.id}>
                                     <p><i className='fas fa-user'></i> {user.username}</p>
-                                    <p><i className='fas fa-dice'></i>Game: {gamesList[index]}</p>
+                                    <p><i className={gamesList[index].gameIcon}></i>Game: {gamesList[index].gameName}</p>
                                     <p><span className={styles.multiplier}>Multiplier: {Number(user.address.zip_code.slice(0, 1)) + 2}x</span></p>
                                     <p><i className='fa fa-sack-dollar'></i>Payout: ${user.address.zip_code.slice(0, 2)}.{user.address.zip_code.slice(2, 4)}</p>
                                 </div>
