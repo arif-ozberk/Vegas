@@ -3,6 +3,9 @@ import React, { useState, useEffect, useRef, useContext } from 'react';
 // Styles
 import styles from "../styles/page_styles/slot_page_styles/SlotPage.module.scss";
 
+// Components
+import BetInput from '../components/shared_components/BetInput';
+
 // Context
 import { mainContext } from '../context/mainContext';
 
@@ -29,7 +32,7 @@ const SlotPage = () => {
     const rollButtonRef = useRef();
     const resetButtonRef = useRef();
 
-    const [depositAmount, setDepositAmount] = useState(5);
+    const [depositAmount, setDepositAmount] = useState(0);
 
 
     useEffect(() => {
@@ -145,7 +148,6 @@ const SlotPage = () => {
     return (
         <PageWrapper>
             <div className={`${styles.SlotPage} context-wrapper`}>
-                <input value={depositAmount} onChange={(e) => setDepositAmount(e.target.value)} type="number" />
 
                 <div className={styles.slotDisplay}>
                     <button ref={resetButtonRef} onClick={handleResetButton}>Reset</button>
@@ -170,6 +172,8 @@ const SlotPage = () => {
                     </div>
                     <button ref={rollButtonRef} onClick={handleRollButton}>Roll</button>
                 </div>
+
+                <BetInput depositAmount={depositAmount} setDepositAmount={setDepositAmount} />
 
 
             </div>
