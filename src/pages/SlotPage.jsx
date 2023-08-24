@@ -1,10 +1,18 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 
 // Styles
 import styles from "../styles/page_styles/slot_page_styles/SlotPage.module.scss";
 
+// Context
+import { mainContext } from '../context/mainContext';
+
+// Wrappers
+import PageWrapper from '../wrappers/PageWrapper';
+
 
 const SlotPage = () => {
+
+    const { userBalance, setUserBalance } = useContext(mainContext);
 
     const slotSelections = ['🍒', '🍊', '🍇', '🍋', '🍉', '🍓', '🍌'];
     const [slotRows, setSlotRows] = useState([
@@ -21,7 +29,6 @@ const SlotPage = () => {
     const rollButtonRef = useRef();
     const resetButtonRef = useRef();
 
-    const [userBalance, setUserBalance] = useState(1000);
     const [depositAmount, setDepositAmount] = useState(5);
 
 
@@ -50,7 +57,8 @@ const SlotPage = () => {
             ["🍇", 0],
             ["🍋", 0],
             ["🍉", 0],
-            ["🍓", 0]
+            ["🍓", 0],
+            ["🍌", 0]
         ]);
 
         for (let i = 0; i < finalLocaleSlot.length; i++) {
@@ -72,6 +80,9 @@ const SlotPage = () => {
                     break;
                 case "🍓":
                     slotLocaleItemAmounts.set("🍓", slotLocaleItemAmounts.get("🍓") + 1);
+                    break;
+                case "🍌":
+                    slotLocaleItemAmounts.set("🍌", slotLocaleItemAmounts.get("🍌") + 1);
                     break;
             }
         }
@@ -132,37 +143,37 @@ const SlotPage = () => {
 
 
     return (
-        <div className={`${styles.slotPage} page-container navbar-divider`} style={{ height: "150vh" }}>
-            <h1>User Balance: ${userBalance}</h1>
-            <label>Deposit: </label>
-            <input value={depositAmount} onChange={(e) => setDepositAmount(e.target.value)} type="number" />
-            <div className={styles.slotContainer}>
-                {slotRows.map((slotRow, index) => (
-                    <div
-                        className={styles.slotRow}
-                        style={{
-                            transition: isRolling ? "transform 1.5s ease" : "none",
-                            transform: isRolling ? `translateY(-1120px)` : "translateY(0)",
-                            transitionDelay: isRolling ? `${index * 0.4}s` : "none",
-                        }}
-                        key={index}
-                    >
-                        {slotRow.map((slotItem, index) => (
-                            <div key={index} className={styles.slotItem}>
-                                {slotItem}
+        <PageWrapper>
+            <div className={`${styles.SlotPage} context-wrapper`}>
+                <input value={depositAmount} onChange={(e) => setDepositAmount(e.target.value)} type="number" />
+
+                <div className={styles.slotDisplay}>
+                    <button ref={resetButtonRef} onClick={handleResetButton}>Reset</button>
+                    <div className={styles.slotContainer}>
+                        {slotRows.map((slotRow, index) => (
+                            <div
+                                className={styles.slotRow}
+                                style={{
+                                    transition: isRolling ? "transform 1.5s ease" : "none",
+                                    transform: isRolling ? `translateY(-1120px)` : "translateY(0)",
+                                    transitionDelay: isRolling ? `${index * 0.4}s` : "none",
+                                }}
+                                key={index}
+                            >
+                                {slotRow.map((slotItem, index) => (
+                                    <div key={index} className={styles.slotItem}>
+                                        {slotItem}
+                                    </div>
+                                ))}
                             </div>
                         ))}
                     </div>
-                ))}
-            </div>
-            <button ref={rollButtonRef} onClick={handleRollButton}>Roll</button>
-            <button ref={resetButtonRef} onClick={handleResetButton}>Reset</button>
-            {finalSlot.map((item, index) => (
-                <div key={index}>
-                    {item}
+                    <button ref={rollButtonRef} onClick={handleRollButton}>Roll</button>
                 </div>
-            ))}
-        </div>
+
+
+            </div>
+        </PageWrapper>
     );
 }
  

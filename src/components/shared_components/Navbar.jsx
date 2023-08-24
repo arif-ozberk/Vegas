@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Outlet } from 'react-router';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -14,8 +14,13 @@ import SignUpButton from './SignUpButton';
 // Images
 import logoImage from "../../images/vegas-logo-img.png";
 
+// Context
+import { mainContext } from '../../context/mainContext';
+
 
 const Navbar = () => {
+
+    const { userBalance } = useContext(mainContext);
 
     const { isAuthenticated, user } = useAuth0();
 
@@ -54,7 +59,7 @@ const Navbar = () => {
 
                     {isAuthenticated && <div className={styles.balanceWrapper}>
                         <div className={styles.balanceContainer}>
-                            <p>$364.99 <i className='fas fa-circle-dollar-to-slot'></i></p>
+                            <p>${userBalance} <i className='fas fa-circle-dollar-to-slot'></i></p>
                             <Link className={styles.balanceButton}>
                                 <i className='fas fa-wallet'></i>
                                 <h2>Balance</h2>

@@ -27,3 +27,15 @@
     width: 80px;
     height: 80px;
 }
+
+.slotDisplay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    button {
+        @include flex-center;
+        height: 80px;
+        width: 2rem;
+    }
+}

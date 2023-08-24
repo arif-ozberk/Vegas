@@ -22,12 +22,34 @@ function App() {
 
     const PAGE_LOADING_DURATION = 1000;
 
-    const { isLoading } = useAuth0();
+    const { isLoading, user } = useAuth0();
+
+    const [userBalance, setUserBalance] = useState(1000);
+
+
+    useEffect(() => {
+        if(user) {
+            if (!localStorage.getItem(`${user.sub}`)) {
+                localStorage.setItem(`${user.sub}`, 2000);
+                setUserBalance(localStorage.getItem(`${user.sub}`));
+            }
+            else {
+                setUserBalance(localStorage.getItem(`${user.sub}`));
+            }
+        }
+    }, [user]);
+
+
+    useEffect(() => {
+        if(user) {
+            localStorage.setItem(`${user.sub}`, userBalance);
+        }
+    }, [userBalance])
     
     
     return (
         <BrowserRouter>
-            <mainContext.Provider value={{ PAGE_LOADING_DURATION }}>
+            <mainContext.Provider value={{ PAGE_LOADING_DURATION, userBalance, setUserBalance }}>
                     <div className='App' style={{ height: isLoading ? "100vh" : "fit-content" }}>
                         <LoginLoading />
 
