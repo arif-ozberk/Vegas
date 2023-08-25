@@ -34,10 +34,11 @@
     background-color: transparent;
     color: $green-main;
     margin-right: 1rem;
-    transition: transform 0.2s ease;
+    transition: border 0.2s ease, transform 0.2s ease;
     
     &:hover {
         transform: translateY(-5px);
+        border: 2px solid $green-hover;
     }
 }
 
@@ -45,10 +46,11 @@
     background-color: $green-main;
     border: none;
     color: $dark-main;
-    transition: transform 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 
     &:hover {
         transform: translateY(-5px);
+        background-color: $green-hover;
     }
 }
 
