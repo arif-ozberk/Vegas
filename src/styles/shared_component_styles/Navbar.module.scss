@@ -133,7 +133,7 @@
 
             img {
                 width: 2.5rem;
-                border-radius: 0.8rem;
+                border-radius: $border-rad-xs;
 
                 @media(max-width: 425px) {
                     width: 2.5rem;
