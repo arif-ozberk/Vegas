@@ -26,7 +26,7 @@
 
     .betInputContainer {
         background-color: $gray-faded;
-        height: 2.4rem;
+        height: 2.6rem;
         border-radius: $border-rad-xs;
         display: flex;
         align-items: center;
@@ -62,9 +62,20 @@
             font-size: 1.2rem;
             padding: 0 0.8rem 0 2rem;
             border-radius: $border-rad-xs;
-            height: 2.4rem;
+            height: 2.6rem;
             color: $white;
             width: 100%;
+            outline: none;
+
+            &:focus {
+                border: 1px solid $green-main; 
+            }
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            // margin: 0;
         }
     }
 
@@ -83,12 +94,12 @@
         button {
             background-color: $green-main;
             width: 100%;
-            height: 2.4rem;
+            height: 2.6rem;
             border: none;
             font-weight: 500;
             color: $dark-main;
             border-radius: $border-rad-xs;
-            transition: transform 0.2s ease;
+            transition: background-color 0.2s ease, transform 0.2s ease;
 
             @media(max-width: 1050px) {
                 width: 100%;
@@ -96,6 +107,7 @@
             
             &:hover {
                 transform: translateY(-5px);
+                background-color: $green-hover;
             }
         }
     }

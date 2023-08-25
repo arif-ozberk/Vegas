@@ -32,7 +32,7 @@ const SlotPage = () => {
     const rollButtonRef = useRef();
     const resetButtonRef = useRef();
 
-    const [depositAmount, setDepositAmount] = useState(0);
+    const [betAmount, setBetAmount] = useState(0);
 
 
     useEffect(() => {
@@ -104,25 +104,25 @@ const SlotPage = () => {
             }
         });
 
-        setUserBalance(userBalance => userBalance + winMultiplier * depositAmount);
+        setUserBalance(userBalance => userBalance + winMultiplier * betAmount);
 
         console.log("Win multiplier: " + winMultiplier + "x");
-        console.log("Win amount: " + winMultiplier * depositAmount);
+        console.log("Win amount: " + winMultiplier * betAmount);
     }
 
 
     const handleRollButton = () => {
-        if (depositAmount < 5) {
+        if (betAmount < 5) {
             window.alert("Please enter a valid amount! (At least $5)");
             return;
         }
 
-        if (userBalance - depositAmount < 0) {
+        if (userBalance - betAmount < 0) {
             window.alert("Please enter a valid amount!");
             return;
         }
 
-        setUserBalance(userBalance => userBalance - depositAmount);
+        setUserBalance(userBalance => userBalance - betAmount);
         randomizeLastSlotItem();
         rollButtonRef.current.disabled = true;
 
@@ -173,7 +173,7 @@ const SlotPage = () => {
                     <button ref={rollButtonRef} onClick={handleRollButton}>Roll</button>
                 </div>
 
-                <BetInput depositAmount={depositAmount} setDepositAmount={setDepositAmount} />
+                <BetInput betAmount={betAmount} setBetAmount={setBetAmount} />
 
 
             </div>
