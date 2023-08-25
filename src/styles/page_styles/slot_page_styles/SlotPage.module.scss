@@ -1,41 +1,121 @@
 @import "../../globals.scss";
 
 
-.slotPage {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+.SlotPage {
+    height: 90vh;
 
-.slotContainer {
-    border: 1px solid red;
-    height: 80px;
-    width: 240px;
-    display: flex;
-    overflow: hidden;
-}
+    .slotDisplay {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 1rem;
 
-.slotRow {
-    transition: transform 1.5s ease;
-}
+        @media(max-width: 670px) {
+            flex-direction: column;
+            row-gap: 1rem;
+        }
 
-.slotItem {
-    border: 1px solid black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80px;
-    height: 80px;
-}
+        .slotContainer {
+            background-color: $gray-faded;
+            height: 152px;
+            width: fit-content;
+            display: flex;
+            column-gap: 1rem;
+            padding: 1rem;
+            border-radius: $border-rad-sm;
+            overflow: hidden;
 
-.slotDisplay {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+            @media(max-width: 670px) {
+                height: 132px;
+            }
 
-    button {
-        @include flex-center;
-        height: 80px;
-        width: 2rem;
+            @media(max-width: 425px) {
+                padding: 10px;
+                column-gap: 0.5rem;
+                width: 100%;
+                justify-content: center;
+                height: 105px;
+            }
+
+            .slotRow {
+                transition: transform 1.5s ease;
+
+                .slotItem {
+                    border: 1px solid $green-main;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 120px;
+                    height: 120px;
+                    background-color: $gray-bright;
+                    font-size: 2rem;
+                    border-radius: $border-rad-sm;
+                    margin-bottom: 1rem;
+
+                    @media(max-width: 670px) {
+                        height: 100px;
+                        width: 100px;
+                        font-size: 1.6rem;
+                    }
+
+                    @media(max-width: 425px) {
+                        width: 85px;
+                        height: 85px;
+                    }
+                }
+            }
+        }
+
+        .slotButtons {
+            display: flex;
+            column-gap: 1rem;
+
+            @media(max-width: 425px) {
+                width: 100%;
+            }
+
+            button {
+                @include flex-center;
+                flex-direction: column;
+                height: 152px;
+                width: 4rem;
+                border: none;
+                row-gap: 0.2rem;
+                border-radius: $border-rad-sm;
+
+                @media(max-width: 670px) {
+                    flex-direction: row;
+                    width: 10rem;
+                    height: 4rem;
+                }
+
+                @media(max-width: 425px) {
+                    width: 100%;
+                }
+        
+                p {
+                    font-size: 1rem;
+                    font-weight: 600;
+                    height: fit-content;
+                    line-height: 1rem;
+                }
+            }
+            
+            .resetButton {
+                background-color: $red;
+        
+            }
+        
+            .rollButton {
+                background-color: $green-main;
+            }
+        } 
     }
 }
+
+
+
+
+
+
+

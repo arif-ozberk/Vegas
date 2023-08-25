@@ -5,6 +5,8 @@ import styles from "../styles/page_styles/slot_page_styles/SlotPage.module.scss"
 
 // Components
 import BetInput from '../components/shared_components/BetInput';
+import SlotButtons from '../components/slot_page/SlotButtons';
+import SlotContainer from '../components/slot_page/SlotContainer';
 
 // Context
 import { mainContext } from '../context/mainContext';
@@ -31,6 +33,7 @@ const SlotPage = () => {
 
     const rollButtonRef = useRef();
     const resetButtonRef = useRef();
+    const slotItemRef = useRef();
 
     const [betAmount, setBetAmount] = useState(0);
 
@@ -112,6 +115,7 @@ const SlotPage = () => {
 
 
     const handleRollButton = () => {
+        console.log(slotItemRef.current.clientHeight)
         if (betAmount < 5) {
             window.alert("Please enter a valid amount! (At least $5)");
             return;
@@ -148,34 +152,22 @@ const SlotPage = () => {
     return (
         <PageWrapper>
             <div className={`${styles.SlotPage} context-wrapper`}>
+                <div className={`${styles.slotDisplay} divider-bottom-md`}>
+                    <SlotContainer 
+                        slotRows={slotRows} 
+                        isRolling={isRolling} 
+                        slotItemRef={slotItemRef} 
+                    />
 
-                <div className={styles.slotDisplay}>
-                    <button ref={resetButtonRef} onClick={handleResetButton}>Reset</button>
-                    <div className={styles.slotContainer}>
-                        {slotRows.map((slotRow, index) => (
-                            <div
-                                className={styles.slotRow}
-                                style={{
-                                    transition: isRolling ? "transform 1.5s ease" : "none",
-                                    transform: isRolling ? `translateY(-1120px)` : "translateY(0)",
-                                    transitionDelay: isRolling ? `${index * 0.4}s` : "none",
-                                }}
-                                key={index}
-                            >
-                                {slotRow.map((slotItem, index) => (
-                                    <div key={index} className={styles.slotItem}>
-                                        {slotItem}
-                                    </div>
-                                ))}
-                            </div>
-                        ))}
-                    </div>
-                    <button ref={rollButtonRef} onClick={handleRollButton}>Roll</button>
+                    <SlotButtons 
+                        rollButtonRef={rollButtonRef} 
+                        resetButtonRef={resetButtonRef} 
+                        handleRollButton={handleRollButton} 
+                        handleResetButton={handleResetButton} 
+                    />
                 </div>
 
                 <BetInput betAmount={betAmount} setBetAmount={setBetAmount} />
-
-
             </div>
         </PageWrapper>
     );
