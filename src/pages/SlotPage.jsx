@@ -7,6 +7,7 @@ import styles from "../styles/page_styles/slot_page_styles/SlotPage.module.scss"
 import BetInput from '../components/shared_components/BetInput';
 import SlotButtons from '../components/slot_page/SlotButtons';
 import SlotContainer from '../components/slot_page/SlotContainer';
+import PageLoader from '../components/shared_components/PageLoader';
 
 // Context
 import { mainContext } from '../context/mainContext';
@@ -17,7 +18,7 @@ import PageWrapper from '../wrappers/PageWrapper';
 
 const SlotPage = () => {
 
-    const { userBalance, setUserBalance } = useContext(mainContext);
+    const { userBalance, setUserBalance, PAGE_LOADING_DURATION } = useContext(mainContext);
 
     const slotSelections = ['🍒', '🍊', '🍇', '🍋', '🍉', '🍓', '🍌'];
     const [slotRows, setSlotRows] = useState([
@@ -28,7 +29,6 @@ const SlotPage = () => {
     const [finalSlot, setFinalSlot] = useState([]);
     const finalLocaleSlot = [];
 
-
     const [isRolling, setIsRolling] = useState(false);
 
     const rollButtonRef = useRef();
@@ -37,10 +37,15 @@ const SlotPage = () => {
 
     const [betAmount, setBetAmount] = useState(0);
 
+    const [isPageLoading, setIsPageLoading] = useState(true);
+
 
     useEffect(() => {
         window.scrollTo(0, 0); // Scroll back to top on page changes
-        resetButtonRef.current.disabled = true;
+
+        setTimeout(() => {
+            setIsPageLoading(false); // Page loader executes after xx seconds
+        }, PAGE_LOADING_DURATION);
     }, []);
 
 
@@ -115,9 +120,8 @@ const SlotPage = () => {
 
 
     const handleRollButton = () => {
+        resetButtonRef.current.disabled = true;
         
-
-
         if (betAmount < 5) {
             window.alert("Please enter a valid amount! (At least $5)");
             return;
@@ -153,25 +157,29 @@ const SlotPage = () => {
 
     return (
         <PageWrapper>
-            <div className={`${styles.SlotPage} context-wrapper`}>
-                <div className={`${styles.slotDisplay} divider-bottom-md`}>
-                    <SlotContainer 
-                        slotRows={slotRows} 
-                        isRolling={isRolling} 
-                        slotItemRef={slotItemRef} 
-                    />
+            {isPageLoading && <PageLoader />}
 
-                    <SlotButtons 
-                        rollButtonRef={rollButtonRef} 
-                        resetButtonRef={resetButtonRef} 
-                        handleRollButton={handleRollButton} 
-                        handleResetButton={handleResetButton} 
-                        isRolling={isRolling}
-                    />
+            {!isPageLoading && 
+                <div className={`${styles.SlotPage} context-wrapper`}>
+                    <div className={`${styles.slotDisplay} divider-bottom-md`}>
+                        <SlotContainer 
+                            slotRows={slotRows} 
+                            isRolling={isRolling} 
+                            slotItemRef={slotItemRef} 
+                        />
+
+                        <SlotButtons 
+                            rollButtonRef={rollButtonRef} 
+                            resetButtonRef={resetButtonRef} 
+                            handleRollButton={handleRollButton} 
+                            handleResetButton={handleResetButton} 
+                            isRolling={isRolling}
+                        />
+                    </div>
+
+                    <BetInput betAmount={betAmount} setBetAmount={setBetAmount} />
                 </div>
-
-                <BetInput betAmount={betAmount} setBetAmount={setBetAmount} />
-            </div>
+            }
         </PageWrapper>
     );
 }
