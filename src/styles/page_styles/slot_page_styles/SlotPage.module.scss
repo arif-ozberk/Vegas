@@ -10,7 +10,7 @@
         justify-content: center;
         column-gap: 1rem;
 
-        @media(max-width: 670px) {
+        @media(max-width: 500px) {
             flex-direction: column;
             row-gap: 1rem;
         }
@@ -32,7 +32,6 @@
             @media(max-width: 425px) {
                 padding: 10px;
                 column-gap: 0.5rem;
-                width: 100%;
                 justify-content: center;
                 height: 105px;
             }
@@ -65,51 +64,88 @@
                 }
             }
         }
+    }
+}
 
-        .slotButtons {
-            display: flex;
-            column-gap: 1rem;
+.slotButtonsFrame {
+    display: flex;
+    height: 152px;
+    width: 4rem;
+    position: relative;
+    overflow: hidden;
 
-            @media(max-width: 425px) {
-                width: 100%;
+    @media(max-width: 670px) {
+        height: 132px;
+    }
+
+    @media(max-width: 500px) {
+        height: 4rem;
+        width: 10rem;
+    }
+
+    .slotButtons {
+        display: flex;
+        flex-direction: column;
+        column-gap: 1rem;
+        height: fit-content;
+        position: absolute;
+        bottom: 0;
+        transition: transform 0.3s ease-out;
+        transform: translateY(0);
+
+        button {
+            @include flex-center;
+            flex-direction: column;
+            height: 152px;
+            width: 4rem;
+            border: none;
+            row-gap: 0.2rem;
+            border-radius: $border-rad-sm;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+
+            @media(max-width: 670px) {
+                height: 132px;
             }
 
-            button {
-                @include flex-center;
-                flex-direction: column;
-                height: 152px;
-                width: 4rem;
-                border: none;
-                row-gap: 0.2rem;
-                border-radius: $border-rad-sm;
-
-                @media(max-width: 670px) {
-                    flex-direction: row;
-                    width: 10rem;
-                    height: 4rem;
-                }
-
-                @media(max-width: 425px) {
-                    width: 100%;
-                }
-        
-                p {
-                    font-size: 1rem;
-                    font-weight: 600;
-                    height: fit-content;
-                    line-height: 1rem;
-                }
+            @media(max-width: 500px) {
+                flex-direction: row;
+                width: 10rem;
+                height: 4rem;
             }
-            
-            .resetButton {
+
+            p {
+                font-size: 1rem;
+                font-weight: 600;
+                height: fit-content;
+                line-height: 1rem;
+            }
+        }
+
+        .resetButton {
+            background-color: $red;
+
+            &:hover {
+                background-color: $red-hover;
+                transform: translateY(-5px);
+            }
+
+            &:disabled {
                 background-color: $red;
-        
             }
-        
-            .rollButton {
+        }
+
+        .rollButton {
+            background-color: $green-main;
+
+            &:hover {
+                background-color: $green-hover;
+                transform: translateY(5px);
+            }
+
+            &:disabled {
                 background-color: $green-main;
             }
-        } 
+        }
     }
 }
 

@@ -115,7 +115,9 @@ const SlotPage = () => {
 
 
     const handleRollButton = () => {
-        console.log(slotItemRef.current.clientHeight)
+        
+
+
         if (betAmount < 5) {
             window.alert("Please enter a valid amount! (At least $5)");
             return;
@@ -164,6 +166,7 @@ const SlotPage = () => {
                         resetButtonRef={resetButtonRef} 
                         handleRollButton={handleRollButton} 
                         handleResetButton={handleResetButton} 
+                        isRolling={isRolling}
                     />
                 </div>
 
