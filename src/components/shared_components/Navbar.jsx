@@ -74,7 +74,11 @@ const Navbar = () => {
                         {isAuthenticated && <div className={styles.welcomeMessage}>
                             <img src={userInfo.picture} alt="logged-user-image" />
                             <p>{userInfo.nickname}</p>
-                            <i className='fas fa-chevron-down' onClick={handleDropdownButton}></i>
+                            <i 
+                                className='fas fa-chevron-down' 
+                                onClick={handleDropdownButton} 
+                                style={{ transform: isDropdownOpen ? "rotateX(180deg)" : "rotateX(0deg)", color: isDropdownOpen ? "#00FF86" : "#ffffff" }}
+                            ></i>
                             <div className={styles.userDropdown} style={{ display: isDropdownOpen ? "flex" : "none" }}>
                                 <Link  onClick={() => setIsDropdownOpen(false)}><i className='fas fa-user'></i>Profile</Link>
                                 <Link  onClick={() => setIsDropdownOpen(false)}><i className='fas fa-gear'></i>Settings</Link>
