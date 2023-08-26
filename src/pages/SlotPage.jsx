@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 
 // Styles
 import styles from "../styles/page_styles/slot_page_styles/SlotPage.module.scss";
+import 'react-toastify/dist/ReactToastify.css';
 
 // Components
 import PageLoader from '../components/shared_components/PageLoader';
@@ -136,13 +138,31 @@ const SlotPage = () => {
         resetButtonRef.current.disabled = true;
         setIsWin(null);
 
-        if (betAmount < 5) {
-            window.alert("Please enter a valid amount! (At least $5)");
+        if (betAmount < 1) {
+            toast.error("Please enter a valid amount! (At least $1)", {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
             return;
         }
 
         if (userBalance - betAmount < 0) {
-            window.alert("Please enter a valid amount!");
+            toast.error("Please enter a valid amount!", {
+                position: "top-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
             return;
         }
 
@@ -176,6 +196,7 @@ const SlotPage = () => {
 
             {!isPageLoading && 
                 <div className={`${styles.SlotPage} context-wrapper`}>
+                    <ToastContainer />
                     <h1 className='title-main'>Slot</h1>
                     <SlotResult resultMessage={resultMessage} isWin={isWin} />
 
