@@ -4,10 +4,11 @@ import React, { useState, useEffect, useRef, useContext } from 'react';
 import styles from "../styles/page_styles/slot_page_styles/SlotPage.module.scss";
 
 // Components
-import BetInput from '../components/shared_components/BetInput';
+import PageLoader from '../components/shared_components/PageLoader';
+import SlotResult from '../components/slot_page/SlotResult';
 import SlotButtons from '../components/slot_page/SlotButtons';
 import SlotContainer from '../components/slot_page/SlotContainer';
-import PageLoader from '../components/shared_components/PageLoader';
+import BetInput from '../components/shared_components/BetInput';
 
 // Context
 import { mainContext } from '../context/mainContext';
@@ -36,6 +37,9 @@ const SlotPage = () => {
     const slotItemRef = useRef();
 
     const [betAmount, setBetAmount] = useState(0);
+
+    const [resultMessage, setResultMessage] = useState("");
+    const [isWin, setIsWin] = useState(null);
 
     const [isPageLoading, setIsPageLoading] = useState(true);
 
@@ -104,13 +108,22 @@ const SlotPage = () => {
                 console.log("Key: " + key + " Value: " + value);
                 console.log("Congrats you win 3x multiplier");
                 winMultiplier = 3;
+                setResultMessage(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`);
+                setIsWin(true);
             }
             else if (value > 2) {
                 console.log("Key: " + key + " Value: " + value);
                 console.log("Congrats you win 10x multiplier");
                 winMultiplier = 10;
+                setResultMessage(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`);
+                setIsWin(true);
             }
         });
+
+        if(winMultiplier === 0) {
+            setResultMessage("Better luck next time!");
+            setIsWin(false);
+        }
 
         setUserBalance(userBalance => userBalance + winMultiplier * betAmount);
 
@@ -121,7 +134,8 @@ const SlotPage = () => {
 
     const handleRollButton = () => {
         resetButtonRef.current.disabled = true;
-        
+        setIsWin(null);
+
         if (betAmount < 5) {
             window.alert("Please enter a valid amount! (At least $5)");
             return;
@@ -151,6 +165,7 @@ const SlotPage = () => {
         rollButtonRef.current.disabled = false;
         resetButtonRef.current.disabled = true;
 
+        setResultMessage("");
         setFinalSlot([]);
     }
 
@@ -161,6 +176,9 @@ const SlotPage = () => {
 
             {!isPageLoading && 
                 <div className={`${styles.SlotPage} context-wrapper`}>
+                    <h1 className='title-main'>Slot</h1>
+                    <SlotResult resultMessage={resultMessage} isWin={isWin} />
+
                     <div className={`${styles.slotDisplay} divider-bottom-md`}>
                         <SlotContainer 
                             slotRows={slotRows} 

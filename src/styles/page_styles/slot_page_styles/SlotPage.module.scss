@@ -149,6 +149,33 @@
     }
 }
 
+.slotResult {
+    @include flex-center;
+    height: 2.5rem;
+    transition: height 0.3s ease;
+
+    p {
+        font-size: 1.1rem;
+        font-weight: 400;
+        border-radius: $border-rad-xs;
+        transition: all 0.3s ease 0.3s;
+
+        @media(max-width: 500px) {
+            font-size: 1rem;
+        }
+    }
+
+    .winMessage {
+        background-color: $green-faded;
+        color: $green-main;
+    }
+
+    .loseMessage {
+        background-color: $red-faded;
+        color: $red;
+    }
+}
+
 
 
 
