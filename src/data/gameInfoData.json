@@ -1,0 +1,40 @@
+{
+    "gameInfos": {
+        "slotGame": {
+            "gameTitle": "Slot",
+            "gameIcon": "fas fa-check-to-slot",
+            "sections": [
+                {
+                    "sectionTitle": "How to play?",
+                    "sectionContext": "Enter your bet amount from the bet imput section below. Then click the roll button to roll the slot. After rolling ends, click the reset button and play more with roll button again."
+                },
+                {
+                    "sectionTitle": "Win conditions",
+                    "sectionContext": "If you get 2 same fruits, you will earn 3x of your bet amount. If you get 3 same fruits, you will earn 10x of your bet amount."
+                },
+                {
+                    "sectionTitle": "Notifications",
+                    "sectionContext": "You can mute notifications by clicking the bell symbol on the top right corner of the game."
+                }
+            ]
+        },
+        "rouletteGame": {
+            "gameTitle": "Roulette",
+            "gameIcon": "fas fa-compact-disc",
+            "sections": [
+                {
+                    "sectionTitle": "How to play?",
+                    "sectionContext": ""
+                },
+                {
+                    "sectionTitle": "Win conditions",
+                    "sectionContext": ""
+                },
+                {
+                    "sectionTitle": "Notifications",
+                    "sectionContext": "You can mute notifications by clicking the bell symbol on the top right corner of the game."
+                }
+            ]
+        }
+    }
+}

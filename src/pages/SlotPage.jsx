@@ -18,6 +18,9 @@ import { mainContext } from '../context/mainContext';
 // Wrappers
 import PageWrapper from '../wrappers/PageWrapper';
 
+// Data
+import gameInfoData from "../data/gameInfoData.json";
+
 
 const SlotPage = () => {
 
@@ -180,6 +183,9 @@ const SlotPage = () => {
     }
 
 
+    
+
+
     return (
         <PageWrapper>
             {isPageLoading && <PageLoader />}
@@ -189,7 +195,7 @@ const SlotPage = () => {
                     <ToastContainer />
                     <div className={`${styles.slotTitle} divider-bottom-sm`}>
                         <h1 className='title-main'>Slot</h1>
-                        <GameOptions />
+                        <GameOptions gameType={gameInfoData.gameInfos.slotGame} />
                     </div>
                     
                     <div className={`${styles.slotDisplay} divider-bottom-md`}>

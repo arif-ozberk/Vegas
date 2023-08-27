@@ -26,6 +26,7 @@ function App() {
 
     const [userBalance, setUserBalance] = useState(1000);
     const [gameNotification, setGameNotification] = useState(true);
+    const [isInfoOn, setIsInfoOn] = useState(false);  // Game info popup control state
 
 
     useEffect(() => {
@@ -50,7 +51,9 @@ function App() {
     
     return (
         <BrowserRouter>
-            <mainContext.Provider value={{ PAGE_LOADING_DURATION, userBalance, setUserBalance, gameNotification, setGameNotification }}>
+            <mainContext.Provider 
+                value={{ PAGE_LOADING_DURATION, userBalance, setUserBalance, gameNotification, setGameNotification, isInfoOn, setIsInfoOn }}
+            >
                     <div className='App' style={{ height: isLoading ? "100vh" : "fit-content" }}>
                         <LoginLoading />
 
