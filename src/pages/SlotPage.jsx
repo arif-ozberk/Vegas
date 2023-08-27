@@ -41,6 +41,27 @@ const SlotPage = () => {
 
     const [isPageLoading, setIsPageLoading] = useState(true);
 
+    const topResultOptions = {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+    }
+    const bottomResultOptions = {
+        position: "bottom-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+    }
+
 
     useEffect(() => {
         window.scrollTo(0, 0); // Scroll back to top on page changes
@@ -63,7 +84,6 @@ const SlotPage = () => {
 
 
     const calculateWin = () => {
-
         const slotLocaleItemAmounts = new Map([
             ["🍒", 0],
             ["🍊", 0],
@@ -106,53 +126,22 @@ const SlotPage = () => {
                 console.log("Key: " + key + " Value: " + value);
                 console.log("Congrats you win 3x multiplier");
                 winMultiplier = 3;
-                toast.success(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`, {
-                    position: "bottom-right",
-                    autoClose: 4000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
+                toast.success(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`, bottomResultOptions);
 
             }
             else if (value > 2) {
                 console.log("Key: " + key + " Value: " + value);
                 console.log("Congrats you win 10x multiplier");
                 winMultiplier = 10;
-                toast.success(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`, {
-                    position: "bottom-right",
-                    autoClose: 4000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "colored",
-                });
+                toast.success(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`, bottomResultOptions);
             }
         });
 
         if(winMultiplier === 0) {
-            // setResultMessage("Better luck next time!");
-            toast.error(`"Better luck next time!"`, {
-                position: "bottom-right",
-                autoClose: 4000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            toast.error(`"Better luck next time!"`, bottomResultOptions);
         }
 
         setUserBalance(userBalance => userBalance + winMultiplier * betAmount);
-
-        console.log("Win multiplier: " + winMultiplier + "x");
-        console.log("Win amount: " + winMultiplier * betAmount);
     }
 
 
@@ -160,37 +149,18 @@ const SlotPage = () => {
         resetButtonRef.current.disabled = true;
 
         if (betAmount < 1) {
-            toast.error("Please enter a valid amount! (At least $1)", {
-                position: "top-right",
-                autoClose: 4000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            toast.error("Please enter a valid amount! (At least $1)", topResultOptions);
             return;
         }
 
         if (userBalance - betAmount < 0) {
-            toast.error("Please enter a valid amount!", {
-                position: "top-right",
-                autoClose: 4000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-            });
+            toast.error("Please enter a valid amount!", topResultOptions);
             return;
         }
 
         setUserBalance(userBalance => userBalance - betAmount);
         randomizeLastSlotItem();
         rollButtonRef.current.disabled = true;
-
         setIsRolling(true);
 
         setTimeout(() => {
@@ -202,10 +172,8 @@ const SlotPage = () => {
 
     const handleResetButton = () => {
         setIsRolling(false);
-
         rollButtonRef.current.disabled = false;
         resetButtonRef.current.disabled = true;
-
         setResultMessage("");
         setFinalSlot([]);
     }
