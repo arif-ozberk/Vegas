@@ -45,6 +45,9 @@
     padding: 2rem 1.5rem;
     border-radius: $border-rad-sm;
     min-width: 500px;
+    animation-name: popupAnimation;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
 
     @media(max-width: 670px) {
         min-width: 400px;
@@ -114,5 +117,17 @@
                 font-size: 0.8rem;
             }
         }
+    }
+}
+
+@keyframes popupAnimation {
+    from {
+        opacity: 0;
+        scale: 0.4;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
     }
 }
