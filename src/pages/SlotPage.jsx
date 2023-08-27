@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 // Components
 import PageLoader from '../components/shared_components/PageLoader';
+import GameOptions from '../components/shared_components/GameOptions';
 import SlotButtons from '../components/slot_page/SlotButtons';
 import SlotContainer from '../components/slot_page/SlotContainer';
 import BetInput from '../components/shared_components/BetInput';
@@ -20,7 +21,7 @@ import PageWrapper from '../wrappers/PageWrapper';
 
 const SlotPage = () => {
 
-    const { userBalance, setUserBalance, PAGE_LOADING_DURATION } = useContext(mainContext);
+    const { userBalance, setUserBalance, PAGE_LOADING_DURATION, gameNotification, setGameNotification } = useContext(mainContext);
 
     const slotSelections = ['🍒', '🍊', '🍇', '🍋', '🍉', '🍓', '🍌'];
     const [slotRows, setSlotRows] = useState([
@@ -126,19 +127,19 @@ const SlotPage = () => {
                 console.log("Key: " + key + " Value: " + value);
                 console.log("Congrats you win 3x multiplier");
                 winMultiplier = 3;
-                toast.success(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`, bottomResultOptions);
+                gameNotification && toast.success(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`, bottomResultOptions);
 
             }
             else if (value > 2) {
                 console.log("Key: " + key + " Value: " + value);
                 console.log("Congrats you win 10x multiplier");
                 winMultiplier = 10;
-                toast.success(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`, bottomResultOptions);
+                gameNotification && toast.success(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`, bottomResultOptions);
             }
         });
 
         if(winMultiplier === 0) {
-            toast.error(`"Better luck next time!"`, bottomResultOptions);
+            gameNotification && toast.error(`"Better luck next time!"`, bottomResultOptions);
         }
 
         setUserBalance(userBalance => userBalance + winMultiplier * betAmount);
@@ -186,7 +187,11 @@ const SlotPage = () => {
             {!isPageLoading && 
                 <div className={`${styles.SlotPage} context-wrapper`}>
                     <ToastContainer />
-                    <h1 className='title-main'>Slot</h1>
+                    <div className={`${styles.slotTitle} divider-bottom-sm`}>
+                        <h1 className='title-main'>Slot</h1>
+                        <GameOptions />
+                    </div>
+                    
                     <div className={`${styles.slotDisplay} divider-bottom-md`}>
                         <SlotContainer 
                             slotRows={slotRows} 

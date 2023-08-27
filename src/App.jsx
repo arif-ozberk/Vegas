@@ -25,6 +25,7 @@ function App() {
     const { isLoading, user } = useAuth0();
 
     const [userBalance, setUserBalance] = useState(1000);
+    const [gameNotification, setGameNotification] = useState(true);
 
 
     useEffect(() => {
@@ -49,7 +50,7 @@ function App() {
     
     return (
         <BrowserRouter>
-            <mainContext.Provider value={{ PAGE_LOADING_DURATION, userBalance, setUserBalance }}>
+            <mainContext.Provider value={{ PAGE_LOADING_DURATION, userBalance, setUserBalance, gameNotification, setGameNotification }}>
                     <div className='App' style={{ height: isLoading ? "100vh" : "fit-content" }}>
                         <LoginLoading />
 

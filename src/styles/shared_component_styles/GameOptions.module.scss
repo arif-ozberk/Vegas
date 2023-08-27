@@ -1,0 +1,25 @@
+@import "../globals.scss";
+
+
+.gameOptions {
+    @include flex-center;
+    column-gap: 0.8rem;
+
+    i {
+        background-color: $gray-faded;
+        padding: 0.5rem;
+        border-radius: $border-rad-xs;
+        color: $gray-text;
+        cursor: pointer;
+        transition: transform 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+        width: 2rem;
+        height: 2rem;
+        @include flex-center;
+
+        &:hover {
+            transform: translateY(-5px);
+            color: $green-main;
+            background-color: $gray-bright;
+        }
+    }
+}
