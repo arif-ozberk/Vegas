@@ -7,7 +7,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 // Components
 import PageLoader from '../components/shared_components/PageLoader';
-import SlotResult from '../components/slot_page/SlotResult';
 import SlotButtons from '../components/slot_page/SlotButtons';
 import SlotContainer from '../components/slot_page/SlotContainer';
 import BetInput from '../components/shared_components/BetInput';
@@ -39,9 +38,6 @@ const SlotPage = () => {
     const slotItemRef = useRef();
 
     const [betAmount, setBetAmount] = useState(0);
-
-    const [resultMessage, setResultMessage] = useState("");
-    const [isWin, setIsWin] = useState(null);
 
     const [isPageLoading, setIsPageLoading] = useState(true);
 
@@ -110,21 +106,47 @@ const SlotPage = () => {
                 console.log("Key: " + key + " Value: " + value);
                 console.log("Congrats you win 3x multiplier");
                 winMultiplier = 3;
-                setResultMessage(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`);
-                setIsWin(true);
+                toast.success(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`, {
+                    position: "bottom-right",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
+
             }
             else if (value > 2) {
                 console.log("Key: " + key + " Value: " + value);
                 console.log("Congrats you win 10x multiplier");
                 winMultiplier = 10;
-                setResultMessage(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`);
-                setIsWin(true);
+                toast.success(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`, {
+                    position: "bottom-right",
+                    autoClose: 4000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "colored",
+                });
             }
         });
 
         if(winMultiplier === 0) {
-            setResultMessage("Better luck next time!");
-            setIsWin(false);
+            // setResultMessage("Better luck next time!");
+            toast.error(`"Better luck next time!"`, {
+                position: "bottom-right",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
         }
 
         setUserBalance(userBalance => userBalance + winMultiplier * betAmount);
@@ -136,7 +158,6 @@ const SlotPage = () => {
 
     const handleRollButton = () => {
         resetButtonRef.current.disabled = true;
-        setIsWin(null);
 
         if (betAmount < 1) {
             toast.error("Please enter a valid amount! (At least $1)", {
@@ -198,8 +219,6 @@ const SlotPage = () => {
                 <div className={`${styles.SlotPage} context-wrapper`}>
                     <ToastContainer />
                     <h1 className='title-main'>Slot</h1>
-                    <SlotResult resultMessage={resultMessage} isWin={isWin} />
-
                     <div className={`${styles.slotDisplay} divider-bottom-md`}>
                         <SlotContainer 
                             slotRows={slotRows} 
