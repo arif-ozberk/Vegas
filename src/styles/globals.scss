@@ -85,6 +85,12 @@ button {
     justify-content: center;
 }
 
+@mixin flex-space-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 @mixin background-grad-blue($degree: 180deg) {
     background: linear-gradient($degree, rgba(13, 204, 255, 1) 0%,rgba(71, 96, 255, 1) 100%);
 }
