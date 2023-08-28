@@ -1,0 +1,43 @@
+@import "../../globals.scss";
+
+
+.rouletteSpinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    // border: 1px solid red;
+    padding-bottom: 8rem;
+    position: relative;
+    overflow: hidden;
+
+    i {
+        font-size: 1.5rem;
+        color: $white;
+    }
+
+    .frame {
+        // border: 1px solid yellow;
+        margin: 0 auto;
+        display: flex;
+        height: 100px;
+        width: 1612px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        padding-top: 4.5rem;
+
+        .rouletteElements {
+            display: flex;
+            column-gap: 8px;
+
+            .rouletteElement {
+                width: 100px;
+                height: 100px;
+                color: $white;
+                @include flex-center;
+                border-radius: $border-rad-xs;
+            }
+        }
+    }
+}

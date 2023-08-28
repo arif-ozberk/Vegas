@@ -1,0 +1,476 @@
+{
+    "rouletteElements": [
+        {
+            "elementNumber": 1,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 14,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 2,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 13,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 3,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 12,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 4,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 11,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 5,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 10,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 6,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 9,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 7,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 8,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 0,
+            "elementColor": "green",
+            "elementColorCode": "#30C149"
+        },
+
+
+
+
+        {
+            "elementNumber": 1,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 14,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 2,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 13,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 3,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 12,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 4,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 11,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 5,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 10,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 6,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 9,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 7,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 8,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 0,
+            "elementColor": "green",
+            "elementColorCode": "#30C149"
+        },
+
+
+
+
+        {
+            "elementNumber": 1,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 14,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 2,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 13,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 3,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 12,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 4,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 11,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 5,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 10,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 6,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 9,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 7,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 8,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 0,
+            "elementColor": "green",
+            "elementColorCode": "#30C149"
+        },
+
+
+
+
+
+        {
+            "elementNumber": 1,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 14,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 2,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 13,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 3,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 12,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 4,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 11,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 5,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 10,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 6,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 9,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 7,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 8,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 0,
+            "elementColor": "green",
+            "elementColorCode": "#30C149"
+        },
+
+
+
+
+        {
+            "elementNumber": 1,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 14,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 2,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 13,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 3,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 12,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 4,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 11,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 5,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 10,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 6,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 9,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 7,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 8,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 0,
+            "elementColor": "green",
+            "elementColorCode": "#30C149"
+        },
+
+
+
+
+
+        {
+            "elementNumber": 1,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 14,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 2,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 13,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 3,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 12,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 4,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 11,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 5,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 10,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 6,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 9,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 7,
+            "elementColor": "black",
+            "elementColorCode": "#353942"
+        },
+        {
+            "elementNumber": 8,
+            "elementColor": "red",
+            "elementColorCode": "#FF5050"
+        },
+        {
+            "elementNumber": 0,
+            "elementColor": "green",
+            "elementColorCode": "#30C149"
+        }
+    ]
+}
