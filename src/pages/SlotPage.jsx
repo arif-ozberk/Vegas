@@ -16,7 +16,7 @@ import BetInput from '../components/shared_components/BetInput';
 import { mainContext } from '../context/mainContext';
 
 // Wrappers
-import PageWrapper from '../wrappers/PageWrapper';
+import GamePageWrapper from '../wrappers/GamePageWrapper';
 
 // Data
 import gameInfoData from "../data/gameInfoData.json";
@@ -187,7 +187,7 @@ const SlotPage = () => {
 
 
     return (
-        <PageWrapper>
+        <GamePageWrapper>
             {isPageLoading && <PageLoader />}
 
             {!isPageLoading && 
@@ -217,7 +217,7 @@ const SlotPage = () => {
                     <BetInput betAmount={betAmount} setBetAmount={setBetAmount} />
                 </div>
             }
-        </PageWrapper>
+        </GamePageWrapper>
     );
 }
  
