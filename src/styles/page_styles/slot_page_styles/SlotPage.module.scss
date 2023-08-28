@@ -2,7 +2,7 @@
 
 
 .SlotPage {
-    height: 90vh;
+    height: calc(100vh - 8rem);
 
     .slotTitle {
         @include flex-space-between;
