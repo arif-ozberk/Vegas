@@ -13,6 +13,7 @@ import LoginLoading from './components/shared_components/LoginLoading';
 import HomePage from './pages/HomePage';
 import SlotPage from './pages/SlotPage';
 import ComingSoonPage from './pages/ComingSoonPage';
+import RoulettePage from './pages/RoulettePage';
 
 // Context
 import { mainContext } from './context/mainContext';
@@ -61,7 +62,7 @@ function App() {
                             <Route path='/' element={<Navbar />}>
                                 <Route index element={<HomePage />} />
                                 <Route path='/slot-page' element={<SlotPage />} />
-                                <Route path='/roulette-page' element={<ComingSoonPage />} />
+                                <Route path='/roulette-page' element={<RoulettePage />} />
                                 <Route path='/crash-page' element={<ComingSoonPage />} />
                                 <Route path='/dice-page' element={<ComingSoonPage />} />
                             </Route>
