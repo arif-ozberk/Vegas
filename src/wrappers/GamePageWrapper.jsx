@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
+import { ToastContainer } from 'react-toastify';
 
 // Styles
 
@@ -23,6 +24,7 @@ const GamePageWrapper = ({ children }) => {
 
             {isAuthenticated && 
             <>
+                <ToastContainer />
                 {children}
             </>}
             <Footer />

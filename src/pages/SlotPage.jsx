@@ -192,7 +192,6 @@ const SlotPage = () => {
 
             {!isPageLoading && 
                 <div className={`${styles.SlotPage} context-wrapper`}>
-                    <ToastContainer />
                     <div className={`${styles.slotTitle} divider-bottom-sm`}>
                         <h1 className='title-main'>Slot</h1>
                         <GameOptions gameType={gameInfoData.gameInfos.slotGame} />
