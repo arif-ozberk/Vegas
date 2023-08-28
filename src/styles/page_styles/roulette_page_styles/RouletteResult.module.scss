@@ -1,0 +1,35 @@
+@import "../../globals.scss";
+
+
+.rouletteResult {
+    position: relative;
+    @include flex-center;
+    flex-direction: column;
+    margin-right: auto;
+    margin-left: auto;
+    height: 5rem;
+    width: 16rem;
+
+    p {
+        color: $white;
+        font-size: 1.4rem;
+        font-weight: 500;
+    }
+
+    .resultElement {
+        height: 60px;
+        width: 60px;
+        color: $white;
+        border-radius: $border-rad-xs;
+        @include flex-center;
+    }
+
+    .resultStick {
+        height: 3px;
+        width: 100%;
+        background-color: rgba(128, 128, 128, 0.185);
+        position: absolute;
+        bottom: 0;
+        border-radius: 80%;
+    }
+}

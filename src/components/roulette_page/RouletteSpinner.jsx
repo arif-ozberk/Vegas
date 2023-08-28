@@ -7,7 +7,7 @@ import styles from "../../styles/page_styles/roulette_page_styles/RouletteSpinne
 import rouletteSpinnerData from "../../data/rouletteSpinnerData.json";
 
 
-const RouletteSpinner = ({ randomRouletteIndex, isRolling }) => {
+const RouletteSpinner = ({ randomRouletteIndex, isRolling, ROLLING_DURATION }) => {
 
 
     return (
@@ -18,7 +18,7 @@ const RouletteSpinner = ({ randomRouletteIndex, isRolling }) => {
                     className={styles.rouletteElements} 
                     style={{ 
                         transform: isRolling ? `translateX(-${(randomRouletteIndex * 108) + 864 + (Math.floor(Math.random() * 45))}px)` : "translateX(0px)",
-                        transition: isRolling ? "transform 6s cubic-bezier(0.215, 0.610, 0.355, 1.000)" : "" 
+                        transition: isRolling ? `transform ${ROLLING_DURATION}ms cubic-bezier(0.215, 0.610, 0.355, 1.000)` : "" 
                     }}
                 >
                     {rouletteSpinnerData.rouletteElements.map((item, index) => (

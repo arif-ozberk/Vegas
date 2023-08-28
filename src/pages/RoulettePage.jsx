@@ -8,6 +8,7 @@ import PageLoader from '../components/shared_components/PageLoader';
 import GameOptions from '../components/shared_components/GameOptions';
 import BetInput from '../components/shared_components/BetInput';
 import RouletteSpinner from '../components/roulette_page/RouletteSpinner';
+import RouletteResult from '../components/roulette_page/RouletteResult';
 
 // Wrappers
 import GamePageWrapper from '../wrappers/GamePageWrapper';
@@ -28,8 +29,12 @@ const RoulettePage = () => {
 
     const [betAmount, setBetAmount] = useState(0);
 
+    const ROLLING_DURATION = 6200;
+
     const [randomRouletteIndex, setRandomRouletteIndex] = useState(0);
     const [isRolling, setIsRolling] = useState(false);
+    const [resultMessage, setResultMessage] = useState(rouletteSpinnerData.rouletteElements[7]);
+    const [rollingMessage, setRollingMessage] = useState(false);
 
 
     useEffect(() => {
@@ -41,22 +46,24 @@ const RoulettePage = () => {
     }, []);
 
     
-
-
-
-    const handleRollButton = async () => {
+    const handleRollButton = () => {
         setIsRolling(false);
+        setRollingMessage(true);
 
         setTimeout(() => {
             setIsRolling(true);
+            setResultMessage({});
             const randomNumber = Math.floor(Math.random() * (57 - 43 + 1)) + 43;
             setRandomRouletteIndex(randomNumber);
+
+            setTimeout(() => {
+                setResultMessage(rouletteSpinnerData.rouletteElements[randomNumber]);
+                setRollingMessage(false);
+            }, ROLLING_DURATION);
+            
             console.log(randomNumber);
             console.log(rouletteSpinnerData.rouletteElements[randomNumber].elementNumber + rouletteSpinnerData.rouletteElements[randomNumber].elementColor);
-        }, 10)
-        
-
-        
+        }, 10);
     }
 
 
@@ -71,7 +78,16 @@ const RoulettePage = () => {
                         <GameOptions gameType={gameInfoData.gameInfos.rouletteGame} />
                     </div>
 
-                    <RouletteSpinner randomRouletteIndex={randomRouletteIndex} isRolling={isRolling} />
+                    <RouletteResult 
+                        resultMessage={resultMessage} 
+                        rollingMessage={rollingMessage} 
+                    />
+
+                    <RouletteSpinner 
+                        randomRouletteIndex={randomRouletteIndex} 
+                        isRolling={isRolling} 
+                        ROLLING_DURATION={ROLLING_DURATION} 
+                    />
 
                     <button onClick={handleRollButton}>Roll</button>
 
