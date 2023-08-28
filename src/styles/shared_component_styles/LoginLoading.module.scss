@@ -4,7 +4,7 @@
 .loadingContainer {
     height: 100vh;
     background-color: $gray-faded;
-    position: absolute;
+    position: fixed;
     width: 100%;
     z-index: 99;
     @include flex-center;

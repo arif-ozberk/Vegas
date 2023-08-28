@@ -54,7 +54,7 @@ function App() {
             <mainContext.Provider 
                 value={{ PAGE_LOADING_DURATION, userBalance, setUserBalance, gameNotification, setGameNotification, isInfoOn, setIsInfoOn }}
             >
-                    <div className='App' style={{ height: isLoading ? "100vh" : "fit-content" }}>
+                    <div className='App'>
                         <LoginLoading />
 
                         <Routes>
