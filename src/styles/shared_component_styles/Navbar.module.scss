@@ -40,7 +40,6 @@
         display: flex;
         align-items: center;
 
-
         img {
             width: 3.5rem;
             margin-right: 0.5rem;
@@ -54,6 +53,11 @@
             color: $green-main;
             font-weight: 600;
             font-size: 1.8rem;
+            transition: color 0.2s ease;
+
+            &:hover {
+                color: $green-hover;
+            }
 
             @media(max-width: 768px) {
                 font-size: 1.5rem;
