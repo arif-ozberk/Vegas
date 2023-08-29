@@ -30,6 +30,7 @@ const RoulettePage = () => {
     const [isPageLoading, setIsPageLoading] = useState(true);
 
     const [betAmount, setBetAmount] = useState(0);
+    const [currentBetAmount, setCurrentBetAmount] = useState(0);
 
     const ROLLING_DURATION = 6200;
 
@@ -37,6 +38,8 @@ const RoulettePage = () => {
     const [isRolling, setIsRolling] = useState(false);
     const [resultMessage, setResultMessage] = useState(rouletteSpinnerData.rouletteElements[7]);
     const [rollingMessage, setRollingMessage] = useState(false);
+    const [showBetMessage, setShowBetMessage] = useState(false);
+    const [betColor, setBetColor] = useState("");
 
     const redButtonRef = useRef();
     const greenButtonRef = useRef();
@@ -79,8 +82,11 @@ const RoulettePage = () => {
 
         setIsRolling(false);
         setRollingMessage(true);
+        setShowBetMessage(true);
+        setBetColor(userBetColor);
 
         setUserBalance(userBalance => userBalance - betAmount);
+        setCurrentBetAmount(betAmount);
 
         setTimeout(() => {  // Click phase
             setIsRolling(true);
@@ -93,6 +99,7 @@ const RoulettePage = () => {
                 setResultMessage(rouletteSpinnerData.rouletteElements[randomNumber]);
                 setRollingMessage(false);
                 buttonDisableFalse();
+                setShowBetMessage(false);
 
                 if (userBetColor === rouletteSpinnerData.rouletteElements[randomNumber].elementColor) {
                     if(userBetColor === "red" || userBetColor === "black") {
@@ -104,7 +111,7 @@ const RoulettePage = () => {
                         gameNotification && toast.success(`14x - You win $${14 * betAmount}!`, bottomNotificationOptions);
                     }
                 }
-                
+
                 else {
                     gameNotification && toast.error(`"Better luck next time!"`, bottomNotificationOptions);
                 }
@@ -143,11 +150,12 @@ const RoulettePage = () => {
 
                     <RouletteButtons 
                         handleRollButton={handleRollButton} 
-                        isRolling={isRolling}
-                        betAmount={betAmount}
                         redButtonRef={redButtonRef}
                         greenButtonRef={greenButtonRef}
                         blackButtonRef={blackButtonRef}
+                        showBetMessage={showBetMessage}
+                        betColor={betColor}
+                        currentBetAmount={currentBetAmount}
                     />
                 </div>
             }
