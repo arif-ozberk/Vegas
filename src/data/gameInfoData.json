@@ -24,11 +24,11 @@
             "sections": [
                 {
                     "sectionTitle": "How to play?",
-                    "sectionContext": ""
+                    "sectionContext": "Place your bet on either Red/Green/Black. Wait for roulette to end rolling."
                 },
                 {
                     "sectionTitle": "Win conditions",
-                    "sectionContext": ""
+                    "sectionContext": "If you can guess the right color, you will win. You will recieve 2x on Red and Black, 14x on Green."
                 },
                 {
                     "sectionTitle": "Notifications",
