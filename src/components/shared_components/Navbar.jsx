@@ -24,14 +24,6 @@ const Navbar = () => {
 
     const { isAuthenticated, user } = useAuth0();
 
-    const [userInfo, setUserInfo] = useState({});
-
-
-    useEffect(() => {
-        user ? setUserInfo(user) : "";
-    }, [isAuthenticated]);
-
-
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isSideBarOpen, setIsSideBarOpen] = useState(false);
 
@@ -72,8 +64,7 @@ const Navbar = () => {
                         <SignUpButton />
 
                         {isAuthenticated && <div className={styles.welcomeMessage}>
-                            <img src={userInfo.picture} alt="logged-user-image" />
-                            <p>{userInfo.nickname}</p>
+                            <img src={user.picture} alt="logged-user-image" />
                             <i 
                                 className='fas fa-chevron-down' 
                                 onClick={handleDropdownButton} 
