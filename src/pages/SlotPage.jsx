@@ -45,7 +45,7 @@ const SlotPage = () => {
 
     const [isPageLoading, setIsPageLoading] = useState(true);
 
-    const topResultOptions = {
+    const topNotificationOptions = {
         position: "top-right",
         autoClose: 4000,
         hideProgressBar: false,
@@ -55,7 +55,7 @@ const SlotPage = () => {
         progress: undefined,
         theme: "colored",
     }
-    const bottomResultOptions = {
+    const bottomNotificationOptions = {
         position: "bottom-right",
         autoClose: 4000,
         hideProgressBar: false,
@@ -130,19 +130,19 @@ const SlotPage = () => {
                 console.log("Key: " + key + " Value: " + value);
                 console.log("Congrats you win 3x multiplier");
                 winMultiplier = 3;
-                gameNotification && toast.success(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`, bottomResultOptions);
+                gameNotification && toast.success(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`, bottomNotificationOptions);
 
             }
             else if (value > 2) {
                 console.log("Key: " + key + " Value: " + value);
                 console.log("Congrats you win 10x multiplier");
                 winMultiplier = 10;
-                gameNotification && toast.success(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`, bottomResultOptions);
+                gameNotification && toast.success(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`, bottomNotificationOptions);
             }
         });
 
         if(winMultiplier === 0) {
-            gameNotification && toast.error(`"Better luck next time!"`, bottomResultOptions);
+            gameNotification && toast.error(`"Better luck next time!"`, bottomNotificationOptions);
         }
 
         setUserBalance(userBalance => userBalance + winMultiplier * betAmount);
@@ -153,12 +153,12 @@ const SlotPage = () => {
         resetButtonRef.current.disabled = true;
 
         if (betAmount < 1) {
-            toast.error("Please enter a valid amount! (At least $1)", topResultOptions);
+            toast.error("Please enter a valid amount! (At least $1)", topNotificationOptions);
             return;
         }
 
         if (userBalance - betAmount < 0) {
-            toast.error("Please enter a valid amount!", topResultOptions);
+            toast.error("Please enter a valid amount!", topNotificationOptions);
             return;
         }
 
