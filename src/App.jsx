@@ -26,8 +26,29 @@ function App() {
     const { isLoading, user } = useAuth0();
 
     const [userBalance, setUserBalance] = useState(1000);
-    const [gameNotification, setGameNotification] = useState(true);
+    const [gameNotification, setGameNotification] = useState(true);  // Game notification mute control state
     const [isInfoOn, setIsInfoOn] = useState(false);  // Game info popup control state
+
+    const topNotificationOptions = {
+        position: "top-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+    }
+    const bottomNotificationOptions = {
+        position: "bottom-right",
+        autoClose: 4000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+    }
 
 
     useEffect(() => {
@@ -53,7 +74,7 @@ function App() {
     return (
         <BrowserRouter>
             <mainContext.Provider 
-                value={{ PAGE_LOADING_DURATION, userBalance, setUserBalance, gameNotification, setGameNotification, isInfoOn, setIsInfoOn }}
+                value={{ PAGE_LOADING_DURATION, userBalance, setUserBalance, gameNotification, setGameNotification, isInfoOn, setIsInfoOn, topNotificationOptions, bottomNotificationOptions }}
             >
                     <div className='App'>
                         <LoginLoading />

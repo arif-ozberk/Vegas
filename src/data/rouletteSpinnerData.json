@@ -241,77 +241,92 @@
         {
             "elementNumber": 1,
             "elementColor": "black",
-            "elementColorCode": "#353942"
+            "elementColorCode": "#353942",
+            "multiplier": 2
         },
         {
             "elementNumber": 14,
             "elementColor": "red",
-            "elementColorCode": "#FF5050"
+            "elementColorCode": "#FF5050",
+            "multiplier": 2
         },
         {
             "elementNumber": 2,
             "elementColor": "black",
-            "elementColorCode": "#353942"
+            "elementColorCode": "#353942",
+            "multiplier": 2
         },
         {
             "elementNumber": 13,
             "elementColor": "red",
-            "elementColorCode": "#FF5050"
+            "elementColorCode": "#FF5050",
+            "multiplier": 2
         },
         {
             "elementNumber": 3,
             "elementColor": "black",
-            "elementColorCode": "#353942"
+            "elementColorCode": "#353942",
+            "multiplier": 2
         },
         {
             "elementNumber": 12,
             "elementColor": "red",
-            "elementColorCode": "#FF5050"
+            "elementColorCode": "#FF5050",
+            "multiplier": 2
         },
         {
             "elementNumber": 4,
             "elementColor": "black",
-            "elementColorCode": "#353942"
+            "elementColorCode": "#353942",
+            "multiplier": 2
         },
         {
             "elementNumber": 11,
             "elementColor": "red",
-            "elementColorCode": "#FF5050"
+            "elementColorCode": "#FF5050",
+            "multiplier": 2
         },
         {
             "elementNumber": 5,
             "elementColor": "black",
-            "elementColorCode": "#353942"
+            "elementColorCode": "#353942",
+            "multiplier": 2
         },
         {
             "elementNumber": 10,
             "elementColor": "red",
-            "elementColorCode": "#FF5050"
+            "elementColorCode": "#FF5050",
+            "multiplier": 2
         },
         {
             "elementNumber": 6,
             "elementColor": "black",
-            "elementColorCode": "#353942"
+            "elementColorCode": "#353942",
+            "multiplier": 2
         },
         {
             "elementNumber": 9,
             "elementColor": "red",
-            "elementColorCode": "#FF5050"
+            "elementColorCode": "#FF5050",
+            "multiplier": 2
         },
         {
             "elementNumber": 7,
             "elementColor": "black",
-            "elementColorCode": "#353942"
+            "elementColorCode": "#353942",
+            "multiplier": 2
         },
         {
             "elementNumber": 8,
             "elementColor": "red",
-            "elementColorCode": "#FF5050"
+            "elementColorCode": "#FF5050",
+            "multiplier": 2
         },
         {
             "elementNumber": 0,
             "elementColor": "green",
-            "elementColorCode": "#30C149"
+            "elementColorCode": "#30C149",
+            "multiplier": 14
         },
 
 

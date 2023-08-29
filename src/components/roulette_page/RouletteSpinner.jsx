@@ -17,7 +17,7 @@ const RouletteSpinner = ({ randomRouletteIndex, isRolling, ROLLING_DURATION }) =
                 <div 
                     className={styles.rouletteElements} 
                     style={{ 
-                        transform: isRolling ? `translateX(-${(randomRouletteIndex * 108) + 864 + (Math.floor(Math.random() * 45))}px)` : "translateX(0px)",
+                        transform: isRolling ? `translateX(-${(randomRouletteIndex * 108) + 864}px)` : "translateX(0px)",
                         transition: isRolling ? `transform ${ROLLING_DURATION}ms cubic-bezier(0.215, 0.610, 0.355, 1.000)` : "" 
                     }}
                 >

@@ -1,0 +1,67 @@
+@import "../../globals.scss";
+
+
+.rouletteButtons {
+
+    .buttonContainer {
+        @include flex-space-between;
+        margin-top: 1.5rem;
+        background-color: $dark-faded;
+        padding: 1rem;
+        border-radius: $border-rad-xs;
+
+        @media(max-width: 670px) {
+            flex-direction: column;
+            row-gap: 1rem;
+        }
+    
+        .rouletteButton {
+            @include flex-space-between;
+            width: 31%;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: $border-rad-xs;
+            transition: background-color 0.2s ease;
+
+            &:disabled {
+                opacity: 0.5;
+            }
+
+            @media(max-width: 670px) {
+                width: 100%;
+            }
+
+            p {
+                color: $white;
+                font-size: 1.1rem;
+                font-weight: 500;
+            }
+        }
+
+        .redButton {
+            background-color: $red;
+
+            &:hover {
+                background-color: $red-hover;
+            }
+        }
+
+        .greenButton {
+            background-color: $green-roulette;
+
+            &:hover {
+                background-color: $green-roulette-hover;
+            }
+        }
+
+        .blackButton {
+            background-color: $black-roulette;
+
+            &:hover {
+                background-color: $black-roulette-hover;
+            }
+        }
+    }
+
+
+}

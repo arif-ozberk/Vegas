@@ -24,7 +24,7 @@ import gameInfoData from "../data/gameInfoData.json";
 
 const SlotPage = () => {
 
-    const { userBalance, setUserBalance, PAGE_LOADING_DURATION, gameNotification, setGameNotification } = useContext(mainContext);
+    const { userBalance, setUserBalance, PAGE_LOADING_DURATION, gameNotification, setGameNotification, topNotificationOptions, bottomNotificationOptions } = useContext(mainContext);
 
     const slotSelections = ['🍒', '🍊', '🍇', '🍋', '🍉', '🍓', '🍌'];
     const [slotRows, setSlotRows] = useState([
@@ -44,27 +44,6 @@ const SlotPage = () => {
     const [betAmount, setBetAmount] = useState(0);
 
     const [isPageLoading, setIsPageLoading] = useState(true);
-
-    const topNotificationOptions = {
-        position: "top-right",
-        autoClose: 4000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-    }
-    const bottomNotificationOptions = {
-        position: "bottom-right",
-        autoClose: 4000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-    }
 
 
     useEffect(() => {
