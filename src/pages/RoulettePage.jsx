@@ -128,7 +128,7 @@ const RoulettePage = () => {
 
             {!isPageLoading && 
                 <div className={`${styles.roulettePage} context-wrapper`}>
-                    <div className={`${styles.rouletteTitle} divider-bottom-sm`}>
+                    <div className={`${styles.rouletteTitle} divider-bottom-xs`}>
                         <h1 className='title-main'>Roulette</h1>
                         <GameOptions gameType={gameInfoData.gameInfos.rouletteGame} />
                     </div>
