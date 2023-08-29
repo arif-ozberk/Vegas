@@ -82,25 +82,30 @@ const RoulettePage = () => {
 
         setUserBalance(userBalance => userBalance - betAmount);
 
-        setTimeout(() => {
+        setTimeout(() => {  // Click phase
             setIsRolling(true);
             setResultMessage({});
             const randomNumber = Math.floor(Math.random() * (57 - 43 + 1)) + 43;
             setRandomRouletteIndex(randomNumber);
             buttonDisableTrue();
 
-            setTimeout(() => {
+            setTimeout(() => {  // Rolling phase
                 setResultMessage(rouletteSpinnerData.rouletteElements[randomNumber]);
                 setRollingMessage(false);
                 buttonDisableFalse();
 
                 if (userBetColor === rouletteSpinnerData.rouletteElements[randomNumber].elementColor) {
-                    console.log("Win");
-                    setUserBalance(userBalance => userBalance + (rouletteSpinnerData.rouletteElements[randomNumber].multiplier * betAmount));
-                    gameNotification && toast.success(`${rouletteSpinnerData.rouletteElements[randomNumber].multiplier}x - You win $${rouletteSpinnerData.rouletteElements[randomNumber].multiplier * betAmount}`, bottomNotificationOptions);
+                    if(userBetColor === "red" || userBetColor === "black") {
+                        setUserBalance(userBalance => userBalance + (2 * betAmount));
+                        gameNotification && toast.success(`2x - You win $${2 * betAmount}!`, bottomNotificationOptions);
+                    }
+                    else {
+                        setUserBalance(userBalance => userBalance + (14 * betAmount));
+                        gameNotification && toast.success(`14x - You win $${14 * betAmount}!`, bottomNotificationOptions);
+                    }
                 }
+                
                 else {
-                    console.log("Lose");
                     gameNotification && toast.error(`"Better luck next time!"`, bottomNotificationOptions);
                 }
 
