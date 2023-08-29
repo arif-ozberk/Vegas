@@ -1,20 +1,6 @@
 @import "../globals.scss";
 
 
-.sideBarButton {
-    position: fixed;
-    top: 6rem;
-    background-color: $dark-faded;
-    width: 3.5rem;
-    height: 2rem;
-    @include flex-center;
-    font-size: 1.5rem;
-    border-bottom-right-radius: 1rem;
-    color: $white;
-    cursor: pointer;
-    z-index: 97;
-}
-
 .topBar {
     background-color: $dark-faded;
     height: 6rem;
@@ -40,6 +26,33 @@
         display: flex;
         align-items: center;
 
+        .hamburgerButton {
+            display: none;
+            flex-direction: column;
+            row-gap: 0.5rem;
+            margin-right: 0.8rem;
+            cursor: pointer;
+
+            &:hover {
+                .hamburgerStick {
+                    background-color: $green-main;
+                }
+            }
+
+            @media(max-width: 1440px) {
+                display: flex;
+            }
+
+            .hamburgerStick {
+                display: flex;
+                width: 1.8rem;
+                height: 2px;
+                background-color: $gray-text;
+                border-radius: 8px;
+                transition: background-color 0.2s ease;
+            }
+        }
+
         img {
             width: 3.5rem;
             margin-right: 0.5rem;
@@ -49,7 +62,7 @@
             }
         }
 
-        h1 {
+        a {
             color: $green-main;
             font-weight: 600;
             font-size: 1.8rem;

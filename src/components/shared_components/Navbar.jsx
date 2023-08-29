@@ -34,20 +34,23 @@ const Navbar = () => {
 
 
     const handleSideBarButton = () => {
-        setIsSideBarOpen(true);
+        setIsSideBarOpen(isSideBarOpen => !isSideBarOpen);
     }
 
 
     return (
         <div>
             <div className={styles.navbar}>
-                <i className={`${styles.sideBarButton} fas fa-angles-right`} onClick={handleSideBarButton}></i>
-
                 <section className={styles.topBar}>
-                    <Link to="/" className={styles.topBarLogo}>
+                    <div className={styles.topBarLogo}>
+                        <div className={styles.hamburgerButton} onClick={handleSideBarButton}>
+                            <div className={styles.hamburgerStick} style={{ backgroundColor: isSideBarOpen ? "#00FF86" : "" }}></div>
+                            <div className={styles.hamburgerStick} style={{ backgroundColor: isSideBarOpen ? "#00FF86" : "" }}></div>
+                            <div className={styles.hamburgerStick} style={{ backgroundColor: isSideBarOpen ? "#00FF86" : "" }}></div>
+                        </div>
                         <img src={logoImage} alt="vegas-logo-image" />
-                        <h1>Vegas</h1>
-                    </Link>
+                        <Link to="/" >Vegas</Link>
+                    </div>
 
                     {isAuthenticated && <div className={styles.balanceWrapper}>
                         <div className={styles.balanceContainer}>
@@ -80,7 +83,6 @@ const Navbar = () => {
                 </section>
 
                 <section className={`${styles.sideBar} ${isSideBarOpen ? styles.sideBarActive : ""}`}>
-                    <i className={`${styles.sideBarCloseButton} fas fa-close`} onClick={() => setIsSideBarOpen(false)}></i>
                     <ul className={styles.gamesLinks}>
                         <h2>All Games</h2>
                         <li><i className='fas fa-check-to-slot'></i><Link to="/slot-page">Slot</Link></li>
@@ -93,7 +95,6 @@ const Navbar = () => {
                         <li><i className='fas fa-land-mine-on' ></i><Link>Minefield</Link></li>
                     </ul>
                 </section>
-                
             </div>
             
             <Outlet />
