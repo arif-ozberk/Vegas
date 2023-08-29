@@ -84,6 +84,7 @@ const RoulettePage = () => {
         setRollingMessage(true);
         setShowBetMessage(true);
         setBetColor(userBetColor);
+        window.scrollTo(0, 0);
 
         setUserBalance(userBalance => userBalance - betAmount);
         setCurrentBetAmount(betAmount);
