@@ -118,10 +118,6 @@ const RoulettePage = () => {
                 }
                 const newItems = [...historyData.slice(1), newElement];
                 setHistoryData(newItems);
-                
-                
-                // setHistoryData(prev => [...prev, newElement]);
-                // localStorage.setItem("rouletteHistory", JSON.stringify(historyData));
 
                 if (userBetColor === rouletteSpinnerData.rouletteElements[randomNumber].elementColor) {
                     if(userBetColor === "red" || userBetColor === "black") {
