@@ -87,7 +87,7 @@ const Navbar = () => {
                         <h2>All Games</h2>
                         <li><i className='fas fa-check-to-slot'></i><Link to="/slot-page">Slot</Link></li>
                         <li><i className='fas fa-compact-disc'></i><Link to="/roulette-page">Roulette</Link></li>
-                        <li><i className='fas fa-circle-half-stroke'></i><Link>Coin Flip</Link></li>
+                        <li><i className='fas fa-circle-half-stroke'></i><Link to="/coin-flip-page">Coin Flip</Link></li>
                         <li><i className='fas fa-diamond'></i><Link>Blackjack</Link></li>
                         <li><i className='fas fa-chart-line'></i><Link>Crash</Link></li>
                         <li><i className='fas fa-dice'></i><Link>Dice</Link></li>

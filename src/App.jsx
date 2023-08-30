@@ -16,6 +16,7 @@ import ComingSoonPage from './pages/ComingSoonPage';
 
 import SlotPage from './pages/SlotPage';
 import RoulettePage from './pages/RoulettePage';
+import CoinFlipPage from './pages/CoinFlipPage';
 
 // Context
 import { mainContext } from './context/mainContext';
@@ -85,9 +86,10 @@ function App() {
                             <Route path='/' element={<Navbar />} >
                                 <Route index element={<HomePage />} />
                                 <Route path='/balance-page' element={<BalancePage />} />
-                                
+
                                 <Route path='/slot-page' element={<SlotPage />} />
                                 <Route path='/roulette-page' element={<RoulettePage />} />
+                                <Route path='/coin-flip-page' element={<CoinFlipPage />} />
                                 <Route path='/crash-page' element={<ComingSoonPage />} />
                                 <Route path='/dice-page' element={<ComingSoonPage />} />
                             </Route>
