@@ -3,4 +3,8 @@
 
 .coinFlipPage {
     height: calc(100vh - 8rem);
+
+    .coinFlipTitle {
+        @include flex-space-between;
+    }
 }

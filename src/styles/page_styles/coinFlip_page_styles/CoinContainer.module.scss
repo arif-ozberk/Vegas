@@ -1,0 +1,44 @@
+@import "../../globals.scss";
+
+
+.coinContainer {
+    @include flex-center;
+
+    .coin {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        position: relative;
+        transform-style: preserve-3d;
+
+
+        .coinFace {
+            aspect-ratio: 1;
+            height: 100%;
+            position: absolute;
+            @include flex-center;
+            border-radius: 50%;
+            backface-visibility: hidden;
+        }
+
+        .frontFace {
+            background-color: red;
+            z-index: 10;
+        }
+
+        .backFace {
+            background-color: blue;
+            transform: rotateY(-180deg);
+        }
+    }
+}
+
+@keyframes coinFlipAnimation {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(1800deg);
+    }
+}

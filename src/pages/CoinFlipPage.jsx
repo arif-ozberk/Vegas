@@ -5,6 +5,9 @@ import styles from "../styles/page_styles/coinFlip_page_styles/CoinFlipPage.modu
 
 // Components
 import PageLoader from '../components/shared_components/PageLoader';
+import GameOptions from '../components/shared_components/GameOptions';
+import BetInput from '../components/shared_components/BetInput';
+import CoinContainer from '../components/coinFlip_page/CoinContainer';
 
 // Wrappers
 import GamePageWrapper from '../wrappers/GamePageWrapper';
@@ -12,12 +15,21 @@ import GamePageWrapper from '../wrappers/GamePageWrapper';
 // Context
 import { mainContext } from '../context/mainContext';
 
+// Data
+import gameInfoData from "../data/gameInfoData.json";
+
 
 const CoinFlipPage = () => {
 
     const { PAGE_LOADING_DURATION } = useContext(mainContext);
 
     const [isPageLoading, setIsPageLoading] = useState(true);
+
+    const [betAmount, setBetAmount] = useState(0);
+
+    const [isFlip, setIsFlip] = useState(false);
+    const [rotateDeg, setRotateDeg] = useState(0);
+    const rotateDegs = [1800, 1980];
 
 
     useEffect(() => {
@@ -29,6 +41,18 @@ const CoinFlipPage = () => {
     }, []);
 
 
+    const handleCoinFlip = () => {
+        setIsFlip(false);
+
+        setTimeout(() => {
+            const randomNumber = Math.round(Math.random());
+            setRotateDeg(rotateDegs[randomNumber]);
+            setIsFlip(true);
+    
+        }, 1);
+    }
+
+
 
     return (
         <GamePageWrapper>
@@ -36,7 +60,19 @@ const CoinFlipPage = () => {
 
             {!isPageLoading && 
                 <div className={`${styles.coinFlipPage} context-wrapper`}>
-                    Coin flip
+                    <div className={`${styles.coinFlipTitle} divider-bottom-xs`}>
+                        <h1 className='title-main'>Coin Flip</h1>
+                        <GameOptions gameType={gameInfoData.gameInfos.coinFlipGame} />
+                    </div>
+
+                    <CoinContainer isFlip={isFlip} rotateDeg={rotateDeg} />
+
+                    <button onClick={handleCoinFlip}>Flip</button>
+
+                    <BetInput 
+                        betAmount={betAmount} 
+                        setBetAmount={setBetAmount} 
+                    />
                 </div>
             }
         </GamePageWrapper>
