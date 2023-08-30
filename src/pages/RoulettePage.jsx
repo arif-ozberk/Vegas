@@ -11,6 +11,7 @@ import BetInput from '../components/shared_components/BetInput';
 import RouletteSpinner from '../components/roulette_page/RouletteSpinner';
 import RouletteResult from '../components/roulette_page/RouletteResult';
 import RouletteButtons from '../components/roulette_page/RouletteButtons';
+import RouletteHistory from '../components/roulette_page/RouletteHistory';
 
 // Wrappers
 import GamePageWrapper from '../wrappers/GamePageWrapper';
@@ -45,14 +46,23 @@ const RoulettePage = () => {
     const greenButtonRef = useRef();
     const blackButtonRef = useRef();
 
+    const [historyData, setHistoryData] = useState([]);
+
 
     useEffect(() => {
+        setHistoryData(JSON.parse(localStorage.getItem("rouletteHistory")));
+
         window.scrollTo(0, 0); // Scroll back to top on page changes
 
         setTimeout(() => {
             setIsPageLoading(false); // Page loader executes after xx seconds
         }, PAGE_LOADING_DURATION);
     }, []);
+
+
+    useEffect(() => {  // Update roulette history every time new element updates
+        localStorage.setItem("rouletteHistory", JSON.stringify(historyData));
+    }, [historyData]);
 
 
     const buttonDisableTrue = () => {
@@ -102,6 +112,17 @@ const RoulettePage = () => {
                 buttonDisableFalse();
                 setShowBetMessage(false);
 
+                const newElement = {
+                    elementNumber: rouletteSpinnerData.rouletteElements[randomNumber].elementNumber,
+                    elementColor: rouletteSpinnerData.rouletteElements[randomNumber].elementColorCode
+                }
+                const newItems = [...historyData.slice(1), newElement];
+                setHistoryData(newItems);
+                
+                
+                // setHistoryData(prev => [...prev, newElement]);
+                // localStorage.setItem("rouletteHistory", JSON.stringify(historyData));
+
                 if (userBetColor === rouletteSpinnerData.rouletteElements[randomNumber].elementColor) {
                     if(userBetColor === "red" || userBetColor === "black") {
                         setUserBalance(userBalance => userBalance + (2 * betAmount));
@@ -143,6 +164,8 @@ const RoulettePage = () => {
                         isRolling={isRolling} 
                         ROLLING_DURATION={ROLLING_DURATION} 
                     />
+
+                    <RouletteHistory historyData={historyData} />
 
                     <BetInput 
                         betAmount={betAmount} 

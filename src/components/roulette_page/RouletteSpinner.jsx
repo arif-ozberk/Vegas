@@ -11,7 +11,7 @@ const RouletteSpinner = ({ randomRouletteIndex, isRolling, ROLLING_DURATION }) =
 
 
     return (
-        <div className={`${styles.rouletteSpinner} divider-bottom-md`}>
+        <div className={`${styles.rouletteSpinner} divider-bottom-sm`}>
             <i className='fas fa-chevron-down'></i>
             <div className={styles.frame} >
                 <div 
