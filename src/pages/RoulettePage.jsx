@@ -47,10 +47,50 @@ const RoulettePage = () => {
     const blackButtonRef = useRef();
 
     const [historyData, setHistoryData] = useState([]);
+    const mockHistory = [
+        {
+            elementNumber: 3,
+            elementColor: "#353942"
+        },
+        {
+            elementNumber: 11,
+            elementColor: "#FF5050"
+        },
+        {
+            elementNumber: 13,
+            elementColor: "#FF5050"
+        },
+        {
+            elementNumber: 5,
+            elementColor: "#353942"
+        },
+        {
+            elementNumber: 9,
+            elementColor: "#FF5050"
+        },
+        {
+            elementNumber: 0,
+            elementColor: "#30C149"
+        },
+        {
+            elementNumber: 14,
+            elementColor: "#FF5050"
+        },
+        {
+            elementNumber: 1,
+            elementColor: "#353942"
+        }
+    ];
 
 
     useEffect(() => {
-        setHistoryData(JSON.parse(localStorage.getItem("rouletteHistory")));
+        if(!localStorage.getItem("rouletteHistory")) {
+            localStorage.setItem("rouletteHistory", JSON.stringify(mockHistory));
+            setHistoryData(JSON.parse(localStorage.getItem("rouletteHistory")));
+        }
+        else {
+            setHistoryData(JSON.parse(localStorage.getItem("rouletteHistory")));
+        }
 
         window.scrollTo(0, 0); // Scroll back to top on page changes
 
