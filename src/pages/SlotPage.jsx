@@ -157,7 +157,6 @@ const SlotPage = () => {
         setIsRolling(false);
         rollButtonRef.current.disabled = false;
         resetButtonRef.current.disabled = true;
-        setResultMessage("");
         setFinalSlot([]);
     }
 

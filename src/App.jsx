@@ -11,8 +11,10 @@ import LoginLoading from './components/shared_components/LoginLoading';
 
 // Pages
 import HomePage from './pages/HomePage';
-import SlotPage from './pages/SlotPage';
+import BalancePage from './pages/BalancePage';
 import ComingSoonPage from './pages/ComingSoonPage';
+
+import SlotPage from './pages/SlotPage';
 import RoulettePage from './pages/RoulettePage';
 
 // Context
@@ -80,8 +82,10 @@ function App() {
                         <LoginLoading />
 
                         <Routes>
-                            <Route path='/' element={<Navbar />}>
+                            <Route path='/' element={<Navbar />} >
                                 <Route index element={<HomePage />} />
+                                <Route path='/balance-page' element={<BalancePage />} />
+                                
                                 <Route path='/slot-page' element={<SlotPage />} />
                                 <Route path='/roulette-page' element={<RoulettePage />} />
                                 <Route path='/crash-page' element={<ComingSoonPage />} />

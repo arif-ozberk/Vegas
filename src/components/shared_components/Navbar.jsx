@@ -55,7 +55,7 @@ const Navbar = () => {
                     {isAuthenticated && <div className={styles.balanceWrapper}>
                         <div className={styles.balanceContainer}>
                             <p>${Number(userBalance).toFixed(2)} <i className='fas fa-circle-dollar-to-slot'></i></p>
-                            <Link className={styles.balanceButton}>
+                            <Link to="/balance-page" className={styles.balanceButton}>
                                 <i className='fas fa-wallet'></i>
                                 <h2>Balance</h2>
                             </Link>
