@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { toast } from 'react-toastify';
 
 // Styles
 import styles from "../styles/page_styles/coinFlip_page_styles/CoinFlipPage.module.scss";
@@ -8,6 +9,7 @@ import PageLoader from '../components/shared_components/PageLoader';
 import GameOptions from '../components/shared_components/GameOptions';
 import BetInput from '../components/shared_components/BetInput';
 import CoinContainer from '../components/coinFlip_page/CoinContainer';
+import CoinFlipButtons from '../components/coinFlip_page/CoinFlipButtons';
 
 // Wrappers
 import GamePageWrapper from '../wrappers/GamePageWrapper';
@@ -21,15 +23,18 @@ import gameInfoData from "../data/gameInfoData.json";
 
 const CoinFlipPage = () => {
 
-    const { PAGE_LOADING_DURATION } = useContext(mainContext);
+    const { PAGE_LOADING_DURATION, userBalance, setUserBalance, topNotificationOptions, bottomNotificationOptions, gameNotification } = useContext(mainContext);
 
     const [isPageLoading, setIsPageLoading] = useState(true);
 
     const [betAmount, setBetAmount] = useState(0);
+    const [currentBetAmount, setCurrentBetAmount] = useState(0);
 
     const [isFlip, setIsFlip] = useState(false);
+    const [selectedFace, setSelectedFace] = useState("");
     const [rotateDeg, setRotateDeg] = useState(0);
     const rotateDegs = [1800, 1980];
+    const coinFaces = ["ghost", "skull"];
 
 
     useEffect(() => {
@@ -41,14 +46,38 @@ const CoinFlipPage = () => {
     }, []);
 
 
-    const handleCoinFlip = () => {
+    const handleCoinFlip = (coinFaceSelection) => {
+        if (betAmount < 1) {
+            toast.error("Please enter a valid amount! (At least $1)", topNotificationOptions);
+            return;
+        }
+
+        if (userBalance - betAmount < 0) {
+            toast.error("Please enter a valid amount!", topNotificationOptions);
+            return;
+        }
+
         setIsFlip(false);
+        setSelectedFace(coinFaceSelection);
 
         setTimeout(() => {
             const randomNumber = Math.round(Math.random());
             setRotateDeg(rotateDegs[randomNumber]);
             setIsFlip(true);
+            setUserBalance(userBalance => userBalance - betAmount);
+            setCurrentBetAmount(betAmount);
+            window.scrollTo(0, 0);
     
+            setTimeout(() => {
+                if(coinFaces[randomNumber] === coinFaceSelection) {
+                    setUserBalance(userBalance => userBalance + (betAmount * 2));
+                    gameNotification && toast.success(`It's ${coinFaceSelection}! - You win $${betAmount * 2}`, bottomNotificationOptions);
+                }
+                else {
+                    gameNotification && toast.error("Better luck next time!", bottomNotificationOptions);
+                }
+                setSelectedFace("");
+            }, 4000);
         }, 1);
     }
 
@@ -65,13 +94,20 @@ const CoinFlipPage = () => {
                         <GameOptions gameType={gameInfoData.gameInfos.coinFlipGame} />
                     </div>
 
-                    <CoinContainer isFlip={isFlip} rotateDeg={rotateDeg} />
-
-                    <button onClick={handleCoinFlip}>Flip</button>
+                    <CoinContainer 
+                        isFlip={isFlip} 
+                        rotateDeg={rotateDeg} 
+                    />
 
                     <BetInput 
                         betAmount={betAmount} 
                         setBetAmount={setBetAmount} 
+                    />
+
+                    <CoinFlipButtons 
+                        handleCoinFlip={handleCoinFlip} 
+                        selectedFace={selectedFace}
+                        currentBetAmount={currentBetAmount}
                     />
                 </div>
             }

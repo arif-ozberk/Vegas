@@ -5,11 +5,21 @@
     @include flex-center;
 
     .coin {
-        width: 200px;
-        height: 200px;
+        width: 280px;
+        aspect-ratio: 1;
         border-radius: 50%;
         position: relative;
         transform-style: preserve-3d;
+        animation-duration: 4s;
+        animation-timing-function: ease;
+
+        @media(max-width: 670px) {
+            width: 200px;
+        }
+
+        @media(max-width: 375px) {
+            width: 180px;
+        }
 
 
         .coinFace {
@@ -19,26 +29,44 @@
             @include flex-center;
             border-radius: 50%;
             backface-visibility: hidden;
+            border: 0.5rem solid $green-main;
+
+            @media(max-width: 670px) {
+                border: 0.3rem solid $green-main;
+            }
+
+            i {
+                font-size: 4rem;
+                color: $green-main;
+
+                @media(max-width: 670px) {
+                    font-size: 3.5rem;
+                }
+
+                @media(max-width: 375px) {
+                    font-size: 3rem;
+                }
+            }
         }
 
         .frontFace {
-            background-color: red;
+            background-color: $gray-bright;
             z-index: 10;
         }
 
         .backFace {
-            background-color: blue;
+            background-color: $gray-faded;
             transform: rotateY(-180deg);
         }
     }
 }
 
 @keyframes coinFlipAnimation {
-    from {
+    0% {
         transform: rotateY(0deg);
     }
 
-    to {
+    100% {
         transform: rotateY(1800deg);
     }
 }
