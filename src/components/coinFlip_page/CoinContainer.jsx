@@ -8,7 +8,7 @@ const CoinContainer = ({ isFlip, rotateDeg }) => {
 
 
     return (
-        <div className={`${styles.coinContainer} divider-bottom-md`}>
+        <div className={`${styles.coinContainer} divider-bottom-sm`}>
             <div 
                 className={styles.coin} 
                 style={{ 

@@ -10,6 +10,7 @@ import GameOptions from '../components/shared_components/GameOptions';
 import BetInput from '../components/shared_components/BetInput';
 import CoinContainer from '../components/coinFlip_page/CoinContainer';
 import CoinFlipButtons from '../components/coinFlip_page/CoinFlipButtons';
+import CoinFlipHistory from '../components/coinFlip_page/CoinFlipHistory';
 
 // Wrappers
 import GamePageWrapper from '../wrappers/GamePageWrapper';
@@ -39,14 +40,63 @@ const CoinFlipPage = () => {
     const ghostButtonRef = useRef();
     const skullButtonRef = useRef();
 
+    const [historyData, setHistoryData] = useState([]);
+    const mockHistory = [
+        {
+            coinSymbol: "fas fa-ghost",
+            coinColor: "#273546"
+        },
+        {
+            coinSymbol: "fas fa-ghost",
+            coinColor: "#273546"
+        },
+        {
+            coinSymbol: "fas fa-skull",
+            coinColor: "#1B2329"
+        },
+        {
+            coinSymbol: "fas fa-ghost",
+            coinColor: "#273546"
+        },
+        {
+            coinSymbol: "fas fa-skull",
+            coinColor: "#1B2329"
+        },
+        {
+            coinSymbol: "fas fa-skull",
+            coinColor: "#1B2329"
+        },
+        {
+            coinSymbol: "fas fa-skull",
+            coinColor: "#1B2329"
+        },
+        {
+            coinSymbol: "fas fa-ghost",
+            coinColor: "#273546"
+        }
+    ];
+
 
     useEffect(() => {
+        if (!localStorage.getItem("coinFlipHistory")) {
+            localStorage.setItem("coinFlipHistory", JSON.stringify(mockHistory));
+            setHistoryData(JSON.parse(localStorage.getItem("coinFlipHistory")));
+        }
+        else {
+            setHistoryData(JSON.parse(localStorage.getItem("coinFlipHistory")));
+        }
+
         window.scrollTo(0, 0); // Scroll back to top on page changes
 
         setTimeout(() => {
             setIsPageLoading(false); // Page loader executes after xx seconds
         }, PAGE_LOADING_DURATION);
     }, []);
+
+
+    useEffect(() => {  // Update local data every time history updates
+        localStorage.setItem("coinFlipHistory", JSON.stringify(historyData));
+    }, [historyData]);
 
 
     const disableButtons = () => {
@@ -85,6 +135,14 @@ const CoinFlipPage = () => {
             disableButtons();
     
             setTimeout(() => {  // Flipping phase
+
+                const newHistoryElement = {
+                    coinSymbol: coinFaces[randomNumber] === "ghost" ? "fas fa-ghost" : "fas fa-skull",
+                    coinColor: coinFaces[randomNumber] === "ghost" ? "#273546" : "#1B2329"
+                }
+                const newHistoryArr = [...historyData.slice(1), newHistoryElement];
+                setHistoryData(newHistoryArr);
+
                 if(coinFaces[randomNumber] === coinFaceSelection) {
                     setUserBalance(userBalance => userBalance + (betAmount * 2));
                     gameNotification && toast.success(`It's ${coinFaceSelection}! - You win $${betAmount * 2}`, bottomNotificationOptions);
@@ -115,6 +173,8 @@ const CoinFlipPage = () => {
                         isFlip={isFlip} 
                         rotateDeg={rotateDeg} 
                     />
+
+                    <CoinFlipHistory historyData={historyData} />
 
                     <BetInput 
                         betAmount={betAmount} 
