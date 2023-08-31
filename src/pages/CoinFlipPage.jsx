@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { toast } from 'react-toastify';
 
 // Styles
@@ -36,6 +36,9 @@ const CoinFlipPage = () => {
     const rotateDegs = [1800, 1980];
     const coinFaces = ["ghost", "skull"];
 
+    const ghostButtonRef = useRef();
+    const skullButtonRef = useRef();
+
 
     useEffect(() => {
         window.scrollTo(0, 0); // Scroll back to top on page changes
@@ -44,6 +47,18 @@ const CoinFlipPage = () => {
             setIsPageLoading(false); // Page loader executes after xx seconds
         }, PAGE_LOADING_DURATION);
     }, []);
+
+
+    const disableButtons = () => {
+        ghostButtonRef.current.disabled = true;
+        skullButtonRef.current.disabled = true;
+    }
+
+
+    const activateButtons = () => {
+        ghostButtonRef.current.disabled = false;
+        skullButtonRef.current.disabled = false;
+    }
 
 
     const handleCoinFlip = (coinFaceSelection) => {
@@ -60,15 +75,16 @@ const CoinFlipPage = () => {
         setIsFlip(false);
         setSelectedFace(coinFaceSelection);
 
-        setTimeout(() => {
+        setTimeout(() => {  // Click phase
             const randomNumber = Math.round(Math.random());
             setRotateDeg(rotateDegs[randomNumber]);
             setIsFlip(true);
             setUserBalance(userBalance => userBalance - betAmount);
             setCurrentBetAmount(betAmount);
             window.scrollTo(0, 0);
+            disableButtons();
     
-            setTimeout(() => {
+            setTimeout(() => {  // Flipping phase
                 if(coinFaces[randomNumber] === coinFaceSelection) {
                     setUserBalance(userBalance => userBalance + (betAmount * 2));
                     gameNotification && toast.success(`It's ${coinFaceSelection}! - You win $${betAmount * 2}`, bottomNotificationOptions);
@@ -77,6 +93,7 @@ const CoinFlipPage = () => {
                     gameNotification && toast.error("Better luck next time!", bottomNotificationOptions);
                 }
                 setSelectedFace("");
+                activateButtons();
             }, 4000);
         }, 1);
     }
@@ -108,6 +125,8 @@ const CoinFlipPage = () => {
                         handleCoinFlip={handleCoinFlip} 
                         selectedFace={selectedFace}
                         currentBetAmount={currentBetAmount}
+                        ghostButtonRef={ghostButtonRef}
+                        skullButtonRef={skullButtonRef}
                     />
                 </div>
             }
