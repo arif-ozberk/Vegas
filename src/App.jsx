@@ -53,6 +53,33 @@ function App() {
         theme: "colored",
     }
 
+    const routes = [
+        {
+            routePath: "/balance-page",
+            routeElement: <BalancePage />
+        },
+        {
+            routePath: "/slot-page",
+            routeElement: <SlotPage />
+        },
+        {
+            routePath: "/roulette-page",
+            routeElement: <RoulettePage />
+        },
+        {
+            routePath: "/coin-flip-page",
+            routeElement: <CoinFlipPage />
+        },
+        {
+            routePath: "/crash-page",
+            routeElement: <ComingSoonPage />
+        },
+        {
+            routePath: "/dice-page",
+            routeElement: <ComingSoonPage />
+        }
+    ];
+
 
     useEffect(() => {
         if(user) {
@@ -85,13 +112,10 @@ function App() {
                         <Routes>
                             <Route path='/' element={<Navbar />} >
                                 <Route index element={<HomePage />} />
-                                <Route path='/balance-page' element={<BalancePage />} />
 
-                                <Route path='/slot-page' element={<SlotPage />} />
-                                <Route path='/roulette-page' element={<RoulettePage />} />
-                                <Route path='/coin-flip-page' element={<CoinFlipPage />} />
-                                <Route path='/crash-page' element={<ComingSoonPage />} />
-                                <Route path='/dice-page' element={<ComingSoonPage />} />
+                                {routes.map((route, index) => (
+                                    <Route key={route.routePath} path={route.routePath} element={route.routeElement} />
+                                ))}
                             </Route>
                         </Routes>
                     </div>
