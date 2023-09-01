@@ -7,6 +7,7 @@ import styles from "../styles/page_styles/balance_page_styles/BalancePage.module
 import PageLoader from '../components/shared_components/PageLoader';
 import CryptoCurrencies from '../components/balance_page/CryptoCurrencies';
 import BankDeposit from '../components/balance_page/BankDeposit';
+import Marketplaces from '../components/balance_page/Marketplaces';
 
 // Wrappers
 import PageWrapper from '../wrappers/PageWrapper';
@@ -39,6 +40,7 @@ const BalancePage = () => {
                 <div className={`${styles.balancePage} context-wrapper`}>
                     <CryptoCurrencies />
                     <BankDeposit />
+                    <Marketplaces />
                 </div>
             }
         </PageWrapper>
