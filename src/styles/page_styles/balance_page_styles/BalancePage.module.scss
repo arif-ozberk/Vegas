@@ -82,4 +82,41 @@
             }
         }
     }
+
+    .bankDeposit {
+
+        .bankCard {
+            @include flex-center;
+            width: 12rem;
+            background-color: $gray-faded;
+            border-radius: $border-rad-xs;
+            padding: 1rem 0;
+            column-gap: 0.5rem;
+            cursor: pointer;
+            transition: box-shadow 0.2s ease;
+
+            &:hover {
+                box-shadow: 0px 0px 10px 2px $green-main;
+            }
+
+            @media(max-width: 580px) {
+                width: 100%;
+                justify-content: start;
+                padding-left: 1rem;
+            }
+
+            i {
+                color: $white;
+                font-size: 1.5rem;
+                background-color: $gray-bright;
+                padding: 0.6rem;
+                border-radius: $border-rad-xs;
+            }
+
+            p {
+                font-weight: 500;
+                color: $gray-text;
+            }
+        }
+    }
 }
