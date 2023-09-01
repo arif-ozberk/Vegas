@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { ToastContainer } from 'react-toastify';
 
 // Styles
 import styles from "../styles/page_styles/balance_page_styles/BalancePage.module.scss";
@@ -8,6 +9,7 @@ import PageLoader from '../components/shared_components/PageLoader';
 import CryptoCurrencies from '../components/balance_page/CryptoCurrencies';
 import BankDeposit from '../components/balance_page/BankDeposit';
 import Marketplaces from '../components/balance_page/Marketplaces';
+import GiftCard from '../components/balance_page/GiftCard';
 
 // Wrappers
 import PageWrapper from '../wrappers/PageWrapper';
@@ -38,9 +40,13 @@ const BalancePage = () => {
 
             {!isPageLoading && 
                 <div className={`${styles.balancePage} context-wrapper`}>
+                    <ToastContainer />
+
                     <CryptoCurrencies />
                     <BankDeposit />
                     <Marketplaces />
+
+                    <GiftCard />
                 </div>
             }
         </PageWrapper>

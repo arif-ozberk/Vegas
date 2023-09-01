@@ -1,0 +1,75 @@
+@import "../../globals.scss";
+
+
+.giftCard {
+    p {
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: $gray-text;
+
+        @media(max-width: 480px) {
+            font-size: 0.8rem;
+        }
+    }
+
+    .inputContainer {
+        background-color: $gray-faded;
+        display: flex;
+        align-items: center;
+        max-width: 30rem;
+        height: 4rem;
+        border-radius: $border-rad-xs;
+        padding: 0 1rem;
+        column-gap: 0.5rem;
+
+        @media(max-width: 580px) {
+            max-width: 100%;
+        }
+
+        i {
+            background-color: $gray-bright;
+            height: 2.6rem;
+            aspect-ratio: 1;
+            font-size: 1.2rem;
+            border-radius: $border-rad-xs;
+            color: $white;
+            @include flex-center;
+        }
+
+        input {
+            background-color: $dark-faded;
+            height: 2.6rem;
+            width: 100%;
+            border-radius: $border-rad-xs;
+            border: none;
+            outline: none;
+            padding: 0 0.7rem;
+            color: $white;
+            font-weight: 500;
+            font-size: 1rem;
+
+            &:focus {
+                border: 1px solid $green-main;
+            }
+        }
+
+        button {
+            height: 2.6rem;
+            padding: 0 0.5rem;
+            color: $green-main;
+            font-weight: 500;
+            font-size: 0.8rem;
+            border-radius: $border-rad-xs;
+            background-color: $green-faded;
+            border: none;
+            transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+            &:hover {
+                background-color: $green-main;
+                color: $dark-main;
+                transform: translateY(-5px);
+            }
+        }
+    }
+}
