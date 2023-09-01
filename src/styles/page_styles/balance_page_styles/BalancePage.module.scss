@@ -2,6 +2,84 @@
 
 
 .balancePage {
-    height: calc(100vh - 8rem);
-    color: $white;
+    height: fit-content;
+
+
+    .cryptoCurrencies {
+        display: flex;
+        flex-direction: column;
+
+        .errorMessage {
+            color: $white;
+            font-size: 1rem;
+            font-weight: 400;
+            @include flex-center;
+            padding: 2rem 0;
+        }
+        
+        ul {
+            display: flex;
+            column-gap: 1rem;
+            row-gap: 1rem;
+            flex-wrap: wrap;
+
+            li {
+                border-radius: $border-rad-xs;
+                overflow: hidden;
+                transition: box-shadow 0.2s ease;
+                width: 9rem;
+                cursor: pointer;
+
+                @media(max-width: 580px) {
+                    width: 100%;
+                    display: flex;
+                }
+
+                .coinContainerTop {
+                    @include flex-center;
+                    background-color: $gray-bright;
+                    padding: 1rem 0;
+
+                    @media(max-width: 580px) {
+                        padding: 1rem;
+                    }
+
+                    img {
+                        height: 50px;
+                        aspect-ratio: 1;
+
+                        @media(max-width: 580px) {
+                            height: 40px;
+                        }
+                    }
+                }
+
+                .coinContainerBottom {
+                    @include flex-center;
+                    flex-direction: column;
+                    row-gap: 1rem;
+                    background-color: $gray-faded;
+                    padding: 0.8rem 0;
+
+                    @media(max-width: 580px) {
+                        width: 100%;
+                        row-gap: 0.3rem;
+                        padding: 0;
+                    }
+
+                    h2 {
+                        color: $white;
+                        font-size: 1rem;
+                        font-weight: 500;
+                    }
+
+                    p {
+                        color: $gray-text;
+                        font-size: 0.8rem;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+    }
 }

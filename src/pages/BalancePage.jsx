@@ -5,6 +5,7 @@ import styles from "../styles/page_styles/balance_page_styles/BalancePage.module
 
 // Components
 import PageLoader from '../components/shared_components/PageLoader';
+import CryptoCurrencies from '../components/balance_page/CryptoCurrencies';
 
 // Wrappers
 import PageWrapper from '../wrappers/PageWrapper';
@@ -35,7 +36,7 @@ const BalancePage = () => {
 
             {!isPageLoading && 
                 <div className={`${styles.balancePage} context-wrapper`}>
-                    Balance Page
+                    <CryptoCurrencies />
                 </div>
             }
         </PageWrapper>
