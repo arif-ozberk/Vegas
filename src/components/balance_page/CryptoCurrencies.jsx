@@ -23,7 +23,7 @@ const CryptoCurrencies = () => {
 
     const fetchData = async () => {
         try {
-            const response = await fetch(API_URL);
+            const response = await fetch(API_URLs);
             if(!response.ok) throw Error("Error loading data...");
             const coinData = await response.json();
             for(let coin of coinData.data.coins) {
