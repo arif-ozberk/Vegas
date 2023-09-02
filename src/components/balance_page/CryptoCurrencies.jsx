@@ -7,7 +7,7 @@ import styles from "../../styles/page_styles/balance_page_styles/BalancePage.mod
 import Loader from '../shared_components/Loader';
 
 
-const CryptoCurrencies = () => {
+const CryptoCurrencies = ({ cryptoTitle }) => {
 
     const API_URL = import.meta.env.VITE_CRYPTO_API_URL
 
@@ -59,7 +59,7 @@ const CryptoCurrencies = () => {
 
     return (
         <div className={`${styles.cryptoCurrencies} divider-bottom-md`}>
-            <h1 className='title-second divider-bottom-xs'>Crypto Currencies</h1>
+            <h1 className='title-second divider-bottom-xs'>{cryptoTitle}</h1>
             {isCoinLoading && 
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem 0" }}>
                     <Loader />

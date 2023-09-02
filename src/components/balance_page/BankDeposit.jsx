@@ -4,10 +4,10 @@ import React from 'react';
 import styles from "../../styles/page_styles/balance_page_styles/BalancePage.module.scss";
 
 
-const BankDeposit = () => {
+const BankDeposit = ({ bankTitle }) => {
     return (
         <div className={`${styles.bankDeposit} divider-bottom-md`}>
-            <h1 className='title-second divider-bottom-xs'>Bank Deposit</h1>
+            <h1 className='title-second divider-bottom-xs'>{bankTitle}</h1>
 
             <div className={styles.bankCards}>
                 <div className={styles.bankCard}>

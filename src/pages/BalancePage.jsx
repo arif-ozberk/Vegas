@@ -24,6 +24,8 @@ const BalancePage = () => {
 
     const [isPageLoading, setIsPageLoading] = useState(true);
 
+    const [selectedMethod, setSelectedMethod] = useState("deposit");
+
 
     useEffect(() => {
         window.scrollTo(0, 0); // Scroll back to top on page changes
@@ -42,11 +44,38 @@ const BalancePage = () => {
                 <div className={`${styles.balancePage} context-wrapper`}>
                     <ToastContainer />
 
-                    <CryptoCurrencies />
-                    <BankDeposit />
-                    <Marketplaces />
+                    <div className={`${styles.methodSelector} divider-bottom-xs`}>
+                        <p 
+                            style={{ 
+                                backgroundColor: selectedMethod === "deposit" ? "#00FF86" : "#273546",
+                                color: selectedMethod === "deposit" ? "#0A1119" : "#ffffff"
+                            }}
+                            onClick={() => setSelectedMethod("deposit")}
+                        >Deposit</p>
+                        <p
+                            style={{
+                                backgroundColor: selectedMethod === "withdraw" ? "#00FF86" : "#273546",
+                                color: selectedMethod === "withdraw" ? "#0A1119" : "#ffffff"
+                            }}
+                            onClick={() => setSelectedMethod("withdraw")}
+                        >Withdraw</p>
+                    </div>
 
-                    <GiftCard />
+                    {selectedMethod === "deposit" && 
+                        <>
+                            <CryptoCurrencies cryptoTitle={"Crypto Deposit"} />
+                            <BankDeposit bankTitle={"Bank Deposit"} />
+                            <Marketplaces />
+                            <GiftCard />
+                        </>   
+                    }
+
+                    {selectedMethod === "withdraw" &&
+                        <>
+                            <CryptoCurrencies cryptoTitle={"Crypto Withdraw"} />
+                            <BankDeposit bankTitle={"Bank Withdraw"} />
+                        </>
+                    }
                 </div>
             }
         </PageWrapper>
