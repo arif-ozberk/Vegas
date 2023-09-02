@@ -37,8 +37,8 @@ const GiftCard = () => {
             <p>Enter GJ35K7 gift code to deposit $500 credit.</p>
             <div className={styles.inputContainer}>
                 <i className='fas fa-gift'></i>
-                <input onChange={handleCodeInput} value={codeInput} type="text" />
-                <button onClick={handleSubmitClick}>Submit</button>
+                <input onChange={handleCodeInput} value={codeInput} type="text" placeholder='Gift Code' />
+                <button onClick={handleSubmitClick}>Redeem</button>
             </div>
         </div>
     );
