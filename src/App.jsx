@@ -17,6 +17,7 @@ import ComingSoonPage from './pages/ComingSoonPage';
 import SlotPage from './pages/SlotPage';
 import RoulettePage from './pages/RoulettePage';
 import CoinFlipPage from './pages/CoinFlipPage';
+import CrashPage from './pages/CrashPage';
 
 // Context
 import { mainContext } from './context/mainContext';
@@ -72,7 +73,7 @@ function App() {
         },
         {
             routePath: "/crash-page",
-            routeElement: <ComingSoonPage />
+            routeElement: <CrashPage />
         },
         {
             routePath: "/dice-page",

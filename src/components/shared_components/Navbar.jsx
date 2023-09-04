@@ -89,7 +89,7 @@ const Navbar = () => {
                         <li><i className='fas fa-compact-disc'></i><Link to="/roulette-page">Roulette</Link></li>
                         <li><i className='fas fa-circle-half-stroke'></i><Link to="/coin-flip-page">Coin Flip</Link></li>
                         <li><i className='fas fa-diamond'></i><Link>Blackjack</Link></li>
-                        <li><i className='fas fa-chart-line'></i><Link>Crash</Link></li>
+                        <li><i className='fas fa-chart-line'></i><Link to="/crash-page">Crash</Link></li>
                         <li><i className='fas fa-dice'></i><Link>Dice</Link></li>
                         <li><i className='fas fa-right-left' style={{ transform: "rotate(90deg)" }}></i><Link>High-Low</Link></li>
                         <li><i className='fas fa-land-mine-on' ></i><Link>Minefield</Link></li>
