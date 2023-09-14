@@ -18,15 +18,14 @@ const GamePageWrapper = ({ children }) => {
     return (
         <div className={`page-container navbar-divider`}>
 
-            {!isAuthenticated && 
+            {isAuthenticated ? 
+                <>
+                    <ToastContainer />
+                    {children}
+                </> : 
                 <LoginToPlay />
             }
-
-            {isAuthenticated && 
-            <>
-                <ToastContainer />
-                {children}
-            </>}
+            
             <Footer />
         </div>
     );

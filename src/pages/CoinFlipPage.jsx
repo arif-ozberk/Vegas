@@ -160,9 +160,8 @@ const CoinFlipPage = () => {
 
     return (
         <GamePageWrapper>
-            {isPageLoading && <PageLoader />}
+            {isPageLoading ? <PageLoader /> : 
 
-            {!isPageLoading && 
                 <div className={`${styles.coinFlipPage} context-wrapper`}>
                     <div className={`${styles.coinFlipTitle} divider-bottom-xs`}>
                         <h1 className='title-main'>Coin Flip</h1>

@@ -31,9 +31,8 @@ const CrashPage = () => {
 
     return (
         <GamePageWrapper>
-            {isPageLoading && <PageLoader />}
+            {isPageLoading ? <PageLoader /> :
 
-            {!isPageLoading &&
                 <div className={`${styles.crashPage} context-wrapper`}>
                     Crash Page
                 </div>

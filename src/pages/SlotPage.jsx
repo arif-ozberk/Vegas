@@ -162,9 +162,8 @@ const SlotPage = () => {
 
     return (
         <GamePageWrapper>
-            {isPageLoading && <PageLoader />}
+            {isPageLoading ? <PageLoader /> :
 
-            {!isPageLoading && 
                 <div className={`${styles.SlotPage} context-wrapper`}>
                     <div className={`${styles.slotTitle} divider-bottom-sm`}>
                         <h1 className='title-main'>Slot</h1>

@@ -38,9 +38,8 @@ const BalancePage = () => {
 
     return (
         <PageWrapper>
-            {isPageLoading && <PageLoader />}
+            {isPageLoading ? <PageLoader /> :
 
-            {!isPageLoading && 
                 <div className={`${styles.balancePage} context-wrapper`}>
                     <ToastContainer />
 

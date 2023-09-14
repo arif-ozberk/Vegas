@@ -43,9 +43,8 @@ const HomePage = () => {
 
     return (
         <PageWrapper>
-            {isPageLoading && <PageLoader />}
+            {isPageLoading ? <PageLoader /> :
 
-            {!isPageLoading && 
                 <div className={`${styles.homePageContainer} context-wrapper`}>
                     <HeroBanner />
                     <TopGames />
