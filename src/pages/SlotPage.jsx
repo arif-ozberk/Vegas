@@ -157,9 +157,6 @@ const SlotPage = () => {
     }
 
 
-    
-
-
     return (
         <GamePageWrapper>
             {isPageLoading ? <PageLoader /> :
