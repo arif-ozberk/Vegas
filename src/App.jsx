@@ -36,7 +36,6 @@ function App() {
     const [gameNotification, setGameNotification] = useState(true);  // Game notification mute control state
     const [isInfoOn, setIsInfoOn] = useState(false);  // Game info popup control state
 
-    
     const routes = [
         {
             routePath: "/balance-page",
@@ -104,7 +103,6 @@ function App() {
         >
                 <div className='App'>
                     <LoginLoading />
-
                     <RouterProvider router={router} />
                 </div>
         </mainContext.Provider>
