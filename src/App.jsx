@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, RouterProvider, Routes, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 
 // Styles
@@ -82,6 +82,19 @@ function App() {
     ];
 
 
+    const router = createBrowserRouter(
+        createRoutesFromElements(
+            <Route path='/' element={<Navbar />} >
+                <Route index element={<HomePage />} />
+
+                {routes.map((route, index) => (
+                    <Route key={route.routePath} path={route.routePath} element={route.routeElement} />
+                ))}
+            </Route>
+        )
+    )
+
+
     useEffect(() => {
         if(user) {
             if (!localStorage.getItem(`${user.sub}`)) {
@@ -103,26 +116,16 @@ function App() {
     
     
     return (
-        <BrowserRouter>
-            <mainContext.Provider 
-                value={{ PAGE_LOADING_DURATION, userBalance, setUserBalance, gameNotification, setGameNotification, isInfoOn, setIsInfoOn, topNotificationOptions, bottomNotificationOptions }}
-            >
-                    <div className='App'>
-                        <LoginLoading />
+        <mainContext.Provider 
+            value={{ PAGE_LOADING_DURATION, userBalance, setUserBalance, gameNotification, setGameNotification, isInfoOn, setIsInfoOn, topNotificationOptions, bottomNotificationOptions }}
+        >
+                <div className='App'>
+                    <LoginLoading />
 
-                        <Routes>
-                            <Route path='/' element={<Navbar />} >
-                                <Route index element={<HomePage />} />
-
-                                {routes.map((route, index) => (
-                                    <Route key={route.routePath} path={route.routePath} element={route.routeElement} />
-                                ))}
-                            </Route>
-                        </Routes>
-                    </div>
-            </mainContext.Provider>
-        </BrowserRouter> 
-    )
+                    <RouterProvider router={router} />
+                </div>
+        </mainContext.Provider>
+    );
 }
 
 export default App;
