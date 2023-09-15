@@ -38,6 +38,11 @@ const Navbar = () => {
     }
 
 
+    const closeSideBar = () => {
+        setIsSideBarOpen(false);
+    }
+
+
     return (
         <div>
             <div className={styles.navbar}>
@@ -85,14 +90,38 @@ const Navbar = () => {
                 <section className={`${styles.sideBar} ${isSideBarOpen ? styles.sideBarActive : ""}`}>
                     <ul className={styles.gamesLinks}>
                         <h2>All Games</h2>
-                        <li><i className='fas fa-check-to-slot'></i><Link to="/slot-page">Slot</Link></li>
-                        <li><i className='fas fa-compact-disc'></i><Link to="/roulette-page">Roulette</Link></li>
-                        <li><i className='fas fa-circle-half-stroke'></i><Link to="/coin-flip-page">Coin Flip</Link></li>
-                        <li><i className='fas fa-diamond'></i><Link>Blackjack</Link></li>
-                        <li><i className='fas fa-chart-line'></i><Link to="/crash-page">Crash</Link></li>
-                        <li><i className='fas fa-dice'></i><Link>Dice</Link></li>
-                        <li><i className='fas fa-right-left' style={{ transform: "rotate(90deg)" }}></i><Link>High-Low</Link></li>
-                        <li><i className='fas fa-land-mine-on' ></i><Link>Minefield</Link></li>
+                        <li>
+                            <i className='fas fa-check-to-slot'></i>
+                            <Link to="/slot-page" onClick={closeSideBar}>Slot</Link>
+                        </li>
+                        <li>
+                            <i className='fas fa-compact-disc'></i>
+                            <Link to="/roulette-page" onClick={closeSideBar}>Roulette</Link>
+                        </li>
+                        <li>
+                            <i className='fas fa-circle-half-stroke'></i>
+                            <Link to="/coin-flip-page" onClick={closeSideBar}>Coin Flip</Link>
+                        </li>
+                        <li>
+                            <i className='fas fa-diamond'></i>
+                            <Link onClick={closeSideBar}>Blackjack</Link>
+                        </li>
+                        <li>
+                            <i className='fas fa-chart-line'></i>
+                            <Link to="/crash-page" onClick={closeSideBar}>Crash</Link>
+                        </li>
+                        <li>
+                            <i className='fas fa-dice'></i>
+                            <Link onClick={closeSideBar}>Dice</Link>
+                        </li>
+                        <li>
+                            <i className='fas fa-right-left' style={{ transform: "rotate(90deg)" }}></i>
+                            <Link onClick={closeSideBar}>High-Low</Link>
+                        </li>
+                        <li>
+                            <i className='fas fa-land-mine-on' ></i>
+                            <Link onClick={closeSideBar}>Minefield</Link>
+                        </li>
                     </ul>
                 </section>
             </div>
