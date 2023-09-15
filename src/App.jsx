@@ -22,6 +22,9 @@ import CrashPage from './pages/CrashPage';
 // Context
 import { mainContext } from './context/mainContext';
 
+// Mocks
+import { topNotificationOptions, bottomNotificationOptions } from './mocks/NotificationOptions';
+
 
 function App() {
 
@@ -33,27 +36,7 @@ function App() {
     const [gameNotification, setGameNotification] = useState(true);  // Game notification mute control state
     const [isInfoOn, setIsInfoOn] = useState(false);  // Game info popup control state
 
-    const topNotificationOptions = {
-        position: "top-right",
-        autoClose: 4000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-    }
-    const bottomNotificationOptions = {
-        position: "bottom-right",
-        autoClose: 4000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-    }
-
+    
     const routes = [
         {
             routePath: "/balance-page",
