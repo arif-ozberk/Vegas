@@ -22,6 +22,7 @@ import { mainContext } from '../context/mainContext';
 // Data
 import gameInfoData from "../data/gameInfoData.json";
 import rouletteSpinnerData from "../data/rouletteSpinnerData.json";
+import { rouletteMockHistory } from '../mocks/GameHistory';
 
 
 const RoulettePage = () => {
@@ -47,45 +48,11 @@ const RoulettePage = () => {
     const blackButtonRef = useRef();
 
     const [historyData, setHistoryData] = useState([]);
-    const mockHistory = [
-        {
-            elementNumber: 3,
-            elementColor: "#353942"
-        },
-        {
-            elementNumber: 11,
-            elementColor: "#FF5050"
-        },
-        {
-            elementNumber: 13,
-            elementColor: "#FF5050"
-        },
-        {
-            elementNumber: 5,
-            elementColor: "#353942"
-        },
-        {
-            elementNumber: 9,
-            elementColor: "#FF5050"
-        },
-        {
-            elementNumber: 0,
-            elementColor: "#30C149"
-        },
-        {
-            elementNumber: 14,
-            elementColor: "#FF5050"
-        },
-        {
-            elementNumber: 1,
-            elementColor: "#353942"
-        }
-    ];
 
 
     useEffect(() => {
         if(!localStorage.getItem("rouletteHistory")) {
-            localStorage.setItem("rouletteHistory", JSON.stringify(mockHistory));
+            localStorage.setItem("rouletteHistory", JSON.stringify(rouletteMockHistory));
             setHistoryData(JSON.parse(localStorage.getItem("rouletteHistory")));
         }
         else {

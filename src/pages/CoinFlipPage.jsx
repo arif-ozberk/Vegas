@@ -20,6 +20,7 @@ import { mainContext } from '../context/mainContext';
 
 // Data
 import gameInfoData from "../data/gameInfoData.json";
+import { coinFlipMockHistoy } from '../mocks/GameHistory';
 
 
 const CoinFlipPage = () => {
@@ -41,45 +42,11 @@ const CoinFlipPage = () => {
     const skullButtonRef = useRef();
 
     const [historyData, setHistoryData] = useState([]);
-    const mockHistory = [
-        {
-            coinSymbol: "fas fa-ghost",
-            coinColor: "#273546"
-        },
-        {
-            coinSymbol: "fas fa-ghost",
-            coinColor: "#273546"
-        },
-        {
-            coinSymbol: "fas fa-skull",
-            coinColor: "#1B2329"
-        },
-        {
-            coinSymbol: "fas fa-ghost",
-            coinColor: "#273546"
-        },
-        {
-            coinSymbol: "fas fa-skull",
-            coinColor: "#1B2329"
-        },
-        {
-            coinSymbol: "fas fa-skull",
-            coinColor: "#1B2329"
-        },
-        {
-            coinSymbol: "fas fa-skull",
-            coinColor: "#1B2329"
-        },
-        {
-            coinSymbol: "fas fa-ghost",
-            coinColor: "#273546"
-        }
-    ];
 
 
     useEffect(() => {
         if (!localStorage.getItem("coinFlipHistory")) {
-            localStorage.setItem("coinFlipHistory", JSON.stringify(mockHistory));
+            localStorage.setItem("coinFlipHistory", JSON.stringify(coinFlipMockHistoy));
             setHistoryData(JSON.parse(localStorage.getItem("coinFlipHistory")));
         }
         else {
