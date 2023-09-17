@@ -24,6 +24,9 @@ import gameInfoData from "../data/gameInfoData.json";
 import rouletteSpinnerData from "../data/rouletteSpinnerData.json";
 import { rouletteMockHistory } from '../mocks/GameHistory';
 
+// Functions
+import { convertButtons } from '../functions/convertButtons';
+
 
 const RoulettePage = () => {
 
@@ -71,20 +74,6 @@ const RoulettePage = () => {
         localStorage.setItem("rouletteHistory", JSON.stringify(historyData));
     }, [historyData]);
 
-
-    const buttonDisableTrue = () => {
-        redButtonRef.current.disabled = true;
-        greenButtonRef.current.disabled = true;
-        blackButtonRef.current.disabled = true;
-    }
-
-
-    const buttonDisableFalse = () => {
-        redButtonRef.current.disabled = false;
-        greenButtonRef.current.disabled = false;
-        blackButtonRef.current.disabled = false;
-    }
-
     
     const handleRollButton = (userBetColor) => {
         if (betAmount < 1) {
@@ -111,12 +100,12 @@ const RoulettePage = () => {
             setResultMessage({});
             const randomNumber = Math.floor(Math.random() * (57 - 43 + 1)) + 43;
             setRandomRouletteIndex(randomNumber);
-            buttonDisableTrue();
+            convertButtons([redButtonRef, greenButtonRef, blackButtonRef], true);
 
             setTimeout(() => {  // Rolling phase
                 setResultMessage(rouletteSpinnerData.rouletteElements[randomNumber]);
                 setRollingMessage(false);
-                buttonDisableFalse();
+                convertButtons([redButtonRef, greenButtonRef, blackButtonRef], false);
                 setShowBetMessage(false);
 
                 const newElement = {

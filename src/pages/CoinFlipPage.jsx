@@ -22,6 +22,9 @@ import { mainContext } from '../context/mainContext';
 import gameInfoData from "../data/gameInfoData.json";
 import { coinFlipMockHistoy } from '../mocks/GameHistory';
 
+// Functions
+import { convertButtons } from '../functions/convertButtons';
+
 
 const CoinFlipPage = () => {
 
@@ -66,18 +69,6 @@ const CoinFlipPage = () => {
     }, [historyData]);
 
 
-    const disableButtons = () => {
-        ghostButtonRef.current.disabled = true;
-        skullButtonRef.current.disabled = true;
-    }
-
-
-    const activateButtons = () => {
-        ghostButtonRef.current.disabled = false;
-        skullButtonRef.current.disabled = false;
-    }
-
-
     const handleCoinFlip = (coinFaceSelection) => {
         if (betAmount < 1) {
             toast.error("Please enter a valid amount! (At least $1)", topNotificationOptions);
@@ -99,7 +90,7 @@ const CoinFlipPage = () => {
             setUserBalance(userBalance => userBalance - betAmount);
             setCurrentBetAmount(betAmount);
             window.scrollTo(0, 0);
-            disableButtons();
+            convertButtons([ghostButtonRef, skullButtonRef], true);
     
             setTimeout(() => {  // Flipping phase
 
@@ -118,7 +109,7 @@ const CoinFlipPage = () => {
                     gameNotification && toast.error("Better luck next time!", bottomNotificationOptions);
                 }
                 setSelectedFace("");
-                activateButtons();
+                convertButtons([ghostButtonRef, skullButtonRef], false);
             }, 4000);
         }, 1);
     }
