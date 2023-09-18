@@ -3,8 +3,4 @@
 
 .coinFlipPage {
     height: fit-content;
-
-    .coinFlipTitle {
-        @include flex-space-between;
-    }
 }

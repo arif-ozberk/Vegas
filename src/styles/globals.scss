@@ -103,6 +103,12 @@ button {
 
 // Dividers & Containers
 
+.flex-space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .navbar-divider {
     margin-top: 8rem;
 }

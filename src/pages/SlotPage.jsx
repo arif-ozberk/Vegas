@@ -6,8 +6,8 @@ import styles from "../styles/page_styles/slot_page_styles/SlotPage.module.scss"
 import 'react-toastify/dist/ReactToastify.css';
 
 // Components
+import GamePageTitle from '../components/shared_components/GamePageTitle';
 import PageLoader from '../components/shared_components/PageLoader';
-import GameOptions from '../components/shared_components/GameOptions';
 import SlotButtons from '../components/slot_page/SlotButtons';
 import SlotContainer from '../components/slot_page/SlotContainer';
 import BetInput from '../components/shared_components/BetInput';
@@ -162,10 +162,10 @@ const SlotPage = () => {
             {isPageLoading ? <PageLoader /> :
 
                 <div className={`${styles.SlotPage} context-wrapper`}>
-                    <div className={`${styles.slotTitle} divider-bottom-sm`}>
-                        <h1 className='title-main'>Slot</h1>
-                        <GameOptions gameType={gameInfoData.gameInfos.slotGame} />
-                    </div>
+                    <GamePageTitle 
+                        gameName={"Slot"} 
+                        gameInfoData={gameInfoData.gameInfos.slotGame} 
+                    />
                     
                     <div className={`${styles.slotDisplay} divider-bottom-md`}>
                         <SlotContainer 

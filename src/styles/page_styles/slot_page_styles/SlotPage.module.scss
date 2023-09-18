@@ -4,10 +4,6 @@
 .SlotPage {
     height: calc(100vh - 8rem);
 
-    .slotTitle {
-        @include flex-space-between;
-    }
-
     .slotDisplay {
         display: flex;
         align-items: center;

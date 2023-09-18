@@ -5,8 +5,8 @@ import { toast } from 'react-toastify';
 import styles from "../styles/page_styles/coinFlip_page_styles/CoinFlipPage.module.scss";
 
 // Components
+import GamePageTitle from '../components/shared_components/GamePageTitle';
 import PageLoader from '../components/shared_components/PageLoader';
-import GameOptions from '../components/shared_components/GameOptions';
 import BetInput from '../components/shared_components/BetInput';
 import CoinContainer from '../components/coinFlip_page/CoinContainer';
 import CoinFlipButtons from '../components/coinFlip_page/CoinFlipButtons';
@@ -121,10 +121,10 @@ const CoinFlipPage = () => {
             {isPageLoading ? <PageLoader /> : 
 
                 <div className={`${styles.coinFlipPage} context-wrapper`}>
-                    <div className={`${styles.coinFlipTitle} divider-bottom-xs`}>
-                        <h1 className='title-main'>Coin Flip</h1>
-                        <GameOptions gameType={gameInfoData.gameInfos.coinFlipGame} />
-                    </div>
+                    <GamePageTitle 
+                        gameName={"Coin Flip"} 
+                        gameInfoData={gameInfoData.gameInfos.coinFlipGame} 
+                    />
 
                     <CoinContainer 
                         isFlip={isFlip} 

@@ -5,8 +5,8 @@ import { toast } from 'react-toastify';
 import styles from "../styles/page_styles/roulette_page_styles/RoulettePage.module.scss";
 
 // Components
+import GamePageTitle from '../components/shared_components/GamePageTitle';
 import PageLoader from '../components/shared_components/PageLoader';
-import GameOptions from '../components/shared_components/GameOptions';
 import BetInput from '../components/shared_components/BetInput';
 import RouletteSpinner from '../components/roulette_page/RouletteSpinner';
 import RouletteResult from '../components/roulette_page/RouletteResult';
@@ -140,10 +140,10 @@ const RoulettePage = () => {
             {isPageLoading ? <PageLoader /> :
 
                 <div className={`${styles.roulettePage} context-wrapper`}>
-                    <div className={`${styles.rouletteTitle} divider-bottom-xs`}>
-                        <h1 className='title-main'>Roulette</h1>
-                        <GameOptions gameType={gameInfoData.gameInfos.rouletteGame} />
-                    </div>
+                    <GamePageTitle 
+                        gameName={"Roulette"} 
+                        gameInfoData={gameInfoData.gameInfos.rouletteGame} 
+                    />
 
                     <RouletteResult 
                         resultMessage={resultMessage} 

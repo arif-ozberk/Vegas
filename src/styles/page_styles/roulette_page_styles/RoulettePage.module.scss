@@ -4,8 +4,4 @@
 .roulettePage {
     height: fit-content;
     position: relative;
-
-    .rouletteTitle {
-        @include flex-space-between;
-    }
 }
