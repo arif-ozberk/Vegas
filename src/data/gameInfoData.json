@@ -53,6 +53,25 @@
                     "sectionContext": "You can mute notifications by clicking the bell symbol on the top right corner of the game."
                 }
             ]
+        },
+
+        "crashGame": {
+            "gameTitle": "Crash",
+            "gameIcon": "fas fa-chart-line",
+            "sections": [
+                {
+                    "sectionTitle": "How to play?",
+                    "sectionContext": "Öğreniriz"
+                },
+                {
+                    "sectionTitle": "Win conditions",
+                    "sectionContext": "Bakariz."
+                },
+                {
+                    "sectionTitle": "Notifications",
+                    "sectionContext": "You can mute notifications by clicking the bell symbol on the top right corner of the game."
+                }
+            ]
         }
     }
 }

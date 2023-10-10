@@ -5,12 +5,16 @@ import styles from "../styles/page_styles/crash_page_styles/CrashPage.module.scs
 
 // Components
 import PageLoader from '../components/shared_components/PageLoader';
+import GamePageTitle from '../components/shared_components/GamePageTitle';
 
 // Wrappers
 import GamePageWrapper from '../wrappers/GamePageWrapper';
 
 // Context
 import { mainContext } from '../context/mainContext';
+
+// Data
+import gameInfoData from "../data/gameInfoData.json";
 
 
 const CrashPage = () => {
@@ -34,7 +38,7 @@ const CrashPage = () => {
             {isPageLoading ? <PageLoader /> :
 
                 <div className={`${styles.crashPage} context-wrapper`}>
-                    Crash Page
+                    <GamePageTitle gameName={"Crash"} gameInfoData={gameInfoData.gameInfos.crashGame} />
                 </div>
             }
 
