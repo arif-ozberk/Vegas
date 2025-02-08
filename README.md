@@ -20,7 +20,9 @@ Welcome to Vegas, a gambling website built with React! This project is still in 
 
 
 ## 🚀 Live Demo
-- Check out the website here: Vegas on Vercel
+- Check out the website here: [Vegas](https://vegas-iota.vercel.app)
+- Email: user1@test.com
+- Password: YZZDqYcZLWu85sc
 
 
 ## 🛠️ Technologies Used
