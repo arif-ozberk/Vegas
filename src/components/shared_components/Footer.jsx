@@ -14,11 +14,11 @@ const Footer = () => {
             <div className={styles.footerTitle}>
                 <Link to="/"><img src={logoImage} alt="vegas-logo-image" />Vegas</Link>
                 <div className={styles.socials}>
-                    <a href="#" target='_blank'><i className='fa-brands fa-instagram'></i></a>
-                    <a href="#" target='_blank'><i className='fa-brands fa-twitter'></i></a>
-                    <a href="#" target='_blank'><i className='fa-brands fa-facebook'></i></a>
-                    <a href="#" target='_blank'><i className='fa-brands fa-github'></i></a>
-                    <a href="#" target='_blank'><i className='fa-brands fa-linkedin'></i></a>
+                    <a href="https://personal-portfolio-green-one.vercel.app" target='_blank'><i className='fa-brands fa-instagram'></i></a>
+                    <a href="https://personal-portfolio-green-one.vercel.app" target='_blank'><i className='fa-brands fa-twitter'></i></a>
+                    <a href="https://personal-portfolio-green-one.vercel.app" target='_blank'><i className='fa-brands fa-facebook'></i></a>
+                    <a href="https://github.com/arif-ozberk" target='_blank'><i className='fa-brands fa-github'></i></a>
+                    <a href="https://www.linkedin.com/in/arif-azmak/" target='_blank'><i className='fa-brands fa-linkedin'></i></a>
                 </div>
             </div>
             
@@ -30,18 +30,17 @@ const Footer = () => {
                     <li><Link>Policies</Link></li>
                     <li><Link>Partnership</Link></li>
                     <li><Link>Careers</Link></li>
-                    <li><Link>About Us</Link></li>
                 </ul>
                 <ul>
                     <h3>Games</h3>
-                    <li><Link>Slot</Link></li>
-                    <li><Link>Roulette</Link></li>
-                    <li><Link>Coin Flip</Link></li>
-                    <li><Link>Blackjack</Link></li>
-                    <li><Link>Crash</Link></li>
-                    <li><Link>Dice</Link></li>
-                    <li><Link>High Low</Link></li>
-                    <li><Link>Minefield</Link></li>
+                    <li><Link to="/slot-page">Slot</Link></li>
+                    <li><Link to="/roulette-page">Roulette</Link></li>
+                    <li><Link to="/coin-flip-page">Coin Flip</Link></li>
+                    <li><Link to="/blackjack-page">Blackjack</Link></li>
+                    <li><Link to="/crash-page">Crash</Link></li>
+                    <li><Link to="/dice-page">Dice</Link></li>
+                    <li><Link to="/highlow-page">High Low</Link></li>
+                    <li><Link to="/minefield-page">Minefield</Link></li>
                 </ul>
                 <ul>
                     <h3>Promotion</h3>
