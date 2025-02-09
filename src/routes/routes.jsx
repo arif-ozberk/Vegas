@@ -33,10 +33,22 @@ const routes = [
     },
     {
         routePath: "/crash-page",
-        routeElement: <CrashPage />
+        routeElement: <ComingSoonPage />
     },
     {
         routePath: "/dice-page",
+        routeElement: <ComingSoonPage />
+    },
+    {
+        routePath: "/blackjack-page",
+        routeElement: <ComingSoonPage />
+    },
+    {
+        routePath: "/highlow-page",
+        routeElement: <ComingSoonPage />
+    },
+    {
+        routePath: "/minefield-page",
         routeElement: <ComingSoonPage />
     }
 ];

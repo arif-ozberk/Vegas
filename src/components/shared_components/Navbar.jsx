@@ -104,7 +104,7 @@ const Navbar = () => {
                         </li>
                         <li>
                             <i className='fas fa-diamond'></i>
-                            <Link onClick={closeSideBar}>Blackjack</Link>
+                            <Link to="/blackjack-page" onClick={closeSideBar}>Blackjack</Link>
                         </li>
                         <li>
                             <i className='fas fa-chart-line'></i>
@@ -112,15 +112,15 @@ const Navbar = () => {
                         </li>
                         <li>
                             <i className='fas fa-dice'></i>
-                            <Link onClick={closeSideBar}>Dice</Link>
+                            <Link to="/dice-page" onClick={closeSideBar}>Dice</Link>
                         </li>
                         <li>
                             <i className='fas fa-right-left' style={{ transform: "rotate(90deg)" }}></i>
-                            <Link onClick={closeSideBar}>High-Low</Link>
+                            <Link to="/highlow-page" onClick={closeSideBar}>High-Low</Link>
                         </li>
                         <li>
                             <i className='fas fa-land-mine-on' ></i>
-                            <Link onClick={closeSideBar}>Minefield</Link>
+                            <Link to="/minefield-page" onClick={closeSideBar}>Minefield</Link>
                         </li>
                     </ul>
                 </section>
