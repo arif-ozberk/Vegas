@@ -28,7 +28,7 @@
                 },
                 {
                     "sectionTitle": "Win conditions",
-                    "sectionContext": "If you can guess the right color, you will win. You will recieve 2x on Red and Black, 14x on Green."
+                    "sectionContext": "If you can guess the right color, you will win. You will receive 2x on Red and Black, 14x on Green."
                 },
                 {
                     "sectionTitle": "Notifications",
@@ -42,11 +42,11 @@
             "sections": [
                 {
                     "sectionTitle": "How to play?",
-                    "sectionContext": "Öğreniriz"
+                    "sectionContext": "Place your bet on either Skull/Ghost side of the coin. Wait for coin to end flipping."
                 },
                 {
                     "sectionTitle": "Win conditions",
-                    "sectionContext": "Bakariz."
+                    "sectionContext": "If you bet on the right side of the coin, you will win. You will earn 2x of your bet amount."
                 },
                 {
                     "sectionTitle": "Notifications",
@@ -61,11 +61,11 @@
             "sections": [
                 {
                     "sectionTitle": "How to play?",
-                    "sectionContext": "Öğreniriz"
+                    "sectionContext": "Coming soon..."
                 },
                 {
                     "sectionTitle": "Win conditions",
-                    "sectionContext": "Bakariz."
+                    "sectionContext": "Coming soon..."
                 },
                 {
                     "sectionTitle": "Notifications",
