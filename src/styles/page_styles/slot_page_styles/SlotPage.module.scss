@@ -125,9 +125,11 @@
         .resetButton {
             background-color: $red;
 
-            &:hover {
-                background-color: $red-hover;
-                transform: translateY(-5px);
+            @media(hover: hover) {
+                &:hover {
+                    background-color: $red-hover;
+                    transform: translateY(-5px);
+                }
             }
 
             &:disabled {
@@ -138,9 +140,11 @@
         .rollButton {
             background-color: $green-main;
 
-            &:hover {
-                background-color: $green-hover;
-                transform: translateY(5px);
+            @media(hover: hover) {
+                &:hover {
+                    background-color: $green-hover;
+                    transform: translateY(5px);
+                }
             }
 
             &:disabled {

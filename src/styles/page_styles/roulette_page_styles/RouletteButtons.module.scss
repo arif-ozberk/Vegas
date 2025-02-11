@@ -75,24 +75,30 @@
             .redButton {
                 background-color: $red;
 
-                &:hover {
-                    background-color: $red-hover;
+                @media(hover: hover) {
+                    &:hover {
+                        background-color: $red-hover;
+                    }
                 }
             }
 
             .greenButton {
                 background-color: $green-roulette;
 
-                &:hover {
-                    background-color: $green-roulette-hover;
+                @media(hover: hover) {
+                    &:hover {
+                        background-color: $green-roulette-hover;
+                    }
                 }
             }
 
             .blackButton {
                 background-color: $black-roulette;
 
-                &:hover {
-                    background-color: $black-roulette-hover;
+                @media(hover: hover) {
+                    &:hover {
+                        background-color: $black-roulette-hover;
+                    }
                 }
             }
         }    

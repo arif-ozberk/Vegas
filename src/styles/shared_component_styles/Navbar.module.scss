@@ -33,9 +33,11 @@
             margin-right: 0.8rem;
             cursor: pointer;
 
-            &:hover {
-                .hamburgerStick {
-                    background-color: $green-main;
+            @media(hover: hover) {
+                &:hover {
+                    .hamburgerStick {
+                        background-color: $green-main;
+                    }
                 }
             }
 
@@ -68,8 +70,10 @@
             font-size: 1.8rem;
             transition: color 0.2s ease;
 
-            &:hover {
-                color: $green-hover;
+            @media(hover: hover) {
+                &:hover {
+                    color: $green-hover;
+                }
             }
 
             @media(max-width: 768px) {
@@ -120,8 +124,10 @@
                 align-items: center;
                 transition: background-color 0.2s ease;
 
-                &:hover {
-                    background-color: $green-hover;
+                @media(hover: hover) {
+                    &:hover {
+                        background-color: $green-hover;
+                    }
                 }
 
                 i {
@@ -185,11 +191,13 @@
                     align-items: center;
                     transition: color 0.2s ease;
 
-                    &:hover {
-                        color: $green-main;
-                        
-                        i {
+                    @media(hover: hover) {
+                        &:hover {
                             color: $green-main;
+
+                            i {
+                                color: $green-main;
+                            }
                         }
                     }
 
@@ -275,8 +283,10 @@
                 color: $gray-text;
                 transition: color 0.2s ease;
 
-                &:hover {
-                    color: $green-main;
+                @media(hover:hover) {
+                    &:hover {
+                        color: $green-main;
+                    }
                 }
             }
         }

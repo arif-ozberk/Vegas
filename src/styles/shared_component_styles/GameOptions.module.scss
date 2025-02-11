@@ -16,10 +16,12 @@
         height: 2rem;
         @include flex-center;
 
-        &:hover {
-            transform: translateY(-5px);
-            color: $green-main;
-            background-color: $gray-bright;
+        @media(hover: hover) {
+            &:hover {
+                transform: translateY(-5px);
+                color: $green-main;
+                background-color: $gray-bright;
+            }
         }
     }
 }

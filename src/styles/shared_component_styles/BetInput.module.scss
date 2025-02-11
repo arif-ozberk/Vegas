@@ -51,8 +51,10 @@
             font-weight: 500;
             transition: color 0.2s ease;
 
-            &:hover {
-                color: $green-main;
+            @media(hover: hover) {
+                &:hover {
+                    color: $green-main;
+                }
             }
         }
 
@@ -75,7 +77,6 @@
         input::-webkit-outer-spin-button,
         input::-webkit-inner-spin-button {
             -webkit-appearance: none;
-            // margin: 0;
         }
     }
 
@@ -104,11 +105,13 @@
             @media(max-width: 1050px) {
                 width: 100%;
             }
-            
-            &:hover {
-                transform: translateY(-5px);
-                background-color: $green-main;
-                color: $dark-main;
+
+            @media(hover: hover) {
+                &:hover {
+                    transform: translateY(-5px);
+                    background-color: $green-main;
+                    color: $dark-main;
+                }
             }
         }
     }
