@@ -42,7 +42,9 @@ const CryptoCurrencies = ({ cryptoTitle }) => {
 
 
     useEffect(() => {
-        fetchData();
+        setTimeout(() => {
+            fetchData();
+        }, 1000);
     }, []);
 
 
@@ -72,12 +74,15 @@ const CryptoCurrencies = ({ cryptoTitle }) => {
 
             {!isCoinLoading && !errorMessage && 
                 <ul>
-                    {coinData.map((coin) => (
+                    {coinData.map((coin, index) => (
                         <li 
                             key={coin.uuid}
                             onMouseEnter={() => handleMouseEnter(coin.uuid)}
                             onMouseLeave={handleMouseOut}
-                            style={{ boxShadow: isHover ? (coin.uuid == hoveredIndex ? `0px 0px 10px 2px ${coin.color}` : "") : "" }}
+                            style={{ 
+                                boxShadow: isHover ? (coin.uuid == hoveredIndex ? `0px 0px 10px 2px ${coin.color}` : "") : "",
+                                animationDelay: `${index * 0.1}s` 
+                            }}
                         >
                             <div style={{ borderBottom: `2px solid ${coin.color}` }} className={styles.coinContainerTop}>
                                 <img src={coin.iconUrl} alt="coin-symbol-image" />
