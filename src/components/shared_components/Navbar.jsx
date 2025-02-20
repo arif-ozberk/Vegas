@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { Outlet } from 'react-router';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -20,12 +20,28 @@ import { mainContext } from '../../context/mainContext';
 
 const Navbar = () => {
 
-    const { userBalance, userDetails } = useContext(mainContext);
+    const { userBalance } = useContext(mainContext);
 
     const { isAuthenticated, user } = useAuth0();
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isSideBarOpen, setIsSideBarOpen] = useState(false);
+
+    const dropdownRef = useRef()
+
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
 
     const handleDropdownButton = () => {
@@ -79,7 +95,7 @@ const Navbar = () => {
                                 onClick={handleDropdownButton} 
                                 style={{ transform: isDropdownOpen ? "rotateX(180deg)" : "rotateX(0deg)", color: isDropdownOpen ? "#00FF86" : "#ffffff" }}
                             ></i>
-                            <div className={styles.userDropdown} style={{ display: isDropdownOpen ? "flex" : "none" }}>
+                            <div ref={dropdownRef} className={styles.userDropdown} style={{ display: isDropdownOpen ? "flex" : "none" }}>
                                 <Link  onClick={() => setIsDropdownOpen(false)}><i className='fas fa-user'></i>Profile</Link>
                                 <Link  onClick={() => setIsDropdownOpen(false)}><i className='fas fa-gear'></i>Settings</Link>
                                 <LogoutButton setIsDropdownOpen={setIsDropdownOpen} />
