@@ -17,6 +17,10 @@ import { topNotificationOptions, bottomNotificationOptions } from './mocks/Notif
 // Routes
 import { router } from './routes/routes';
 
+// Vegas Database
+import vegas_database from './config/supabaseClient';
+import usersDatabaseFunctions from './config/usersDatabaseFunctions';
+
 
 function App() {
 
@@ -24,39 +28,34 @@ function App() {
 
     const { isLoading, user } = useAuth0();
 
-    const [userBalance, setUserBalance] = useState(1000);
+    const [userBalance, setUserBalance] = useState(-1);
+    const [loggedUserDetails, setLoggedUserDetails] = useState({});
     const [gameNotification, setGameNotification] = useState(true);  // Game notification mute control state
     const [isInfoOn, setIsInfoOn] = useState(false);  // Game info popup control state
 
 
     useEffect(() => {
-        if(user) {
-            if (!localStorage.getItem(`${user.sub}`)) {
-                localStorage.setItem(`${user.sub}`, 2000);
-                setUserBalance(localStorage.getItem(`${user.sub}`));
-            }
-            else {
-                setUserBalance(localStorage.getItem(`${user.sub}`));
-            }
+        if (user) {
+            usersDatabaseFunctions.checkIfUserExist(setUserBalance, user, setLoggedUserDetails);
         }
     }, [user]);
 
 
     useEffect(() => {
         if(user) {
-            localStorage.setItem(`${user.sub}`, userBalance);
+            usersDatabaseFunctions.updateUserBalance(userBalance, user);
         }
-    }, [userBalance])
+    }, [userBalance]);
     
     
     return (
         <mainContext.Provider 
-            value={{ PAGE_LOADING_DURATION, userBalance, setUserBalance, gameNotification, setGameNotification, isInfoOn, setIsInfoOn, topNotificationOptions, bottomNotificationOptions }}
+            value={{ PAGE_LOADING_DURATION, userBalance, setUserBalance, gameNotification, setGameNotification, isInfoOn, setIsInfoOn, topNotificationOptions, bottomNotificationOptions, loggedUserDetails }}
         >
-                <div className='App'>
-                    <LoginLoading />
-                    <RouterProvider router={router} />
-                </div>
+            <div className='App'>
+                <LoginLoading />
+                <RouterProvider router={router} />
+            </div>
         </mainContext.Provider>
     );
 }

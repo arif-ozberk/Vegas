@@ -20,7 +20,7 @@ import { mainContext } from '../../context/mainContext';
 
 const Navbar = () => {
 
-    const { userBalance } = useContext(mainContext);
+    const { userBalance, userDetails } = useContext(mainContext);
 
     const { isAuthenticated, user } = useAuth0();
 
@@ -59,7 +59,8 @@ const Navbar = () => {
 
                     {isAuthenticated && <div className={styles.balanceWrapper}>
                         <div className={styles.balanceContainer}>
-                            <p>${Number(userBalance).toFixed(2)} <i className='fas fa-circle-dollar-to-slot'></i></p>
+                            {userBalance === -1 && <p>Loading...</p>}
+                            {userBalance >= 0 && <p>${Number(userBalance).toFixed(2)} <i className='fas fa-circle-dollar-to-slot'></i></p>}
                             <Link to="/balance-page" className={styles.balanceButton}>
                                 <i className='fas fa-wallet'></i>
                                 <h2>Balance</h2>
