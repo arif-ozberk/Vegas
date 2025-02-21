@@ -20,10 +20,12 @@ import { mainContext } from '../context/mainContext';
 
 // Data
 import gameInfoData from "../data/gameInfoData.json";
-import { coinFlipMockHistoy } from '../mocks/GameHistory';
 
 // Functions
 import { convertButtons } from '../functions/convertButtons';
+
+// Vegas Database
+import gameHistoryDB from '../config/gameHistoryDB';
 
 
 const CoinFlipPage = () => {
@@ -48,13 +50,7 @@ const CoinFlipPage = () => {
 
 
     useEffect(() => {
-        if (!localStorage.getItem("coinFlipHistory")) {
-            localStorage.setItem("coinFlipHistory", JSON.stringify(coinFlipMockHistoy));
-            setHistoryData(JSON.parse(localStorage.getItem("coinFlipHistory")));
-        }
-        else {
-            setHistoryData(JSON.parse(localStorage.getItem("coinFlipHistory")));
-        }
+        gameHistoryDB.fetchGameHistoryData("coin flip", setHistoryData);
 
         window.scrollTo(0, 0); // Scroll back to top on page changes
 
@@ -62,11 +58,6 @@ const CoinFlipPage = () => {
             setIsPageLoading(false); // Page loader executes after xx seconds
         }, PAGE_LOADING_DURATION);
     }, []);
-
-
-    useEffect(() => {  // Update local data every time history updates
-        localStorage.setItem("coinFlipHistory", JSON.stringify(historyData));
-    }, [historyData]);
 
 
     const handleCoinFlip = (coinFaceSelection) => {
@@ -100,6 +91,7 @@ const CoinFlipPage = () => {
                 }
                 const newHistoryArr = [...historyData.slice(1), newHistoryElement];
                 setHistoryData(newHistoryArr);
+                gameHistoryDB.updateGameHistoryData("coin flip", newHistoryArr);
 
                 if(coinFaces[randomNumber] === coinFaceSelection) {
                     setUserBalance(userBalance => userBalance + (betAmount * 2));
@@ -113,7 +105,6 @@ const CoinFlipPage = () => {
             }, 4000);
         }, 1);
     }
-
 
 
     return (

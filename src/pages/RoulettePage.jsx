@@ -22,10 +22,12 @@ import { mainContext } from '../context/mainContext';
 // Data
 import gameInfoData from "../data/gameInfoData.json";
 import rouletteSpinnerData from "../data/rouletteSpinnerData.json";
-import { rouletteMockHistory } from '../mocks/GameHistory';
 
 // Functions
 import { convertButtons } from '../functions/convertButtons';
+
+// Vegas Database
+import gameHistoryDB from '../config/gameHistoryDB';
 
 
 const RoulettePage = () => {
@@ -54,13 +56,7 @@ const RoulettePage = () => {
 
 
     useEffect(() => {
-        if(!localStorage.getItem("rouletteHistory")) {
-            localStorage.setItem("rouletteHistory", JSON.stringify(rouletteMockHistory));
-            setHistoryData(JSON.parse(localStorage.getItem("rouletteHistory")));
-        }
-        else {
-            setHistoryData(JSON.parse(localStorage.getItem("rouletteHistory")));
-        }
+        gameHistoryDB.fetchGameHistoryData("roulette", setHistoryData);
 
         window.scrollTo(0, 0); // Scroll back to top on page changes
 
@@ -68,11 +64,6 @@ const RoulettePage = () => {
             setIsPageLoading(false); // Page loader executes after xx seconds
         }, PAGE_LOADING_DURATION);
     }, []);
-
-
-    useEffect(() => {  // Update roulette history every time new element updates
-        localStorage.setItem("rouletteHistory", JSON.stringify(historyData));
-    }, [historyData]);
 
     
     const handleRollButton = (userBetColor) => {
@@ -114,6 +105,7 @@ const RoulettePage = () => {
                 }
                 const newItems = [...historyData.slice(1), newElement];
                 setHistoryData(newItems);
+                gameHistoryDB.updateGameHistoryData("roulette", newItems);
 
                 if (userBetColor === rouletteSpinnerData.rouletteElements[randomNumber].elementColor) {
                     if(userBetColor === "red" || userBetColor === "black") {
