@@ -106,12 +106,12 @@ const SlotPage = () => {
         let winMultiplier = 0;
         slotLocaleItemAmounts.forEach((value, key) => {
             if (value > 1 && value < 3) {
-                winMultiplier = 3;
+                winMultiplier = 2;
                 gameNotification && toast.success(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`, bottomNotificationOptions);
 
             }
             else if (value > 2) {
-                winMultiplier = 10;
+                winMultiplier = 5;
                 gameNotification && toast.success(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`, bottomNotificationOptions);
             }
         });
