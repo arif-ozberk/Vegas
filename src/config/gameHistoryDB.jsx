@@ -14,7 +14,6 @@ const fetchGameHistoryData = async (gameName, setHistoryData) => {
     }
 
     if (data) {
-        console.log(data);
         setHistoryData(data.history_data.rouletteHistory);
 
         switch (gameName) {
@@ -57,11 +56,6 @@ const updateGameHistoryData = async (gameName, historyData) => {
     
     if (error) {
         console.log(error);
-    }
-
-    if (data) {
-        console.log(newHistoryData);
-        console.log(data);
     }
 }
 
