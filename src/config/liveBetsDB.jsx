@@ -22,25 +22,36 @@ const fetchLiveBetsData = async (setLiveBetsData, setErrorMessage, setIsDataLoad
 }
 
 
-const deleteOldBet = async (liveBetsData) => {
-
-    const oldBetId = liveBetsData[0].id
-
+const deleteLowestId = async () => {
     const { data, error } = await vegas_database
         .from("live_bets")
-        .delete()
-        .select()
-        .eq("id", oldBetId)
+        .select("id")
+        .order('id', { ascending: true })
+        .limit(1)
 
     if (error) {
         console.log(error);
+        return
+    }
+
+    if (data) {
+        const oldBetId = data[0].id;
+
+        const { error: deleteError } = await vegas_database
+            .from("live_bets")
+            .delete()
+            .eq("id", oldBetId)
+        
+        if (deleteError) {
+            console.error(deleteError);
+        }
     }
 }
 
 
 const updateLiveBetsData = async (liveBetsData, setLiveBetsData, latestBet) => {
 
-    deleteOldBet(liveBetsData)
+    deleteLowestId()
 
     const { data, error } = await vegas_database
         .from("live_bets")
@@ -62,4 +73,22 @@ const updateLiveBetsData = async (liveBetsData, setLiveBetsData, latestBet) => {
 }
 
 
-export default { fetchLiveBetsData, updateLiveBetsData }
+const realtimeBets = (setLiveBetsData, setErrorMessage, setIsDataLoading) => {
+    const channel = vegas_database
+        .channel()
+        .on(
+            "postgres_changes",
+            {
+                event: "*",
+                schema: "public",
+                table: "live_bets"
+            },
+            (payload) => {
+                fetchLiveBetsData(setLiveBetsData, setErrorMessage, setIsDataLoading);
+            }
+        )
+        .subscribe()
+}
+
+
+export default { fetchLiveBetsData, updateLiveBetsData, realtimeBets }
