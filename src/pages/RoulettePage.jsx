@@ -28,11 +28,12 @@ import { convertButtons } from '../functions/convertButtons';
 
 // Vegas Database
 import gameHistoryDB from '../config/gameHistoryDB';
+import liveBetsDB from '../config/liveBetsDB';
 
 
 const RoulettePage = () => {
 
-    const { userBalance, setUserBalance, PAGE_LOADING_DURATION, topNotificationOptions, bottomNotificationOptions, gameNotification } = useContext(mainContext);
+    const { userBalance, setUserBalance, PAGE_LOADING_DURATION, topNotificationOptions, bottomNotificationOptions, gameNotification, liveBetsData, setLiveBetsData, loggedUserDetails } = useContext(mainContext);
 
     const [isPageLoading, setIsPageLoading] = useState(true);
 
@@ -111,10 +112,28 @@ const RoulettePage = () => {
                     if(userBetColor === "red" || userBetColor === "black") {
                         setUserBalance(userBalance => userBalance + (2 * betAmount));
                         gameNotification && toast.success(`2x - You win $${2 * betAmount}!`, bottomNotificationOptions);
+
+                        const latestBet = {
+                            username: loggedUserDetails.username,
+                            game_name: "Roulette",
+                            multiplier: 2,
+                            payout: betAmount * 2
+                        }
+
+                        liveBetsDB.updateLiveBetsData(liveBetsData, setLiveBetsData, latestBet);
                     }
                     else {
                         setUserBalance(userBalance => userBalance + (14 * betAmount));
                         gameNotification && toast.success(`14x - You win $${14 * betAmount}!`, bottomNotificationOptions);
+
+                        const latestBet = {
+                            username: loggedUserDetails.username,
+                            game_name: "Roulette",
+                            multiplier: 14,
+                            payout: betAmount * 14
+                        }
+
+                        liveBetsDB.updateLiveBetsData(liveBetsData, setLiveBetsData, latestBet);
                     }
                 }
 

@@ -21,10 +21,13 @@ import GamePageWrapper from '../wrappers/GamePageWrapper';
 // Data
 import gameInfoData from "../data/gameInfoData.json";
 
+// Vages Database
+import liveBetsDB from '../config/liveBetsDB';
+
 
 const SlotPage = () => {
 
-    const { userBalance, setUserBalance, PAGE_LOADING_DURATION, gameNotification, setGameNotification, topNotificationOptions, bottomNotificationOptions } = useContext(mainContext);
+    const { userBalance, setUserBalance, PAGE_LOADING_DURATION, gameNotification, setGameNotification, topNotificationOptions, bottomNotificationOptions, liveBetsData, setLiveBetsData, loggedUserDetails } = useContext(mainContext);
 
     const slotSelections = ['🍒', '🍊', '🍇', '🍋', '🍉', '🍓', '🍌'];
     const [slotRows, setSlotRows] = useState([
@@ -106,15 +109,26 @@ const SlotPage = () => {
         let winMultiplier = 0;
         slotLocaleItemAmounts.forEach((value, key) => {
             if (value > 1 && value < 3) {
-                winMultiplier = 2;
+                winMultiplier = 3;
                 gameNotification && toast.success(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`, bottomNotificationOptions);
-
             }
+
             else if (value > 2) {
                 winMultiplier = 5;
                 gameNotification && toast.success(`${winMultiplier}x - You win $${betAmount * winMultiplier}!`, bottomNotificationOptions);
             }
         });
+
+        if(winMultiplier !== 0) {
+            const latestBet = {
+                username: loggedUserDetails.username,
+                game_name: "Slot",
+                multiplier: winMultiplier,
+                payout: betAmount * winMultiplier
+            }
+
+            liveBetsDB.updateLiveBetsData(liveBetsData, setLiveBetsData, latestBet);
+        }
 
         if(winMultiplier === 0) {
             gameNotification && toast.error(`"Better luck next time!"`, bottomNotificationOptions);

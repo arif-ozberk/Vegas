@@ -32,6 +32,7 @@ function App() {
     const [loggedUserDetails, setLoggedUserDetails] = useState({});
     const [gameNotification, setGameNotification] = useState(true);  // Game notification mute control state
     const [isInfoOn, setIsInfoOn] = useState(false);  // Game info popup control state
+    const [liveBetsData, setLiveBetsData] = useState([]);
 
 
     useEffect(() => {
@@ -50,7 +51,7 @@ function App() {
     
     return (
         <mainContext.Provider 
-            value={{ PAGE_LOADING_DURATION, userBalance, setUserBalance, gameNotification, setGameNotification, isInfoOn, setIsInfoOn, topNotificationOptions, bottomNotificationOptions, loggedUserDetails }}
+            value={{ PAGE_LOADING_DURATION, userBalance, setUserBalance, gameNotification, setGameNotification, isInfoOn, setIsInfoOn, topNotificationOptions, bottomNotificationOptions, loggedUserDetails, liveBetsData, setLiveBetsData }}
         >
             <div className='App'>
                 <LoginLoading />

@@ -26,11 +26,12 @@ import { convertButtons } from '../functions/convertButtons';
 
 // Vegas Database
 import gameHistoryDB from '../config/gameHistoryDB';
+import liveBetsDB from '../config/liveBetsDB';
 
 
 const CoinFlipPage = () => {
 
-    const { PAGE_LOADING_DURATION, userBalance, setUserBalance, topNotificationOptions, bottomNotificationOptions, gameNotification } = useContext(mainContext);
+    const { PAGE_LOADING_DURATION, userBalance, setUserBalance, topNotificationOptions, bottomNotificationOptions, gameNotification, loggedUserDetails, liveBetsData, setLiveBetsData } = useContext(mainContext);
 
     const [isPageLoading, setIsPageLoading] = useState(true);
 
@@ -93,13 +94,24 @@ const CoinFlipPage = () => {
                 setHistoryData(newHistoryArr);
                 gameHistoryDB.updateGameHistoryData("coin flip", newHistoryArr);
 
-                if(coinFaces[randomNumber] === coinFaceSelection) {
+                if(coinFaces[randomNumber] === coinFaceSelection) {  // Win condition
                     setUserBalance(userBalance => userBalance + (betAmount * 2));
                     gameNotification && toast.success(`It's ${coinFaceSelection}! - You win $${betAmount * 2}`, bottomNotificationOptions);
+
+                    const latestBet = {
+                        username: loggedUserDetails.username,
+                        game_name: "Coin Flip",
+                        multiplier: 2,
+                        payout: betAmount * 2
+                    }
+
+                    liveBetsDB.updateLiveBetsData(liveBetsData, setLiveBetsData, latestBet);
                 }
-                else {
+
+                else {  // Lose condition
                     gameNotification && toast.error("Better luck next time!", bottomNotificationOptions);
                 }
+
                 setSelectedFace("");
                 convertButtons([ghostButtonRef, skullButtonRef], false);
             }, 4000);
