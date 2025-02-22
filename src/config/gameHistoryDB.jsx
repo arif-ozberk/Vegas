@@ -1,6 +1,9 @@
 // Vegas Database
 import vegas_database from "./supabaseClient";
 
+// Backup Mock History
+import { rouletteMockHistory, coinFlipMockHistoy } from "../mocks/GameHistory";
+
 
 const fetchGameHistoryData = async (gameName, setHistoryData) => {
     const { data, error } = await vegas_database
@@ -14,14 +17,22 @@ const fetchGameHistoryData = async (gameName, setHistoryData) => {
     }
 
     if (data) {
-        setHistoryData(data.history_data.rouletteHistory);
-
         switch (gameName) {
             case "roulette":
+                if ((data.history_data.rouletteHistory).length < 8) {
+                    setHistoryData(rouletteMockHistory);
+                    return;
+                }
+
                 setHistoryData(data.history_data.rouletteHistory);
                 break
 
             case "coin flip":
+                if ((data.history_data.coinFlipHistory).length < 8) {
+                    setHistoryData(coinFlipMockHistoy);
+                    return;
+                }
+
                 setHistoryData(data.history_data.coinFlipHistory);
                 break
         }
