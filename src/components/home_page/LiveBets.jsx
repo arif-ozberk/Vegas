@@ -54,7 +54,7 @@ const LiveBets = () => {
 
     useEffect(() => {
         liveBetsDB.fetchLiveBetsData(setLiveBetsData, setErrorMessage, setIsDataLoading);  // Fetch inital data on page load
-        liveBetsDB.realtimeBets(setLiveBetsData, setErrorMessage, setIsDataLoading);  // Track real-time changes
+        liveBetsDB.realtimeLiveBets(setLiveBetsData, setErrorMessage, setIsDataLoading);  // Track real-time changes
     }, []);
 
 

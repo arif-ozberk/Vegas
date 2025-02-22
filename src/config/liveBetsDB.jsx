@@ -73,7 +73,7 @@ const updateLiveBetsData = async (liveBetsData, setLiveBetsData, latestBet) => {
 }
 
 
-const realtimeBets = (setLiveBetsData, setErrorMessage, setIsDataLoading) => {
+const realtimeLiveBets = (setLiveBetsData, setErrorMessage, setIsDataLoading) => {
     const channel = vegas_database
         .channel()
         .on(
@@ -91,4 +91,4 @@ const realtimeBets = (setLiveBetsData, setErrorMessage, setIsDataLoading) => {
 }
 
 
-export default { fetchLiveBetsData, updateLiveBetsData, realtimeBets }
+export default { fetchLiveBetsData, updateLiveBetsData, realtimeLiveBets }
